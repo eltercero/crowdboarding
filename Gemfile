@@ -21,4 +21,5 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'mongrel', '1.2.0.pre2'
   gem 'compass'
+  gem 'compass-960-plugin'
 end

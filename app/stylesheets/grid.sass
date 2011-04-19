@@ -1,0 +1,61 @@
+/* 960 Grid System ~ Core CSS.
+ * Learn more ~ http://960.gs/
+ * *
+ * Licensed under GPL and MIT. */
+
+@import "compass/reset"
+@import "compass/utilities/general/clearfix"
+@import "960/grid"
+@import "support/colors"
+
+$ninesixty-columns: 24
+
+body
+	background: $almost_white
+	#wrapper_header
+		background-color: $almost_black
+		border-bottom: 4px solid $crowdboarding
+		#header
+			@include grid-system(24)
+			color: $almost_white
+			height: 40px
+			#logo
+				float: left
+				margin-left: 5px
+			ul
+				text-align: right
+				padding-top: 12px
+				float: right
+				li
+					float: left
+	#wrapper_nav
+		background-color: $dirty_white
+		ul
+			@include grid-system(24)
+			margin-bottom: 0px
+			height: 27px
+			li
+				margin-left: 0
+				margin-right: 10px
+				float: left
+				font-weight: lighter
+				padding-right: 15px
+				font-size: 1.3em
+				text-shadow: 0 1px 0 white
+			li.selected
+				border-bottom: 2px solid $crowdboarding
+	#wrapper_main_content
+		#main_content
+			@include grid-system(24)
+			#splash	
+				margin-top: 10px
+			#home_section
+				margin-top: 10px
+				.column
+					@include grid(8)
+				
+//resets
+ul
+	li
+		list-style: none
+		

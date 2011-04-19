@@ -46,6 +46,8 @@ GEM
       ffi (~> 1.0.6)
     compass (0.10.6)
       haml (>= 3.0.4)
+    compass-960-plugin (0.10.2)
+      compass (>= 0.10.0)
     configuration (1.2.0)
     cucumber (0.10.2)
       builder (>= 2.1.2)
@@ -161,6 +163,7 @@ DEPENDENCIES
   cancan
   capybara
   compass
+  compass-960-plugin
   cucumber-rails
   devise
   factory_girl_rails
