@@ -10,6 +10,8 @@ gem 'jquery-rails'
 gem 'haml'
 gem 'formtastic', '~> 1.2.3'
 gem 'kaminari'
+gem 'compass'
+gem 'compass-960-plugin'
 
 group :development, :test do
   gem 'hpricot'
@@ -20,6 +22,4 @@ group :development, :test do
   gem 'shoulda'
   gem 'factory_girl_rails'
   gem 'mongrel', '1.2.0.pre2'
-  gem 'compass'
-  gem 'compass-960-plugin'
 end
