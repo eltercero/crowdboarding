@@ -68,7 +68,7 @@ body {
 }
 /* line 15, ../../app/stylesheets/grid.sass */
 body #wrapper_header {
-  background-color: #333333;
+  background: url("../images/bg/header.png") #333333;
   border-bottom: 4px solid #84e4fb;
 }
 /* line 18, ../../app/stylesheets/grid.sass */
