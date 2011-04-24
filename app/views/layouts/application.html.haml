@@ -10,7 +10,7 @@
 		#wrapper_header
 			#header
 				#logo
-					%h1 crowdboarding
+					= image_tag "logo.png"
 				%ul
 					- if user_signed_in?
 						%li=link_to 'Michael', "javascript:;"
