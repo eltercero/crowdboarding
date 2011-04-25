@@ -11,4 +11,4 @@ Rails.configuration.middleware.insert_before('Rack::Sendfile', 'Sass::Plugin::Ra
 
 Rails.configuration.middleware.insert_before('Rack::Sendfile', 'Rack::Static',
     :urls => ['/stylesheets'],
-    :root => "#{Rails.root}/tmp")
+    :root => "#{Rails.root}/#{RAILS_ENV == "production" ? 'tmp' : 'public'}")
