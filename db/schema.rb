@@ -10,7 +10,39 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110419212821) do
+ActiveRecord::Schema.define(:version => 20110425193506) do
+
+  create_table "admin_users", :force => true do |t|
+    t.string   "first_name",       :default => "",    :null => false
+    t.string   "last_name",        :default => "",    :null => false
+    t.string   "role",                                :null => false
+    t.string   "email",                               :null => false
+    t.boolean  "status",           :default => false
+    t.string   "token",                               :null => false
+    t.string   "salt",                                :null => false
+    t.string   "crypted_password",                    :null => false
+    t.string   "preferences"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
+
+  create_table "cities", :force => true do |t|
+    t.string  "name",       :limit => 100, :null => false
+    t.integer "country_id"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "ancestry"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["ancestry"], :name => "index_comments_on_ancestry"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "countries", :force => true do |t|
     t.string "name",             :null => false
@@ -20,6 +52,20 @@ ActiveRecord::Schema.define(:version => 20110419212821) do
 
   add_index "countries", ["country_code"], :name => "index_countries_on_country_code", :unique => true
   add_index "countries", ["name"], :name => "index_countries_on_name", :unique => true
+
+  create_table "events", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name",           :limit => 100
+    t.datetime "starts_at"
+    t.text     "description"
+    t.string   "address",        :limit => 100
+    t.float    "lat"
+    t.float    "lng"
+    t.integer  "users_count",                   :default => 0
+    t.integer  "comments_count",                :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
@@ -32,6 +78,8 @@ ActiveRecord::Schema.define(:version => 20110419212821) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
+    t.integer  "profile_views"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
