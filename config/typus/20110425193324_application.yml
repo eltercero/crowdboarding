@@ -1,0 +1,54 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+City:
+  fields:
+    default: name, country
+    form: name, country
+  order_by: name
+  relationships: country
+  filters: 
+  search: name
+  application: crowdboarding
+
+Comment:
+  fields:
+    default: ancestry, body, user
+    form: ancestry, body
+  order_by: 
+  relationships: user
+  filters: created_at
+  search: 
+  application: crowdboarding
+
+Country:
+  fields:
+    default: name, country_code, country_code_big
+    form: name, country_code, country_code_big
+  order_by: 
+  relationships: cities
+  filters: 
+  search: name
+  application: crowdboarding
+
+Event:
+  fields:
+    default: user_id, name, address, starts_at, description
+    form: user_id, name, address, starts_at, description
+  order_by: 
+  relationships: 
+  filters: created_at
+  search: name
+  application: crowdboarding
+
+User:
+  fields:
+    default: email, name, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip
+    form: email, name
+  order_by: email
+  relationships: 
+  filters: created_at
+  search: email, name
+  application: crowdboarding
+

@@ -12,6 +12,11 @@ gem 'formtastic', '~> 1.2.3'
 gem 'kaminari'
 gem 'compass'
 gem 'compass-960-plugin'
+gem 'typus', :git => 'https://github.com/fesplugas/typus.git'
+gem 'ancestry'
+# Temperary test data generators
+gem 'populator'
+gem 'faker'
 
 group :development, :test do
   gem 'hpricot'
