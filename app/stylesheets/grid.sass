@@ -10,8 +10,16 @@
 
 $ninesixty-columns: 24
 
+@mixin pagination_item
+	padding: 5px 7px
+	margin-left: 3px
+
 body
 	background: $almost_white
+	a
+		color: $link_color
+	a:hover
+		text-decoration: none
 	#wrapper_header
 		background: url("../images/bg/header.png") $almost_black
 		border-bottom: 4px solid $crowdboarding
@@ -41,18 +49,38 @@ body
 				text-shadow: 0 1px 0 white
 			li.selected
 				border-bottom: 2px solid $crowdboarding
+				margin-bottom: -2px
 	#wrapper_main_content
 		#main_content
 			@include grid-system(24)
-			#splash	
-				margin-top: 10px
-			#home_section
-				margin-top: 10px
-				.column
-					@include grid(8)
+			margin-top: 10px
+			#content
+				@include grid(19)
+				@include alpha
+
+			#sidebar 
+				@include grid(5)
+				@include omega
+				background-color: $dirty-white
+				.sidebar_content
+					padding: 10px
 				
 //resets
 ul
 	li
 		list-style: none
+		
+		
+nav.pagination
+	float: right
+	margin: 10px 0px
+	span.page a, span.next a, span.last a, span.prev a, span.first a
+		@include pagination_item
+		border: 1px solid $invisible_gray
+	span.page a:hover, span.next a:hover, span.last a:hover, span.prev a:hover, span.first a:hover
+		background-color: $invisible_gray
+	span.page.current
+		@include pagination_item
+		font-weight: bold
+		color: $almost_black
 		

@@ -16,4 +16,8 @@ class Event < ActiveRecord::Base
       "big mf meeting"
     end
   end
+  
+  def time_left
+    rand(100)
+  end
 end

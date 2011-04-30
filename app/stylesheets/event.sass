@@ -1,7 +1,49 @@
 @import "compass/css3/border-radius"
 @import "support/colors"
+@import "960/grid"
+@import "compass/utilities/general/clearfix"
+
+$ninesixty-columns: 24
+
+@mixin highlight_info
+	padding: 10px 5px
+	color: $almost_white
+	background-color: $almost_black
+
 .event
-	margin-top: 20px
-	@include border-radius
-	background-color: $crowdboarding
-	border: 1px solid $dark_crowdboarding
+	@include grid-system
+	@include grid(19)
+	@include alpha
+	@include omega
+	border-bottom: 1px solid $invisible_gray
+	padding: 10px 0px
+	p
+		margin-bottom: 2px
+	h3
+		font-size: 1.2em
+		font-weight: bold
+		margin-bottom: 4px
+	img.map
+		padding: 0px 2px
+	.event_highlights
+		@include grid(4)
+		@include alpha
+		@include omega
+		.time_left
+			@include grid(2)
+			@include alpha
+		.assistants
+			@include grid(2)
+			@include alpha
+			@include omega		
+		.button
+			@include highlight_info
+			font-size: 0.9em
+			text-align: center
+			span
+				font-size: 1.8em
+				display: block
+	.event_info
+		@include grid(15)
+		@include omega
+	
