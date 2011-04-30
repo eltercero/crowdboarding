@@ -1,16 +1,16 @@
 .event
 	.event_highlights
-		.time_left
-			.button
-				%span
-					=event.time_left
-				days left
-		.assistants
-			.button
-				%span
-					=event.users_count
-				assistans
+		.time_left.button
+			%span
+				=event.time_left
+			days left
+		.assistants.button
+			%span
+				=event.users_count
+			assistans
 	.event_info
 		%h3=link_to event.name, '#'
-		%p=image_tag('icons/map_12.png', :width=> 8, :height => 12, :class => 'map'	)+' '+event.address
-		%p=image_tag('icons/time_12.png', :width=> 12, :height => 12	)+' '+event.starts_at
+		%p.address=event.address
+		%p.starts_at=event.starts_at
+		%p=#image_tag('icons/map_12.png', :width=> 8, :height => 12, :class => 'map'	)+' '+event.address
+		%p=#image_tag('icons/time_12.png', :width=> 12, :height => 12	)+' '+event.starts_at

@@ -5,11 +5,6 @@
 
 $ninesixty-columns: 24
 
-@mixin highlight_info
-	padding: 10px 5px
-	color: $almost_white
-	background-color: $almost_black
-
 .event
 	@include grid-system
 	@include grid(18)
@@ -17,33 +12,37 @@ $ninesixty-columns: 24
 	@include omega
 	border-bottom: 1px solid $invisible_gray
 	padding: 10px 0px
-	p
-		margin-bottom: 2px
 	h3
 		font-size: 1.2em
 		font-weight: bold
 		margin-bottom: 4px
-	img.map
-		padding: 0px 2px
 	.event_highlights
 		@include grid(4)
 		@include alpha
 		@include omega
-		.time_left
-			@include grid(2)
-			@include alpha
-		.assistants
-			@include grid(2)
-			@include alpha
-			@include omega		
 		.button
-			@include highlight_info
+			@include grid(2)
+			padding: 10px 0
+			color: $almost_white
+			background-color: $almost_black
 			font-size: 0.9em
 			text-align: center
 			span
 				font-size: 1.8em
 				display: block
+		.time_left
+			@include alpha
+		.assistants
+			@include alpha
 	.event_info
 		@include grid(14)
 		@include omega
-	
+		p
+			padding: 0 16px
+			margin-bottom: 2px
+			background-repeat: no-repeat
+				background-position: 0 2px
+		p.address
+			background-image: url(/images/icons/map_12.png)
+		p.starts_at
+			background-image: url(/images/icons/time_12.png)
