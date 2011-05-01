@@ -43,10 +43,7 @@ body
 				margin-left: 0
 				margin-right: 10px
 				float: left
-				font-weight: lighter
 				padding-right: 15px
-				font-size: 1.3em
-				text-shadow: 0 1px 0 white
 			li.selected
 				border-bottom: 2px solid $crowdboarding
 				margin-bottom: -2px
@@ -57,7 +54,6 @@ body
 			#content
 				@include grid(18)
 				@include alpha
-
 			#sidebar 
 				@include grid(6)
 				@include omega
@@ -72,7 +68,7 @@ ul
 		
 		
 nav.pagination
-	float: right
+	text-align: right
 	margin: 10px 0px
 	span.page a, span.next a, span.last a, span.prev a, span.first a
 		@include pagination_item
@@ -83,4 +79,3 @@ nav.pagination
 		@include pagination_item
 		font-weight: bold
 		color: $almost_black
-		

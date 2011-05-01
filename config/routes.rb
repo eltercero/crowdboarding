@@ -1,5 +1,19 @@
 Crowdboarding::Application.routes.draw do
+  # Devise routes
   devise_for :users
+  
+  # Resources
+  resources :events
+  
+  # This isnt a resource because it is just an index page for users
+  match 'riders' => 'riders#index', :as => :riders
+  
+  # Static pages
+  match 'contact' => 'home#contact', :as => :contact
+  match 'about' => 'home#about', :as => :about
+  
+  # Root route
+  root :to => "home#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -11,6 +25,7 @@ Crowdboarding::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+  
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
@@ -47,10 +62,6 @@ Crowdboarding::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 

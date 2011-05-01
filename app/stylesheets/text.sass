@@ -19,16 +19,34 @@ h2
 	font-weight: bold
 	
 #header
+	position: relative
 	h1
 		width: 183px
 		height: 36px
-		text-indent: -1000px
 		background: url(/images/logo.png) no-repeat
 		float: left
 		margin: 0px
+		a
+			position: absolute
+			width: inherit
+			height: inherit
+			span
+				display: none
 ul
 	li
 		a
-			color: #fff
 			text-decoration: none
 			font-weight: normal
+			color: #000
+#wrapper_nav
+	ul
+		li
+			a
+				font-weight: lighter
+				font-size: 1.3em
+				text-shadow: 0 1px 0 white
+#header
+	ul
+		li
+			a
+				color: #fff

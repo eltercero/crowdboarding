@@ -5,44 +5,87 @@
 
 $ninesixty-columns: 24
 
+// Inherited by all events
 .event
 	@include grid-system
 	@include grid(18)
 	@include alpha
 	@include omega
-	border-bottom: 1px solid $invisible_gray
-	padding: 10px 0px
 	h3
 		font-size: 1.2em
 		font-weight: bold
 		margin-bottom: 4px
-	.event_highlights
-		@include grid(4)
-		@include alpha
-		@include omega
-		.button
-			@include grid(2)
-			padding: 10px 0
-			color: $almost_white
-			background-color: $almost_black
-			font-size: 0.9em
-			text-align: center
-			span
-				font-size: 1.8em
-				display: block
-		.time_left
-			@include alpha
-		.assistants
-			@include alpha
 	.event_info
-		@include grid(14)
-		@include omega
 		p
 			padding: 0 16px
 			margin-bottom: 2px
 			background-repeat: no-repeat
-				background-position: 0 2px
+			background-position: 0 3px
+			color: $dark_crowdboarding
+			font-weight: bold
 		p.address
 			background-image: url(/images/icons/map_12.png)
 		p.starts_at
 			background-image: url(/images/icons/time_12.png)
+	.event_highlights
+		.button, .event_highlight
+			span
+				font-size: 1.8em
+				display: block
+	
+// Just index events
+.events
+	.event
+		border-bottom: 1px solid $invisible_gray
+		padding: 10px 0px
+		.event_info
+			@include omega
+			@include grid(14)
+		.event_highlights
+			@include grid(4)
+			@include alpha
+			@include omega
+			.button
+				@include grid(2)
+				padding: 10px 0
+				color: $almost_white
+				background-color: $almost_black
+				font-size: 0.9em
+				text-align: center
+			.time_left
+				@include alpha
+			.assistants
+				@include alpha
+
+// Just show events
+.event.show
+	.event_info
+		@include alpha
+	#map_wrapper
+		height: 200px
+		margin: 10px 0
+		@include border-radius(5px)
+		border: 2px solid $dark_gray
+		#map
+			height: inherit
+			
+			
+			
+#sidebar.event
+	padding-bottom: 20px
+	.event_highlights
+		border-bottom: 1px solid $dark_gray
+		float: left
+		width: 100%
+		margin-top: 10px
+		text-align: right
+		font-size: 1.2em
+		.event_highlight
+			@include grid(3)
+			@include alpha
+			@include omega
+			span.temp
+				line-height: 30px
+				margin-top: 5px
+	.event_highlights.first
+		margin-top: 0 !important

@@ -3,12 +3,14 @@
 	%head
 		%title Crowdboarding
 		= stylesheet_link_tag 'grid', 'text', 'support/colors', 'event'
-		= javascript_include_tag :defaults
+		= javascript_include_tag :all
+		= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false"
 		= csrf_meta_tag
+		%meta{:name => "viewport", :content => "initial-scale=1.0, user-scalable=no"}
 	%body
 		#wrapper_header
 			#header
-				%h1 Crowdboarding
+				%h1=link_to content_tag(:span, "Crowdboarding" ), root_path
 				%ul
 					- if user_signed_in?
 						%li=link_to 'Michael', "javascript:;"
@@ -17,10 +19,13 @@
 						%li= link_to 'Register', new_user_registration_path
 						%li= link_to 'Login', new_user_session_url
 		#wrapper_nav
-			%ul
-				%li.selected events
-				%li riders
-				%li about
+			%ul#nav
+				%li{:class => events_selected? }= link_to 'events', root_path
+				%li{:class => selected?(riders_path) }= link_to 'riders', riders_path
+				%li{:class => selected?(about_path) }= link_to 'about', about_path
+				%li{:class => selected?(contact_path) }= link_to 'contact', contact_path
 		#wrapper_main_content
 			#main_content
-				= yield
+				#content
+					= yield
+				= yield :sidebar

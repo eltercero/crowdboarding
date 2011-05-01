@@ -1,0 +1,29 @@
+.event.show
+	%h2=@event.name
+	.event_info
+		%p.address=@event.address
+		%p.starts_at=@event.starts_at
+	#map_wrapper
+		#map
+	%h3 Description
+	%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+- content_for :sidebar do
+	#sidebar.event
+		.sidebar_content
+			.event_highlights
+				.event_highlight.left
+					days left
+					%span=@event.time_left
+				.event_highlight.right
+					assistans
+					%span=@event.users_count
+			.event_highlights
+				.event_highlight.left= image_tag "icons/weather/sun.png"
+				.event_highlight
+					%span.temp 30&deg;
+					sunny
+:javascript
+	$(document).ready(function(){
+		load_google_maps();
+	});
