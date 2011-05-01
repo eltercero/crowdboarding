@@ -15,7 +15,7 @@ namespace :db do
     Event.populate 100 do |event|
       event.name = Populator.words(1..3).titleize
       event.created_at = 2.years.ago..Time.now
-      event.starts_at = 2.years.ago..Time.now
+        event.starts_at = 1.weeks.ago..1.weeks.from_now
       event.user_id = (rand * User.count).to_i
       event.description = Populator.paragraphs(1..3)
       event.address = Faker::Address.street_address
