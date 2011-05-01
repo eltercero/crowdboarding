@@ -1,3 +1,4 @@
+
 class Event < ActiveRecord::Base
   validates :name, :presence => true, :length => { :maximum => 100 }
   
@@ -7,6 +8,7 @@ class Event < ActiveRecord::Base
   has_many :users
   
   scope :recent, :order => "starts_at DESC"
+  scope :from_now, :order => "starts_at DESC", :conditions => ["starts_at > ?", Time.now]
   
   def size_status
     case users_count

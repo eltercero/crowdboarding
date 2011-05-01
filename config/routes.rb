@@ -6,7 +6,8 @@ Crowdboarding::Application.routes.draw do
   resources :events
   
   # This isnt a resource because it is just an index page for users
-  match 'riders' => 'riders#index', :as => :riders
+  get 'riders' => 'riders#index', :as => :riders
+  get 'riders/:id' => 'riders#show', :as => :rider
   
   # Static pages
   match 'contact' => 'home#contact', :as => :contact

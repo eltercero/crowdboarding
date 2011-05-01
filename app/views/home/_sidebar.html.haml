@@ -1,4 +1,21 @@
 #sidebar
 	.sidebar_content
-		-8.times do 
+		%h3 Events happening right now!
+		- @events_from_now.each do |event|
+			=link_to "#{event.name} at #{Time.now.strftime('%H:%M')}", event_path(event)
+			%br
+		%br
+		%p=link_to "see more", "#"
+		%h3 Most active riders in Madrid
+		%p Lorem ipsum dolor sit amet, consectetur adipisicing elit
+		- @active_riders.each do |rider|
+			=link_to rider.name, rider_path(rider.id)
+			%br
+		%br
+		%p=link_to "see more", "#"
+		%h3 Resent events
+		%p Lorem ipsum dolor sit amet, consectetur adipisicing elit
+		%h3 Most used spots
+		%p Lorem ipsum dolor sit amet, consectetur adipisicing elit
+		-2.times do 
 			%p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
