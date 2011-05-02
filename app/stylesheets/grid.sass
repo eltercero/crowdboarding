@@ -32,6 +32,14 @@ body
 					float: left
 				li.highlighted a
 					@include gray_button
+				li.highlighted_plus a
+					@include gray_button_plus
+					span
+						background-image: url("../images/icons/plus_12.png")
+						background-position: 0 0
+						background-repeat: no-repeat
+						width: 16px
+						padding-left: 20px
 				li.small a
 					font-size: 0.9em
 					color: $gray_for_texts
