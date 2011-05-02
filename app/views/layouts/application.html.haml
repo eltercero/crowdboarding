@@ -24,6 +24,13 @@
 				%li{:class => riders_selected? }= link_to 'riders', riders_path
 				%li{:class => selected?(about_path) }= link_to 'about', about_path
 				%li{:class => selected?(contact_path) }= link_to 'contact', contact_path
+		- if current_page? root_path	
+			#wrapper_splash
+				#splash
+					=render :partial => 'home/splash'
+			#wrapper_info
+				#info
+					=render :partial => 'home/info'
 		#wrapper_main_content
 			#main_content
 				#content

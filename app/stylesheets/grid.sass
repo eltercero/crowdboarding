@@ -47,6 +47,45 @@ body
 			li.selected
 				border-bottom: 2px solid $countercrowdboarding
 				margin-bottom: -2px
+	#wrapper_splash
+		background: url("../images/bg/splash.png") $crowdboarding
+		height: 270px
+		border-bottom: 4px solid $almost_black
+		#splash
+			@include grid-system(24)
+			.splash_image
+				@include grid(9)
+				@include alpha
+			.splash_text
+				@include grid(15)
+				@include omega
+				text-align: right
+				margin-top: 35px
+				span.title
+					font-size: 6em
+					display: block
+					font-weight: bold
+					color: $almost_white
+					text-shadow: $almost_black 0px 2px 0px
+					line-height: 70px
+				span.subtitle
+					margin-top: 20px
+					font-size: 1.3em
+					display: block
+					color: $almost_white
+	#wrapper_info
+		background-color: $dirty_white
+		height: 150px
+		margin-bottom: 20px
+		#info
+			@include grid-system(24)
+			.info_block
+				@include grid(8)
+				.info_block_content
+					padding: 20px 0px
+					
+			
+			
 	#wrapper_main_content
 		#main_content
 			@include grid-system(24)
