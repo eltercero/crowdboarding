@@ -13,10 +13,6 @@ $ninesixty-columns: 24
 
 body
 	background: $almost_white
-	a
-		color: $link_color
-	a:hover
-		text-decoration: none
 	#wrapper_header
 		background: url("../images/bg/header.png") $almost_black
 		border-bottom: 4px solid $countercrowdboarding
@@ -124,6 +120,14 @@ body
 				@include awesome_box
 				.sidebar_content
 					padding: 10px
+			#left_sidebar
+				@include grid(6)
+				@include alpha
+				.left_sidebar_info
+					margin-top: -6px
+					padding: 10px 10px 20px
+					background-color: $dirty_white
+				
 // Inherited by all events
 .event
 	@include grid-system

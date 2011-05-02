@@ -1,0 +1,40 @@
+#left_sidebar
+	=image_tag("avatars/missing.png")
+	.left_sidebar_info
+		-if current_user == @user 
+			.edit_button
+				=link_to 'edit', edit_user_registration_path
+		-elsif user_signed_in?
+			.add_as_a_friend
+				=link_to "Add as a friend", '#'
+		.block.first_block
+			%p=raw("#{image_tag('icons/home_12.png')} Madrid, Spain")
+			%p=raw("#{image_tag('icons/calendar_12.png')} 24 years old")
+		.block
+			%h4 friends (108)
+			.avatars
+				-9.times do
+					=image_tag("avatars/missing_40.png", :class=> "friend_avatar")
+			.see_all
+				=link_to('see all', '#')
+		.block
+			%h4 events created (12)
+			%ul
+				%li=link_to 'Random event'
+				%li=link_to 'Random event'
+				%li=link_to 'Random event'
+				%li=link_to 'Random event'
+				%li=link_to 'Random event'
+			.see_all
+				=link_to('see all', '#')
+				
+		.block.last_block
+			%h4 events assisted (26)
+			%ul
+				%li=link_to 'Random event'
+				%li=link_to 'Random event'
+				%li=link_to 'Random event'
+				%li=link_to 'Random event'
+			.see_all
+				=link_to('see all', '#')
+			
