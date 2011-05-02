@@ -12,6 +12,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.token_authenticatable
       t.string :name
       t.string :nickname, :limit => 40
+      t.text :bio
+      t.text :quiver
+      t.date :birthdate
+      t.integer :default_city_id
       t.integer :profile_views
 
       t.timestamps
