@@ -5,8 +5,6 @@
 
 @import "compass/reset"
 @import "compass/utilities/general/clearfix"
-@import "compass/css3/gradient"
-@import "compass/css3/border-radius"
 @import "960/grid"
 @import "support/colors"
 @import "support/mixins"
@@ -76,12 +74,7 @@ body
 					margin-top: 20px
 				span.join a
 					font-size: 1.7em
-					font-weight: bolder
-					padding: 10px 30px
-					color: $almost_white
-					@include linear-gradient(color-stops($crowdboarding, $dark_crowdboarding))
-					@include border-radius(5px)
-				
+					@include green_button
 	#wrapper_info
 		background-color: $dirty_white
 		height: 150px
