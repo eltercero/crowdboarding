@@ -85,3 +85,20 @@ form.formtastic .row {
   float: left;
   width: 100%;
 }
+
+/* line 58, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset > ol > li input.date {
+  width: 115px;
+}
+
+/* line 61, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset#starts_at_datetime > ol > li {
+  width: 150px;
+  float: left;
+}
+
+/* line 64, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset#starts_at_datetime {
+  width: 400px;
+  float: left;
+}

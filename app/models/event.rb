@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   validates :name, :presence => true, :length => { :maximum => 100 }
   
-  attr_accessible :name, :starts_at, :description, :address, :lat, :lng
+  attr_accessible :name, :description, :address, :lat, :lng, :city_id
   
   belongs_to :user
   belongs_to :city
