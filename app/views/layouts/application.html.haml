@@ -4,7 +4,7 @@
 		%title Crowdboarding
 		= stylesheet_link_tag 'grid', 'text', 'support/colors', 'event', 'devise', 'formtastic', 'formtastic_changes'
 		= javascript_include_tag :all
-		= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false"
+		=# javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false"
 		= csrf_meta_tag
 		%meta{:name => "viewport", :content => "initial-scale=1.0, user-scalable=no"}
 	%body
@@ -13,6 +13,7 @@
 				%h1=link_to content_tag(:span, "Crowdboarding" ), root_path
 				%ul
 					- if user_signed_in?
+						%li=link_to 'Create an event', new_event_path
 						%li=link_to 'Michael', "javascript:;"
 						%li=link_to 'Logout', destroy_user_session_path
 					- else

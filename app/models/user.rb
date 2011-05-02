@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   
   before_create :downcase_email
   
+  has_many :events
+  
   private
   
     def downcase_email

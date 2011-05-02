@@ -19,18 +19,32 @@ form.formtastic fieldset > ol > li.string input, form.formtastic fieldset > ol >
   padding: 0px 5px;
 }
 
-/* line 17, ../../app/stylesheets/formtastic_changes.sass */
+/* line 16, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset > ol > li.text textarea {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #c9c9c9;
+  width: 95%;
+  font-size: 1.6em;
+  padding: 5px;
+}
+
+/* line 23, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset.buttons {
   float: right;
   margin: 0px 10px 0 0;
 }
 
-/* line 21, ../../app/stylesheets/formtastic_changes.sass */
+/* line 27, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset.buttons input {
-  -moz-box-shadow: fgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
-  -webkit-box-shadow: fgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
-  -o-box-shadow: fgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
-  box-shadow: fgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
+  -o-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   -o-border-radius: 4px;
@@ -55,18 +69,18 @@ form.formtastic fieldset.buttons input {
   font-weight: bold;
 }
 
-/* line 41, ../../app/stylesheets/formtastic_changes.sass */
+/* line 47, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset > ol > li.boolean label {
   padding-left: 0;
 }
 
-/* line 44, ../../app/stylesheets/formtastic_changes.sass */
+/* line 50, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset#new_user_remember_me {
   width: 200px;
   float: left;
 }
 
-/* line 48, ../../app/stylesheets/formtastic_changes.sass */
+/* line 54, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic .row {
   float: left;
   width: 100%;

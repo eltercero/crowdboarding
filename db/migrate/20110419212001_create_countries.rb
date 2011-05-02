@@ -10,7 +10,7 @@ class CreateCountries < ActiveRecord::Migration
     
     require 'csv'
     path = RAILS_ROOT + "/lib/iso_import_files/all_countries.csv"
-    CSV.open(path, 'r', ';') do |country|
+    CSV.foreach(path, :col_sep => ";") do |country|
       Country.create!(:name => country[4], :country_code => country[1].strip, :country_code_big => country[2])
      end
   end
