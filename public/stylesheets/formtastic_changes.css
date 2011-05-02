@@ -1,17 +1,73 @@
-/* -------------------------------------------------------------------------------------------------
+/* line 5, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset > ol > li label {
+  display: block;
+  width: 100%;
+}
 
-Load this stylesheet after formtastic.css in your layouts to override the CSS to suit your needs.
-This will allow you to update formtastic.css with new releases without clobbering your own changes.
+/* line 9, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset > ol > li.string input, form.formtastic fieldset > ol > li.password input, form.formtastic fieldset > ol > li.numeric input, form.formtastic fieldset > ol > li.email input, form.formtastic fieldset > ol > li.url input, form.formtastic fieldset > ol > li.phone input, form.formtastic fieldset > ol > li.search input {
+  height: 40px;
+  width: 95%;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #c9c9c9;
+  font-size: 1.6em;
+  padding: 0px 5px;
+}
 
-For example, to make the inline hint paragraphs a little darker in color than the standard #666:
+/* line 17, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset.buttons {
+  float: right;
+  margin: 0px 10px 0 0;
+}
 
-form.formtastic fieldset > ol > li p.inline-hints { color:#333; }
+/* line 21, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset.buttons input {
+  -moz-box-shadow: fgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
+  -webkit-box-shadow: fgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
+  -o-box-shadow: fgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
+  box-shadow: fgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -khtml-border-radius: 4px;
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  font-weight: bold;
+  min-width: 64px;
+  padding: 6px;
+  text-align: center;
+  white-space: nowrap;
+  background: url(/images/forms/bg_button.gif) repeat-x scroll 0 0 #dddddd;
+  border-color: #bbbbbb #bbbbbb #999999;
+  color: #333333 !important;
+  cursor: pointer;
+  font: 12px/15px Helvetica Neue, Arial, "Lucida Grande", Sans-serif;
+  margin: 0;
+  overflow: hidden;
+  text-shadow: 0 1px #f0f0f0;
+  font-weight: bold;
+}
 
-HINT:
-The following style may be *conditionally* included for improved support on older versions of IE(<8)
-form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
+/* line 41, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset > ol > li.boolean label {
+  padding-left: 0;
+}
 
---------------------------------------------------------------------------------------------------*/
-form#user_new {
-    width: 500px;
+/* line 44, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset#new_user_remember_me {
+  width: 200px;
+  float: left;
+}
+
+/* line 48, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic .row {
+  float: left;
+  width: 100%;
 }

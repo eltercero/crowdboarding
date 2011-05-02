@@ -7,12 +7,9 @@
 @import "compass/utilities/general/clearfix"
 @import "960/grid"
 @import "support/colors"
+@import "support/mixins"
 
 $ninesixty-columns: 24
-
-@mixin pagination_item
-	padding: 5px 7px
-	margin-left: 3px
 
 body
 	background: $almost_white
@@ -57,10 +54,47 @@ body
 			#sidebar 
 				@include grid(6)
 				@include omega
-				background-color: $dirty-white
+				@include awesome_box
 				.sidebar_content
 					padding: 10px
-				
+// Inherited by all events
+.event
+	@include grid-system
+	@include grid(18)
+	@include alpha
+	@include omega
+// Just index events
+.events
+	.event
+		.event_info
+			@include omega
+			@include grid(14)
+		.event_highlights
+			@include grid(4)
+			@include alpha
+			@include omega
+			.button
+				@include grid(2)
+			.time_left
+				@include alpha
+			.assistants
+				@include alpha
+// Just show events
+.event.show
+	.event_info
+		@include alpha
+// Side bar event
+#sidebar.event
+	.event_highlights
+		.event_highlight
+			@include grid(3)
+			@include alpha
+			@include omega
+// Form box
+div.standard_form
+	@include grid(12)
+	@include alpha
+	
 //resets
 ul
 	li
