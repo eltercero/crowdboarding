@@ -55,15 +55,16 @@ ActiveRecord::Schema.define(:version => 20110425193506) do
 
   create_table "events", :force => true do |t|
     t.integer  "user_id"
-    t.string   "name",           :limit => 100
+    t.string   "name",            :limit => 100
     t.datetime "starts_at"
     t.text     "description"
-    t.string   "address",        :limit => 100
+    t.string   "address",         :limit => 100
     t.integer  "city_id"
+    t.string   "contact_details", :limit => 100
     t.float    "lat"
     t.float    "lng"
-    t.integer  "users_count",                   :default => 0
-    t.integer  "comments_count",                :default => 0
+    t.integer  "users_count",                    :default => 0
+    t.integer  "comments_count",                 :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -82,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20110425193506) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "name"
+    t.string   "nickname",               :limit => 40
     t.integer  "profile_views"
     t.datetime "created_at"
     t.datetime "updated_at"

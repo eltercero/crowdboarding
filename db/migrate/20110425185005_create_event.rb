@@ -7,6 +7,7 @@ class CreateEvent < ActiveRecord::Migration
       t.text :description
       t.string :address, :limit => 100
       t.integer :city_id
+      t.string :contact_details, :limit => 100
       t.float :lat
       t.float :lng
       t.integer :users_count, :default => 0

@@ -1,20 +1,21 @@
 .event.show
 	%h2=@event.name
 	.event_info
-		%p.address=@event.address
+		%p.address
+			=@event.address
+			=display_location_info(@event.city)
 		%p.starts_at=@event.starts_at
 	#map_wrapper
 		#map
 	- if @event.description
 		%h3 Description
 		=simple_format(sanitize(@event.description) )
-- content_for :sidebar do
+- content_for :sidebar_right do
 	#sidebar.event
 		.sidebar_content
 			.event_highlights
 				.event_highlight.left
-					days left
-					%span=@event.time_left
+					=distance_of_time_in_short_words(@event.starts_at)
 				.event_highlight.right
 					assistans
 					%span=@event.users_count

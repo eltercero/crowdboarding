@@ -1,7 +1,11 @@
 class Event < ActiveRecord::Base
   validates :name, :presence => true, :length => { :maximum => 100 }
+  validates :contact_details, :length => { :maximum => 100 }
+  validates :city, :presence => true
+  validates :starts_at, :presence => true
+  validates :address, :presence => true
   
-  attr_accessible :name, :description, :address, :lat, :lng, :city_id
+  attr_accessible :name, :description, :address, :lat, :lng, :city_id, :contact_details
   
   belongs_to :user
   belongs_to :city
@@ -17,9 +21,5 @@ class Event < ActiveRecord::Base
     else 
       "big mf meeting"
     end
-  end
-  
-  def time_left
-    rand(100)
   end
 end

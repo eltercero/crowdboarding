@@ -1,10 +1,22 @@
-/* line 5, ../../app/stylesheets/formtastic_changes.sass */
+/* line 6, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset > ol > li.error label,
+form.formtastic fieldset > ol > li p.inline-errors {
+  color: #b10109;
+  font-weight: bold;
+}
+
+/* line 11, ../../app/stylesheets/formtastic_changes.sass */
+form.formtastic fieldset > ol > li p.inline-errors {
+  margin: 0 0 0 0;
+}
+
+/* line 14, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset > ol > li label {
   display: block;
   width: 100%;
 }
 
-/* line 9, ../../app/stylesheets/formtastic_changes.sass */
+/* line 18, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset > ol > li.string input, form.formtastic fieldset > ol > li.password input, form.formtastic fieldset > ol > li.numeric input, form.formtastic fieldset > ol > li.email input, form.formtastic fieldset > ol > li.url input, form.formtastic fieldset > ol > li.phone input, form.formtastic fieldset > ol > li.search input {
   height: 40px;
   width: 95%;
@@ -19,7 +31,7 @@ form.formtastic fieldset > ol > li.string input, form.formtastic fieldset > ol >
   padding: 0px 5px;
 }
 
-/* line 16, ../../app/stylesheets/formtastic_changes.sass */
+/* line 25, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset > ol > li.text textarea {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -33,13 +45,13 @@ form.formtastic fieldset > ol > li.text textarea {
   padding: 5px;
 }
 
-/* line 23, ../../app/stylesheets/formtastic_changes.sass */
+/* line 32, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset.buttons {
   float: right;
   margin: 0px 10px 0 0;
 }
 
-/* line 27, ../../app/stylesheets/formtastic_changes.sass */
+/* line 36, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset.buttons input {
   -moz-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 1px 0 1px 1px 5px 0;
@@ -69,35 +81,35 @@ form.formtastic fieldset.buttons input {
   font-weight: bold;
 }
 
-/* line 47, ../../app/stylesheets/formtastic_changes.sass */
+/* line 56, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset > ol > li.boolean label {
   padding-left: 0;
 }
 
-/* line 50, ../../app/stylesheets/formtastic_changes.sass */
+/* line 59, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset#new_user_remember_me {
   width: 200px;
   float: left;
 }
 
-/* line 54, ../../app/stylesheets/formtastic_changes.sass */
+/* line 63, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic .row {
   float: left;
   width: 100%;
 }
 
-/* line 58, ../../app/stylesheets/formtastic_changes.sass */
+/* line 67, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset > ol > li input.date {
   width: 115px;
 }
 
-/* line 61, ../../app/stylesheets/formtastic_changes.sass */
+/* line 70, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset#starts_at_datetime > ol > li {
   width: 150px;
   float: left;
 }
 
-/* line 64, ../../app/stylesheets/formtastic_changes.sass */
+/* line 73, ../../app/stylesheets/formtastic_changes.sass */
 form.formtastic fieldset#starts_at_datetime {
   width: 400px;
   float: left;
