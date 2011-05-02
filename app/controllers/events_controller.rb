@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   # GET /events
-  # GET /michaels.xml
+  # GET /events.xml
   def index
     @events = Event.recent.page(params[:page]).per(10)
     
