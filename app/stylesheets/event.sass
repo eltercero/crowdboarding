@@ -1,16 +1,9 @@
 @import "compass/css3/border-radius"
 @import "support/colors"
-@import "960/grid"
 @import "compass/utilities/general/clearfix"
-
-$ninesixty-columns: 24
 
 // Inherited by all events
 .event
-	@include grid-system
-	@include grid(18)
-	@include alpha
-	@include omega
 	h3
 		font-size: 1.2em
 		font-weight: bold
@@ -37,29 +30,16 @@ $ninesixty-columns: 24
 	.event
 		border-bottom: 1px solid $invisible_gray
 		padding: 10px 0px
-		.event_info
-			@include omega
-			@include grid(14)
 		.event_highlights
-			@include grid(4)
-			@include alpha
-			@include omega
 			.button
-				@include grid(2)
 				padding: 10px 0
 				color: $almost_white
 				background-color: $almost_black
 				font-size: 0.9em
 				text-align: center
-			.time_left
-				@include alpha
-			.assistants
-				@include alpha
 
 // Just show events
 .event.show
-	.event_info
-		@include alpha
 	#map_wrapper
 		height: 200px
 		margin: 10px 0
@@ -67,8 +47,6 @@ $ninesixty-columns: 24
 		border: 2px solid $dark_gray
 		#map
 			height: inherit
-			
-			
 			
 #sidebar.event
 	padding-bottom: 20px
@@ -80,9 +58,6 @@ $ninesixty-columns: 24
 		text-align: right
 		font-size: 1.2em
 		.event_highlight
-			@include grid(3)
-			@include alpha
-			@include omega
 			span.temp
 				line-height: 30px
 				margin-top: 5px

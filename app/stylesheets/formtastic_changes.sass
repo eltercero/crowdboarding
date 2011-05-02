@@ -1,0 +1,50 @@
+@import "support/colors"
+@import "compass/css3/border-radius"
+@import "compass/css3/box-shadow"
+
+form.formtastic fieldset > ol > li label
+	display: block
+	width: 100%
+	
+form.formtastic fieldset > ol > li.string input, form.formtastic fieldset > ol > li.password input, form.formtastic fieldset > ol > li.numeric input, form.formtastic fieldset > ol > li.email input, form.formtastic fieldset > ol > li.url input, form.formtastic fieldset > ol > li.phone input, form.formtastic fieldset > ol > li.search input
+	height: 40px
+	width: 95%
+	@include border-radius(5px)	
+	border: 1px solid $dark_gray
+	font-size: 1.6em
+	padding: 0px 5px
+	
+form.formtastic fieldset.buttons
+	float: right
+	margin: 0px 10px 0 0
+	
+form.formtastic fieldset.buttons input
+	@include box-shadow(fgba(0, 0, 0, 0.2) 0 1px 0)
+	@include border-radius(4px)
+	border-style: solid
+	border-width: 1px
+	font-weight: bold
+	min-width: 64px
+	padding: 6px
+	text-align: center
+	white-space: nowrap
+	background: url(/images/forms/bg_button.gif) repeat-x scroll 0 0 #DDDDDD
+	border-color: #BBBBBB #BBBBBB #999999
+	color: #333333 !important
+	cursor: pointer
+	font: 12px/15px Helvetica Neue,Arial,"Lucida Grande",Sans-serif
+	margin: 0
+	overflow: hidden
+	text-shadow: 0 1px #F0F0F0
+	font-weight: bold
+	
+form.formtastic fieldset > ol > li.boolean label
+	padding-left: 0
+	
+form.formtastic fieldset#new_user_remember_me
+	width: 200px
+	float: left
+	
+form.formtastic .row
+	float: left
+	width: 100%
