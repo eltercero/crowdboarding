@@ -6,10 +6,14 @@
 		= f.input :description, :input_html => { :rows => 6 }
 		= f.input :city, :prompt => "Please select a city"
 		= f.input :address, :input_html => { :placeholder => "Enter the address" }
-		= f.input :starts_at, :as => :string, :input_html => { :class => "datepicker" }
+	= f.inputs :id => "starts_at_datetime" do
+		= f.input :starts_at, :label => "Enter a date", :as => :string, :input_html => { :class => "datepicker date", :placeholder => "yyyy-mm-dd" }
+		%li
+			= f.label(:starts_at, "Select a time")
+			=f.time_select(:starts_at, {:minute_step => 15, :include_seconds => false})
 	= f.buttons
 
 :javascript
 	$(function() {
-		$( "input.datepicker" ).datepicker();
+		$( "input.datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
 	});

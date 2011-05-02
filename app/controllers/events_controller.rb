@@ -37,8 +37,14 @@ class EventsController < ApplicationController
 
   # POST /events
   def create
+    if params[:event] && params[:event][:starts_at].match(/^(\d{4})(\/|-)(\d{2})(\/|-)(\d{2})/)
+      datetime_starts_at = Time.new($1, $3, $5, params[:event]["starts_at(4i)"], params[:event]["starts_at(5i)"] )
+      params[:event]["starts_at(4i)"] = nil
+      params[:event]["starts_at(5i)"] = nil
+      params[:event][:starts_at] = nil
+    end
     @event = current_user.events.new(params[:event])
-
+    @event.starts_at = datetime_starts_at
     respond_to do |format|
       if @event.save
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
