@@ -5,13 +5,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
+  validates :name, :uniqueness => true, :length => { :maximum => 40 }
+  
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
-  before_create :downcase_email
+  before_create :downcase_email, :create_nickname
   
   private
   
     def downcase_email
       self.email.downcase!
+    end
+    
+    def create_nickname
+      self.nickname = self.email.split('@').first[0..40]
     end
 end

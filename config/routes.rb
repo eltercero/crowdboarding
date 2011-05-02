@@ -1,14 +1,11 @@
 Crowdboarding::Application.routes.draw do
   # Devise routes
   devise_for :users
+  resources :users, :only => [:show, :index]
   
   # Resources
   resources :events
-  
-  # This isnt a resource because it is just an index page for users
-  get 'riders' => 'riders#index', :as => :riders
-  get 'riders/:id' => 'riders#show', :as => :rider
-  
+    
   # Static pages
   match 'contact' => 'home#contact', :as => :contact
   match 'about' => 'home#about', :as => :about

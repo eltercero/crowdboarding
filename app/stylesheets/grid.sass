@@ -30,6 +30,12 @@ body
 				float: right
 				li
 					float: left
+				li.highlighted a
+					@include gray_button
+				li.small a
+					font-size: 0.9em
+					color: $gray_for_texts
+				
 	#wrapper_nav
 		background-color: $dirty_white
 		ul
@@ -45,7 +51,7 @@ body
 				border-bottom: 2px solid $countercrowdboarding
 				margin-bottom: -2px
 	#wrapper_splash
-		background: url("../images/bg/splash.png") $crowdboarding
+		background: url("../images/bg/splash.png") $almost_black
 		height: 270px
 		border-bottom: 4px solid $almost_black
 		#splash

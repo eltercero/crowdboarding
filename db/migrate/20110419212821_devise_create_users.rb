@@ -11,6 +11,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
       # t.token_authenticatable
       t.string :name
+      t.string :nickname, :limit => 40
       t.integer :profile_views
 
       t.timestamps

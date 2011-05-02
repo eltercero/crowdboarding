@@ -13,18 +13,20 @@
 				%h1=link_to content_tag(:span, "Crowdboarding" ), root_path
 				%ul
 					- if user_signed_in?
-						%li=link_to 'Michael', "javascript:;"
-						%li=link_to 'Logout', destroy_user_session_path
+						%li.highlighted=link_to image_tag('icons/plus_12.png', :width => 12, :height => 12)+' '+'Add Event', new_event_path
+						%li=link_to current_user.nickname, user_path(current_user)
+						%li.small=link_to '(logout)', destroy_user_session_path
 					- else
-						%li= link_to 'Register', new_user_registration_path
+						%li.highlighted= link_to 'Register', new_user_registration_path
 						%li= link_to 'Login', new_user_session_url
-		#wrapper_nav
-			%ul#nav
-				%li{:class => events_selected? }= link_to 'events', root_path
-				%li{:class => riders_selected? }= link_to 'riders', riders_path
-				%li{:class => selected?(about_path) }= link_to 'about', about_path
-				%li{:class => selected?(contact_path) }= link_to 'contact', contact_path
-		- if current_page? root_path	
+		- if !current_page? root_path and user_signed_in? 
+			#wrapper_nav
+				%ul#nav
+					%li{:class => events_selected? }= link_to 'events', root_path
+					%li{:class => riders_selected? }= link_to 'riders', users_path
+					%li{:class => selected?(about_path) }= link_to 'about', about_path
+					%li{:class => selected?(contact_path) }= link_to 'contact', contact_path
+		- if current_page? root_path and !user_signed_in?
 			#wrapper_splash
 				#splash
 					=render :partial => 'home/splash'
