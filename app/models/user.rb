@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   
   before_create :downcase_email, :create_nickname
   
+  has_many :events
+  
   private
   
     def downcase_email

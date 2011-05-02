@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20110425193506) do
     t.datetime "starts_at"
     t.text     "description"
     t.string   "address",        :limit => 100
+    t.integer  "city_id"
     t.float    "lat"
     t.float    "lng"
     t.integer  "users_count",                   :default => 0
@@ -66,6 +67,8 @@ ActiveRecord::Schema.define(:version => 20110425193506) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "events", ["city_id"], :name => "index_events_on_city_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

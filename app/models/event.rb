@@ -1,10 +1,10 @@
-
 class Event < ActiveRecord::Base
   validates :name, :presence => true, :length => { :maximum => 100 }
   
-  attr_accessible :name, :starts_at, :description
+  attr_accessible :name, :starts_at, :description, :address, :lat, :lng
   
   belongs_to :user
+  belongs_to :city
   has_many :users
   
   scope :recent, :order => "starts_at DESC"
