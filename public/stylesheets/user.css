@@ -1,0 +1,87 @@
+/* line 9, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .block {
+  padding: 10px 0px;
+  border-bottom: 1px solid #c9c9c9;
+}
+/* line 12, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .block h4 {
+  margin-bottom: 5px;
+  font-weight: lighter;
+  font-size: 1.3em;
+}
+/* line 16, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .block img.friend_avatar {
+  margin: 0px;
+  padding: 0px;
+}
+/* line 19, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .block ul {
+  margin-bottom: 5px;
+}
+/* line 21, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .block ul li {
+  margin-left: 20px;
+}
+/* line 23, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .block .see_all {
+  text-align: right;
+}
+/* line 25, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .block .avatars {
+  margin-left: 20px;
+}
+/* line 27, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .block p {
+  margin: 0px;
+  font-size: 1.1em;
+  color: #333333;
+}
+/* line 31, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .first_block {
+  padding-top: 0px !important;
+}
+/* line 33, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .last_block {
+  border-bottom: none !important;
+}
+/* line 35, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .edit_button {
+  text-align: right;
+  margin-bottom: 0px;
+}
+/* line 38, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .add_as_a_friend {
+  text-align: center;
+  margin: 10px 0px 20px;
+}
+/* line 41, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .add_as_a_friend a {
+  color: #fdfdfd;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(0%, #aef60c), color-stop(100%, #8bad2b));
+  background-image: -moz-linear-gradient(top, #aef60c 0%, #8bad2b 100%);
+  background-image: linear-gradient(top, #aef60c 0%, #8bad2b 100%);
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  font-weight: bolder;
+  padding: 10px 30px;
+}
+/* line 46, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #content .user_profile h2 span {
+  padding-left: 10px;
+  color: #888888;
+  font-size: 0.8em;
+  font-weight: normal;
+}
+/* line 51, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #content .user_profile h3 {
+  margin-bottom: 5px;
+  font-size: 1.4em;
+}
+/* line 54, ../../app/stylesheets/user.sass */
+#wrapper_main_content #main_content #content .user_profile p {
+  color: #666666;
+}

@@ -1,10 +1,16 @@
 @import "compass/css3/border-radius"
 @import "support/colors"
 @import "compass/css3/gradient"
+@import "compass/css3/opacity"
 
 @mixin awesome_box
 	@include border-radius(5px)
 	border-top: 4px solid $countercrowdboarding
+	border-bottom: 4px solid $almost_black
+	background-color: $dirty-white
+
+@mixin ordinary_box
+	@include border-radius(5px)
 	border-bottom: 4px solid $almost_black
 	background-color: $dirty-white
 
@@ -18,3 +24,24 @@
 	@include border-radius(5px)
 	font-weight: bolder
 	padding: 10px 30px
+	
+@mixin gray_button
+	color: $almost_black
+	@include linear-gradient(color-stops(#FEFEFE, #ddd))
+	@include border-radius(5px)
+	font-weight: bolder
+	padding: 5px 10px
+
+@mixin blue_button
+	color: $almost_white
+	@include linear-gradient(color-stops($crowdboarding_blue, $dark_crowdboarding_blue))
+	@include border-radius(5px)
+	font-weight: bolder
+	padding: 5px 10px
+
+@mixin gray_button_plus
+	color: $almost_black
+	@include linear-gradient(color-stops(#FEFEFE, #ddd))
+	@include border-radius(5px)
+	font-weight: bolder
+	padding: 5px 10px

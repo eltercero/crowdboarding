@@ -8,8 +8,8 @@
 		%p=link_to "see more", "#"
 		%h3 Most active riders in Madrid
 		%p Lorem ipsum dolor sit amet, consectetur adipisicing elit
-		- @active_riders.each do |rider|
-			=link_to rider.name, rider_path(rider.id)
+		- @active_users.each do |user|
+			=link_to user.nickname, user_path(user)
 			%br
 		%br
 		%p=link_to "see more", "#"

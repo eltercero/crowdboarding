@@ -13,10 +13,6 @@ $ninesixty-columns: 24
 
 body
 	background: $almost_white
-	a
-		color: $link_color
-	a:hover
-		text-decoration: none
 	#wrapper_header
 		background: url("../images/bg/header.png") $almost_black
 		border-bottom: 4px solid $countercrowdboarding
@@ -30,6 +26,20 @@ body
 				float: right
 				li
 					float: left
+				li.highlighted a
+					@include gray_button
+				li.highlighted_plus a
+					@include gray_button_plus
+					span
+						background-image: url("../images/icons/plus_12.png")
+						background-position: 0 0
+						background-repeat: no-repeat
+						width: 16px
+						padding-left: 20px
+				li.small a
+					font-size: 0.9em
+					color: $gray_for_texts
+				
 	#wrapper_nav
 		background-color: $dirty_white
 		ul
@@ -45,7 +55,7 @@ body
 				border-bottom: 2px solid $countercrowdboarding
 				margin-bottom: -2px
 	#wrapper_splash
-		background: url("../images/bg/splash.png") $crowdboarding
+		background: url("../images/bg/splash.png") $almost_black
 		height: 270px
 		border-bottom: 4px solid $almost_black
 		#splash
@@ -110,6 +120,14 @@ body
 				@include awesome_box
 				.sidebar_content
 					padding: 10px
+			#left_sidebar
+				@include grid(6)
+				@include alpha
+				.left_sidebar_info
+					margin-top: -6px
+					padding: 10px 10px 20px
+					background-color: $dirty_white
+				
 // Inherited by all events
 .event
 	@include grid-system

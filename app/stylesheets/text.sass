@@ -32,12 +32,20 @@ h2
 			height: inherit
 			span
 				display: none
-ul
-	li
-		a
-			text-decoration: none
-			font-weight: normal
-			color: #000
+
+a
+	color: $link_color
+a:hover
+	text-decoration: none
+
+#nav
+	ul
+		li
+			a
+				text-decoration: none
+				font-weight: normal
+				color: #000
+
 #wrapper_nav
 	ul
 		li
@@ -45,6 +53,8 @@ ul
 				font-weight: lighter
 				font-size: 1.3em
 				text-shadow: 0 1px 0 white
+				color: $almost_black
+				text-decoration: none
 #header
 	ul
 		li

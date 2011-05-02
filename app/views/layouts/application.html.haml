@@ -2,7 +2,7 @@
 %html
 	%head
 		%title Crowdboarding
-		= stylesheet_link_tag 'grid', 'text', 'support/colors', 'event', 'devise', 'formtastic', 'formtastic_changes', 'pepper-grinder/jquery-ui.custom'
+		= stylesheet_link_tag 'grid', 'text', 'support/colors', 'event', 'user', 'devise', 'formtastic', 'formtastic_changes', 'pepper-grinder/jquery-ui.custom'
 		= javascript_include_tag 'jquery.min', 'jquery-ui.custom.min', 'application'
 		=# javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false"
 		= csrf_meta_tag
@@ -13,19 +13,20 @@
 				%h1=link_to content_tag(:span, "Crowdboarding" ), root_path
 				%ul
 					- if user_signed_in?
-						%li=link_to 'Create an event', new_event_path
-						%li=link_to 'Michael', "javascript:;"
-						%li=link_to 'Logout', destroy_user_session_path
+						%li.highlighted_plus=link_to raw("<span>Add Event</span>"), new_event_path
+						%li=link_to current_user.nickname, user_path(current_user)
+						%li.small=link_to '(logout)', destroy_user_session_path
 					- else
-						%li= link_to 'Register', new_user_registration_path
+						%li.highlighted= link_to 'Register', new_user_registration_path
 						%li= link_to 'Login', new_user_session_url
-		#wrapper_nav
-			%ul#nav
-				%li{:class => events_selected? }= link_to 'events', root_path
-				%li{:class => riders_selected? }= link_to 'riders', riders_path
-				%li{:class => selected?(about_path) }= link_to 'about', about_path
-				%li{:class => selected?(contact_path) }= link_to 'contact', contact_path
-		- if current_page? root_path	
+		- if(!current_page? root_path or user_signed_in?) 
+			#wrapper_nav
+				%ul#nav
+					%li{:class => events_selected? }= link_to 'events', root_path
+					%li{:class => riders_selected? }= link_to 'riders', users_path
+					%li{:class => selected?(about_path) }= link_to 'about', about_path
+					%li{:class => selected?(contact_path) }= link_to 'contact', contact_path
+		- if current_page? root_path and !user_signed_in?
 			#wrapper_splash
 				#splash
 					=render :partial => 'home/splash'
@@ -34,6 +35,11 @@
 					=render :partial => 'home/info'
 		#wrapper_main_content
 			#main_content
+				= yield :sidebar_left
 				#content
 					= yield
-				= yield :sidebar
+				= yield :sidebar_right
+				
+				
+				
+				
