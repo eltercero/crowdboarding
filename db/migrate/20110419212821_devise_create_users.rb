@@ -16,8 +16,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.text :quiver
       t.date :birthdate
       t.integer :default_city_id
-      t.integer :profile_views
-
+      t.integer :profile_views, :default => 0
       t.timestamps
     end
 

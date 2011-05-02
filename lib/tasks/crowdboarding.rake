@@ -11,6 +11,11 @@ namespace :db do
       user.nickname = Faker::Name.name
       user.email = Faker::Internet.email
       user.encrypted_password = "bleh :)"
+      user.bio = Populator.paragraphs(1..2)
+      user.quiver = Populator.paragraphs(1..2)
+      user.birthdate = 52.years.ago..18.years.ago
+      user.default_city_id = (rand * City.count).to_i
+      user.profile_views = 0..200      
     end
     
     Event.populate 100 do |event|
