@@ -1,5 +1,6 @@
 @import "compass/css3/border-radius"
 @import "support/colors"
+@import "compass/css3/gradient"
 
 @mixin awesome_box
 	@include border-radius(5px)
@@ -10,3 +11,10 @@
 @mixin pagination_item
 	padding: 5px 7px
 	margin-left: 3px
+	
+@mixin green_button
+	color: $almost_white
+	@include linear-gradient(color-stops($crowdboarding, $dark_crowdboarding))
+	@include border-radius(5px)
+	font-weight: bolder
+	padding: 10px 30px

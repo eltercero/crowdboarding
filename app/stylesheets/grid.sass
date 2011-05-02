@@ -57,19 +57,24 @@ body
 				@include grid(15)
 				@include omega
 				text-align: right
-				margin-top: 35px
+				margin-top: 15px
 				span.title
 					font-size: 6em
 					display: block
 					font-weight: bold
 					color: $almost_white
-					text-shadow: $almost_black 0px 2px 0px
+					text-shadow: $almost_black 0px 4px 0px
 					line-height: 70px
 				span.subtitle
-					margin-top: 20px
+					margin: 10px 0px 25px
 					font-size: 1.3em
 					display: block
 					color: $almost_white
+				span.join
+					margin-top: 20px
+				span.join a
+					font-size: 1.7em
+					@include green_button
 	#wrapper_info
 		background-color: $dirty_white
 		height: 150px
