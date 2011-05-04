@@ -15,6 +15,7 @@ gem 'ancestry'
 # Temperary test data generators
 gem 'populator'
 gem 'faker'
+gem 'gmaps4rails'
 
 group :development, :test do
   gem 'hpricot'
