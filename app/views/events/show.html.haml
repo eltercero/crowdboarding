@@ -5,7 +5,7 @@
 			=@event.address
 			=display_location_info(@event.city)
 		%p.starts_at=@event.starts_at
-	= gmaps("markers" => {"data" => @json}, "map_options" => {"processing" => "json", "auto_adjust" => true, "auto_zoom" => false, "zoom" => 16, "container_id" => "map_wrapper", "id" => "map"})
+	= render :partial => 'map', :locals => {:json => @json}
 	- if @event.description
 		%h3 Description
 		=simple_format(sanitize(@event.description) )
