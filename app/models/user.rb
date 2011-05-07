@@ -22,7 +22,6 @@ class User < ActiveRecord::Base
                     :storate => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",    
                     :path => "public/images/users/avatars/:id/:style.:extension",
-                    :url => "users/avatars/:id/:style.:extension",
                     :bucket => "onlinegeschenkenwinkel-#{RAILS_ENV}"
   
   def get_age
