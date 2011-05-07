@@ -18,6 +18,7 @@ gem "paperclip"
 # Temperary test data generators
 gem 'populator'
 gem 'faker'
+gem 'barometer'
 
 group :development, :test do
   gem 'hpricot'

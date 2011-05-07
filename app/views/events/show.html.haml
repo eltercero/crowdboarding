@@ -20,16 +20,20 @@
 						- else
 							=link_to raw("<span>Join the event</span>"), attendances_path(@event), :class => "attend_link", :method => :post
 			.event_highlights
-				.event_highlight.left
-					=distance_of_time_in_short_words(@event.starts_at)
-				.event_highlight.right
-					assistans
-					%span=@event.attendances.size
-			.event_highlights
-				.event_highlight.left= image_tag "icons/weather/sun.png"
+				.event_highlight.left= image_tag "weather_icons/#{@weather[:icon]}.png", :widht => 75, :height => 57
 				.event_highlight
-					%span.temp 30&deg;
-					sunny
+					%span.temp="#{@weather[:high]}º";
+				%p="#{@weather[:icon]}"
+			.event_highlights
+				%h4="attenders (#{@attenders.size})" 
+				.attenders.indent
+					-@attenders.each do |at|
+						=link_to raw("#{image_tag at.avatar(:small), :width => 25, :height => 25, :title => at.nickname}"), user_path(at)
+				.see_all
+					=link_to('see all', '#') unless @attenders.blank?
+			.event_highlights.last
+				%h4 days left
+				= distance_of_time_in_short_words(@event.starts_at)
 					
 :javascript
 	$(document).ready(function() {

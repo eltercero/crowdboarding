@@ -27,7 +27,6 @@ class Event < ActiveRecord::Base
     end
   end
   
-  # describe how to retrieve the address from your model, if you use directly a db column, you can dry your code, see wiki
   def gmaps4rails_address
     "#{self.address}, #{self.city.name}, #{self.city.country.name}"
   end
@@ -42,5 +41,20 @@ class Event < ActiveRecord::Base
     "width" => "32",
     "height" => "32"
    }
+  end
+  
+  def weather
+    Barometer.google_geocode_key = "ABQIAAAAkL8Sj3wtXBYcuftZ8wb4UBQhNMPAV3DsEOaCg1R_7cZ76nRoThSXibb4kLuzvHipgIom_C8VtxOfbw"
+    barometer = Barometer.new("#{self.city.name}, #{self.city.country.name}")
+    weather = barometer.measure
+    forecast = weather.for(self.starts_at)
+
+    icon = if ['flurries','rain','sleet','snow','tstorms','nt_flurries','nt_rain','nt_sleet', 'nt_snow','nt_tstorms','chancerain','chancetstorms'].include? forecast.icon
+      'rain'
+    else #!clear !mostlysunny !partlysunny !sunny partlycloudy
+      forecast.icon
+    end
+    
+    return {:high => forecast.high.c, :icon => icon}     
   end
 end
