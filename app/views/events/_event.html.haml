@@ -4,7 +4,7 @@
 			.time_left.button
 				=distance_of_time_in_short_words(event.starts_at)
 			.assistants.button
-				%span=event.users_count
+				%span=event.attendances.size
 				assistans
 		.event_info
 			%h3=link_to event.name, event_path(event)

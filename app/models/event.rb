@@ -12,6 +12,8 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :city
   has_many :users
+  has_many :attendances
+  has_many :attenders, :through => :attendances, :source => :user
   
   scope :recent, :order => "starts_at DESC"
   scope :from_now, :order => "starts_at DESC", :conditions => ["starts_at > ?", Time.now]
