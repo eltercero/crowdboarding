@@ -18,42 +18,58 @@ body
 		border-bottom: 4px solid $countercrowdboarding
 		#header
 			@include grid-system(24)
+			@include clearfix
 			color: $almost_white
 			height: 40px
-			ul
-				text-align: right
-				padding-top: 12px
-				float: right
-				li
-					float: left
-				li.highlighted a
-					@include gray_button
-				li.highlighted_plus a
-					@include gray_button_plus
-					span
-						background-image: url("../images/icons/plus_12.png")
-						background-position: 0 0
-						background-repeat: no-repeat
-						width: 16px
-						padding-left: 20px
-				li.small a
-					font-size: 0.9em
-					color: $gray_for_texts
+			#title
+				@include grid(8)
+				@include alpha
+			#header_info
+				@include grid(16)
+				@include omega
+				ul
+					text-align: right
+					float: right
+					li
+						padding-top: 12px
+						float: left
+						margin-left: 25px
+					li.avatar	
+						padding-top: 9px
+						margin-left: 5px
+					li.avatar img
+						@include border-radius(2px)
+					li.highlighted a
+						@include gray_button
+					li.highlighted_plus a
+						@include gray_button_plus
+						span
+							background-image: url("../images/icons/plus_12.png")
+							background-position: 0 0
+							background-repeat: no-repeat
+							width: 16px
+							padding-left: 20px
+					li.small a
+						font-size: 0.9em
+						color: $gray_for_big_texts
 				
 	#wrapper_nav
 		background-color: $dirty_white
-		ul
+		#navigation
 			@include grid-system(24)
-			margin-bottom: 0px
 			height: 27px
-			li
-				margin-left: 0
-				margin-right: 10px
-				float: left
-				padding-right: 15px
-			li.selected
-				border-bottom: 2px solid $countercrowdboarding
-				margin-bottom: -2px
+			ul
+				@include grid(24)
+				@include alpha
+				margin-bottom: 0px
+				li
+					margin-left: 0
+					margin-right: 10px
+					float: left
+					padding-right: 15px
+				li.selected
+					border-bottom: 2px solid $countercrowdboarding
+					margin-bottom: -2px
 	#wrapper_splash
 		background: url("../images/bg/splash.png") $almost_black
 		height: 270px
@@ -67,8 +83,8 @@ body
 				@include grid(15)
 				@include omega
 				text-align: right
-				margin-top: 15px
 				span.title
+					margin-top: 16px
 					font-size: 6em
 					display: block
 					font-weight: bold
@@ -103,7 +119,10 @@ body
 						border-bottom: 2px solid $almost_black
 					h2.red_bottom
 						border-bottom: 2px solid $countercrowdboarding
-						
+			.info_block_alpha
+				@include alpha
+			.info_block_omega
+				@include omega
 					
 			
 			
