@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   
   has_attached_file :avatar, 
                     :styles => { :thumb => "220x220>", :small => "35x35>" },
-                    :default_url => "missing_images/users/avatars/missing_:style.png",
+                    :default_url => "missing_images/avatars/missing_:style.png",
                     :storate => :s3,
                     :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",    
                     :path => "public/images/users/avatars/:id/:style.:extension",
