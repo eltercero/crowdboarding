@@ -10,7 +10,7 @@
   font-size: 1.3em;
 }
 /* line 16, ../../app/stylesheets/user.sass */
-#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .block img.friend_avatar {
+#wrapper_main_content #main_content #left_sidebar .left_sidebar_info .block img {
   margin: 0px;
   padding: 0px;
 }
