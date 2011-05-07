@@ -1,6 +1,6 @@
 class AddRelationshipsBetweenUsers < ActiveRecord::Migration
   def self.up
-    create_table :relationships, :force => true, :id => false do |t|
+    create_table :relationships, :force => true do |t|
       t.integer :user_id, :null => false
       t.integer :related_user_id, :null => false
       t.string :type, :limit => 32

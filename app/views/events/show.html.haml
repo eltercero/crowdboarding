@@ -15,8 +15,8 @@
 			- if user_signed_in?
 				.event_highlights
 					.attendance
-						- if current_user.is_attending? @event
-							=link_to raw("<span>Attending</span>"), attendance_path(@event.id), :class => "stop_attending", :method => :delete
+						- if @attendance.present?
+							=link_to raw("<span>Attending</span>"), attendance_path(@attendance.id), :class => "stop_attending", :method => :delete
 						- else
 							=link_to raw("<span>Join the event</span>"), attendances_path(@event), :class => "attend_link", :method => :post
 			.event_highlights
@@ -34,12 +34,12 @@
 			.event_highlights.last
 				%h4 days left
 				= distance_of_time_in_short_words(@event.starts_at)
-					
+
 :javascript
 	$(document).ready(function() {
 		$("a.stop_attending").bind("mouseenter",function(){
-			$(this).html("<span>Stop Attending</span>");
+			$(this).find('span').html("Stop Attending");
 		}).bind("mouseleave",function(){
-			$(this).html("<span>Attending</span>");
+			$(this).find('span').html("Attending");
 		}); 
 	});
