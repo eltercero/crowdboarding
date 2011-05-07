@@ -4,7 +4,7 @@
 		%p.address
 			=@event.address
 			=display_location_info(@event.city)
-		%p.starts_at=@event.starts_at
+		%p.starts_at=relative_date(@event.starts_at)
 	= render :partial => 'map', :locals => {:json => @json}
 	- if @event.description
 		%h3 Description

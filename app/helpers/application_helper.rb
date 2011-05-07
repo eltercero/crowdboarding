@@ -11,6 +11,20 @@ module ApplicationHelper
     "selected" if controller_name == "riders"
   end
   
+  def relative_date(date)
+    event_time = date.to_time
+    today = Time.now
+    if event_time < today || (today+6.days) < event_time#left
+      return date
+    else #ago
+      if today.wday == event_time.wday
+        "Today, "+event_time.strftime("%H:%M")
+      else
+        "Next "+event_time.strftime("%A")+", "+event_time.strftime("%H:%M")
+      end
+    end
+  end
+  
   def distance_of_time_in_short_words(starts_at)
     ago_or_left = starts_at > Time.now ? "left" : "ago"
     distance_in_seconds = ((Time.now - starts_at).abs).round
