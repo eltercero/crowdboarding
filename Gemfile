@@ -12,10 +12,11 @@ gem 'compass'
 gem 'compass-960-plugin'
 gem 'typus', :git => 'https://github.com/fesplugas/typus.git'
 gem 'ancestry'
+gem 'gmaps4rails'
+gem "paperclip"
 # Temperary test data generators
 gem 'populator'
 gem 'faker'
-gem 'gmaps4rails'
 
 group :development, :test do
   gem 'hpricot'

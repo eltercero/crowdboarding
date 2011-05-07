@@ -82,13 +82,18 @@ ActiveRecord::Schema.define(:version => 20110425193506) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "name"
+    t.string   "name",                   :limit => 100
     t.string   "nickname",               :limit => 40
     t.text     "bio"
     t.text     "quiver"
     t.date     "birthdate"
     t.integer  "default_city_id"
     t.integer  "profile_views",                         :default => 0
+    t.string   "users"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

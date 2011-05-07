@@ -10,13 +10,19 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.confirmable
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
       # t.token_authenticatable
-      t.string :name
+      t.string :name, :limit => 100
       t.string :nickname, :limit => 40
       t.text :bio
       t.text :quiver
       t.date :birthdate
       t.integer :default_city_id
       t.integer :profile_views, :default => 0
+      
+      t.string :users, :avatar_file_name
+      t.string :users, :avatar_content_type
+      t.integer :users, :avatar_file_size
+      t.datetime :users, :avatar_updated_at
+      
       t.timestamps
     end
 
