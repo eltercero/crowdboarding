@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :related_users, :through => :relationships
   has_many :inverse_relationships, :class_name => "Relationship", :foreign_key => "related_user_id"
   has_many :inverse_related_users, :through => :inverse_relationships, :source => :user
+  has_many :attendances
+  has_many :events_attended, :through => :attendances, :source => :event
   belongs_to :default_city, :class_name => 'City'
   
   has_attached_file :avatar, 
@@ -36,6 +38,10 @@ class User < ActiveRecord::Base
   
   def is_a_friend?(user)
     Relationship.exists?(:user_id => self, :related_user_id => user)
+  end
+  
+  def is_attending?(event)
+    Attendance.exists?(:user_id => self, :event_id => event)
   end
   
   private

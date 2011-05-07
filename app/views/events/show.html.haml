@@ -12,6 +12,13 @@
 - content_for :sidebar_right do
 	#sidebar.event
 		.sidebar_content
+			- if user_signed_in?
+				.event_highlights
+					.attendance
+						- if current_user.is_attending? @event
+							=link_to raw("<span>Attending</span>"), attendance_path(@event.id), :class => "stop_attending", :method => :delete
+						- else
+							=link_to raw("<span>Join the event</span>"), attendances_path(@event), :class => "join_link", :method => :post
 			.event_highlights
 				.event_highlight.left
 					=distance_of_time_in_short_words(@event.starts_at)
@@ -23,3 +30,12 @@
 				.event_highlight
 					%span.temp 30&deg;
 					sunny
+					
+:javascript
+	$(document).ready(function() {
+		$("a.stop_attending").bind("mouseenter",function(){
+			$(this).html("<span>Stop Attending</span>");
+		}).bind("mouseleave",function(){
+			$(this).html("<span>Attending</span>");
+		}); 
+	});

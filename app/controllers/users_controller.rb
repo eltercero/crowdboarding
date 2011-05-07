@@ -8,6 +8,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @friends = @user.related_users
+    @events_created = @user.events
+    @events_attended = @user.events_attended
   end
   
   def edit

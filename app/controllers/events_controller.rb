@@ -14,6 +14,7 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
+    @is_attending = current_user.is_attending?@event
     @json = @event.to_gmaps4rails
 
     respond_to do |format|

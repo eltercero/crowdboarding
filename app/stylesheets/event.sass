@@ -1,6 +1,7 @@
 @import "compass/css3/border-radius"
 @import "support/colors"
 @import "compass/utilities/general/clearfix"
+@import "support/mixins"
 
 // Inherited by all events
 .event
@@ -62,3 +63,49 @@
 				margin-top: 5px
 	.event_highlights.first
 		margin-top: 0 !important
+	.attendance			
+		text-align: center
+		margin-bottom: 20px
+		a.attend_link
+			@include linear-gradient(color-stops($crowdboarding, $dark_crowdboarding))
+			@include border-radius(5px)
+			color: $almost_white
+			text-decoration: none
+			font-weight: bolder
+			padding: 5px 10px
+			span
+				background-image: url("../images/icons/plus_12w.png")
+				background-position: 0 2px
+				background-repeat: no-repeat
+				width: 16px
+				padding-left: 20px
+		a.attend_link:hover
+			@include linear-gradient(color-stops($dark_crowdboarding, $crowdboarding))
+		a.stop_attending
+			@include linear-gradient(color-stops($almost_black, #6a6a6a))
+			@include border-radius(5px)
+			color: $almost_white
+			text-decoration: none
+			font-weight: bolder
+			padding: 5px 10px
+			span
+				background-image: url("../images/icons/check_16.png")
+				background-position: 0 2px
+				background-repeat: no-repeat
+				width: 16px
+				padding-left: 20px
+		a.stop_attending:hover
+			@include linear-gradient(color-stops($light_countercrowdboarding, $countercrowdboarding))
+			@include border-radius(5px)
+			color: $almost_white
+			text-decoration: none
+			font-weight: bolder
+			padding: 5px 10px
+			span
+				background-image: url("../images/icons/x_14.png")
+				background-position: 0 2px
+				background-repeat: no-repeat
+				width: 16px
+				padding-left: 20px
+		
+		

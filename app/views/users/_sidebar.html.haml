@@ -6,7 +6,7 @@
 				=link_to 'edit', edit_user_registration_path
 		-elsif user_signed_in?
 			- if current_user.is_a_friend?(@user)
-				="#{@user.nickname} es tu amigo"
+				="#{@user.nickname} is your friend"
 			-else
 				.add_as_a_friend
 					=link_to "Add as a friend", relationships_path(@user), :method => :post
@@ -23,16 +23,16 @@
 			.see_all
 				=link_to('see all', '#')
 		.block
-			%h4 events created (12)
+			%h4="events created (#{@events_created.size})"
 			%ul
-				- 5.times do
-					%li=link_to 'Random event'
+				- @events_created.each do |ec|
+					%li=link_to ec.name, event_path(ec)
 			.see_all
-				=link_to('see all', '#')
+				=link_to('see all', '#') unless @events_created.blank?
 		.block.last_block
-			%h4 events assisted (26)
+			%h4="events attended (#{@events_attended.size})"
 			%ul
-				-5.times do
-					%li=link_to 'Random event'
+				-@events_attended.each do |ea|
+					%li=link_to ea.name, event_path(ea) 
 			.see_all
-				=link_to('see all', '#')
+				=link_to('see all', '#') unless @events_attended.blank?
