@@ -13,6 +13,7 @@ gem 'compass-960-plugin'
 gem 'typus', :git => 'https://github.com/fesplugas/typus.git'
 gem 'ancestry'
 gem 'gmaps4rails'
+gem 'aws-s3'
 gem "paperclip"
 # Temperary test data generators
 gem 'populator'
