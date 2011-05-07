@@ -20,7 +20,7 @@
 						- else
 							=link_to raw("<span>Join the event</span>"), attendances_path(@event), :class => "attend_link", :method => :post
 			.event_highlights
-				.event_highlight.left= image_tag "weather_icons/#{@weather[:icon]}.png", :widht => 75, :height => 57
+				.event_highlight.left= image_tag "weather_icons/#{@weather[:icon]}.png", :widht => 80, :height => 80
 				.event_highlight
 					%span.temp="#{@weather[:high]}º";
 				%p="#{@weather[:icon]}"

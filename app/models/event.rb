@@ -49,12 +49,16 @@ class Event < ActiveRecord::Base
     weather = barometer.measure
     forecast = weather.for(self.starts_at)
 
-    icon = if ['flurries','rain','sleet','snow','tstorms','nt_flurries','nt_rain','nt_sleet', 'nt_snow','nt_tstorms','chancerain','chancetstorms'].include? forecast.icon
-      'rain'
-    else #!clear !mostlysunny !partlysunny !sunny partlycloudy
-      forecast.icon
+    if forecast.nil?
+      return {:high => 'n/a', :icon => 'unknown'}
+    else
+      icon = if ['nt_flurries','nt_rain','nt_sleet', 'nt_snow','nt_tstorms','chancerain','chancetstorms'].include? forecast.icon
+        'rain'
+      else #!clear !mostlysunny !partlysunny !sunny partlycloudy
+        forecast.icon
+      end
+
+      return {:high => forecast.high.c, :icon => icon}     
     end
-    
-    return {:high => forecast.high.c, :icon => icon}     
   end
 end
