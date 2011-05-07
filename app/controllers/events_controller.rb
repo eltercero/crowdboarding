@@ -14,11 +14,6 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
-<<<<<<< HEAD
-=======
-    @attendance = current_user.attendance(@event)
-    
->>>>>>> e6e344c3a3acf6723a19a726a9a5b54926d27818
     @json = @event.to_gmaps4rails
     @attenders = @event.attenders
     @weather = @event.weather
