@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, 
                     :styles => { :thumb => "220x220>", :small => "35x35>" },
                     :default_url => "missing_images/avatars/missing_:style.png",
-                    :storate => :s3,
+                    :storage => :s3,
                     :path => "public/images/users/avatars/:id/:style.:extension",
                     :bucket => "onlinegeschenkenwinkel-#{RAILS_ENV}",
                     :s3_credentials => {
