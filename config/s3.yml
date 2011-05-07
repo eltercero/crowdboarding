@@ -1,0 +1,15 @@
+development:
+  access_key_id: AKIAIIRSRZPHDO6V6PFQ
+  secret_access_key: RswYqgz7sqgG2n5vE3cb0zkhfwqXtziiWfKKyctU
+
+test:
+  access_key_id: <your key>
+  secret_access_key: <your key>
+
+production:
+  access_key_id: AKIAIIRSRZPHDO6V6PFQ
+  secret_access_key: RswYqgz7sqgG2n5vE3cb0zkhfwqXtziiWfKKyctU
+
+cucumber:
+  access_key_id: AKIAIIRSRZPHDO6V6PFQ
+  secret_access_key: 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
