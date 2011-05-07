@@ -5,18 +5,21 @@
 			.edit_button
 				=link_to 'edit', edit_user_registration_path
 		-elsif user_signed_in?
-			.add_as_a_friend
-				=link_to "Add as a friend", '#'
+			- if current_user.is_a_friend?(@user)
+				="#{@user.nickname} es tu amigo"
+			-else
+				.add_as_a_friend
+					=link_to "Add as a friend", relationships_path(@user), :method => :post
 		.block.first_block
 			-if @user.default_city.present?
 				%p=raw("#{image_tag('icons/home_12.png')} #{@user.default_city.get_city_and_country}")
 			-if @user.birthdate.present?
 				%p=raw("#{image_tag('icons/calendar_12.png')} #{@user.get_age} years old")
 		.block
-			%h4 friends (108)
+			%h4="friends (#{@friends.size})"
 			.avatars
-				-9.times do
-					=image_tag("missing_images/avatars/missing_small.png")
+				-@friends.each do |f|
+					=link_to raw("#{image_tag f.avatar(:small), :width => 25, :height => 25}"), user_path(f)
 			.see_all
 				=link_to('see all', '#')
 		.block

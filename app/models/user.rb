@@ -9,11 +9,15 @@ class User < ActiveRecord::Base
   
   attr_accessible :name, :nickname, :default_city_id, :birthdate, 
                   :bio, :quiver, :email, :password, :avatar,
-                  :password_confirmation, :remember_me
+                  :password_confirmation, :remember_me, :id
   
   before_create :downcase_email, :create_nickname
   
   has_many :events
+  has_many :relationships
+  has_many :related_users, :through => :relationships
+  has_many :inverse_relationships, :class_name => "Relationship", :foreign_key => "related_user_id"
+  has_many :inverse_related_users, :through => :inverse_relationships, :source => :user
   belongs_to :default_city, :class_name => 'City'
   
   has_attached_file :avatar, 
@@ -28,6 +32,10 @@ class User < ActiveRecord::Base
   
   def get_age
     ((Time.now - self.birthdate.to_time)/1.year).to_i
+  end
+  
+  def is_a_friend?(user)
+    Relationship.exists?(:user_id => self, :related_user_id => user)
   end
   
   private

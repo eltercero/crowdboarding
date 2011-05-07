@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   # GET /events/1
   def show
     @user = User.find(params[:id])
+    @friends = @user.related_users
   end
   
   def edit
