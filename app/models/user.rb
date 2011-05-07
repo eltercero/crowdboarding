@@ -20,9 +20,11 @@ class User < ActiveRecord::Base
                     :styles => { :thumb => "220x220>", :small => "35x35>" },
                     :default_url => "missing_images/avatars/missing_:style.png",
                     :storate => :s3,
-                    :s3_credentials => "#{RAILS_ROOT}/config/s3.yml",    
                     :path => "public/images/users/avatars/:id/:style.:extension",
                     :bucket => "onlinegeschenkenwinkel-#{RAILS_ENV}"
+                    :s3_credentials => {
+                          :access_key_id => 'AKIAIIRSRZPHDO6V6PFQ',
+                          :secret_access_key => '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'
   
   def get_age
     ((Time.now - self.birthdate.to_time)/1.year).to_i
