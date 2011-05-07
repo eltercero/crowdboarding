@@ -24,13 +24,19 @@
 					=distance_of_time_in_short_words(@event.starts_at)
 				.event_highlight.right
 					assistans
-					%span=@event.attendances.size
+					%span=@event.attendances.count
 			.event_highlights
 				.event_highlight.left= image_tag "icons/weather/sun.png"
 				.event_highlight
 					%span.temp 30&deg;
 					sunny
-					
+			-if @event.attendances.present?
+				.event_highlights
+					%h4 Attendencies(#{@event.attendances.count})
+					- @event.attendances.each do |attendance|
+						.attendance
+							=image_tag current_user.avatar(:small)
+				
 :javascript
 	$(document).ready(function() {
 		$("a.stop_attending").bind("mouseenter",function(){
