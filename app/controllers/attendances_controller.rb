@@ -4,16 +4,17 @@ class AttendancesController < ApplicationController
     @event = Event.find params[:format]
     @attendance = current_user.attendances.build(:event_id => params[:format])
     if @attendance.save
-      redirect_to event_path(@event)
+      redirect_to @event
     else
       redirect_to root_url
     end
   end
   
   def destroy
-    @attendance = Attendance.find(:all, :conditions => ["event_id = ? AND user_id = #{current_user.id}", params[:id]]).first
+    @attendance = current_user.attendances.find(params[:id])
+    event = @attendance.event
     @attendance.destroy
     
-    redirect_to current_user
+    redirect_to event
   end
 end

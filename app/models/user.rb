@@ -40,8 +40,8 @@ class User < ActiveRecord::Base
     Relationship.exists?(:user_id => self, :related_user_id => user)
   end
   
-  def is_attending?(event)
-    Attendance.exists?(:user_id => self, :event_id => event)
+  def attendance(event)
+    @attendance ||= self.attendances.where(:event_id => event.id).try(:first)
   end
   
   private

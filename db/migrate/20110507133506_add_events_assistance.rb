@@ -1,6 +1,6 @@
 class AddEventsAssistance < ActiveRecord::Migration
   def self.up
-    create_table :attendances, :force => true, :id => false do |t|
+    create_table :attendances, :force => true do |t|
       t.integer :user_id
       t.integer :event_id
       t.timestamps
