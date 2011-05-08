@@ -1,0 +1,3 @@
+%h2= "Friends of #{@user.nickname}"
+.users
+	= render :partial => "users/user", :collection => @users

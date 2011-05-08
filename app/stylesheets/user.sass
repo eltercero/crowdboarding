@@ -2,8 +2,23 @@
 @import "support/colors"
 @import "compass/utilities/general/clearfix"
 @import "support/mixins"
+
 #wrapper_main_content
 	#main_content
+		.users
+			.user
+				float: left
+				width: 220px
+				margin: 0px 10px 10px 0px
+				.avatar
+					height: 220px
+				.info
+					background: $dirty_white
+					padding: 10px 5px
+					height: 25px
+					.name
+						font-size: 1.3em
+						font-weight: normal
 		#left_sidebar
 			.left_sidebar_info
 				.block

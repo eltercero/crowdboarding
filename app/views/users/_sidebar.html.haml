@@ -21,7 +21,7 @@
 				-@friends[0..20].each do |f|
 					=link_to raw("#{image_tag f.avatar(:small), :width => 25, :height => 25, :title => f.nickname}"), user_path(f)
 			.see_all
-				=link_to('see all', '#') unless @friends.blank?
+				=link_to('see all', relationships_path(@user)) unless @friends.blank?
 		.block
 			%h4="events created (#{@events_created.size})"
 			%ul

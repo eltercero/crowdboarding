@@ -1,2 +1,6 @@
 .user
-	=link_to user.name, user_path(user)
+	.avatar
+		= image_tag user.avatar(:thumb)
+	.info
+		.name
+			=link_to user.nickname, user_path(user)

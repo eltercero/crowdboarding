@@ -1,4 +1,10 @@
 class RelationshipsController < ApplicationController
+  def index
+    @user = User.find params[:format]
+    @users = @user.related_users  
+    
+  end
+  
   # POST /create
   def create
     @relationship = current_user.relationships.build(:related_user_id => params[:format])

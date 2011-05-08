@@ -5,7 +5,7 @@ Crowdboarding::Application.routes.draw do
   
   # Resources
   resources :events
-  resources :relationships, :only => [:create, :destroy]
+  resources :relationships, :only => [:create, :destroy, :index]
   resources :attendances, :only => [:create, :destroy]
     
   # Static pages

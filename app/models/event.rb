@@ -44,10 +44,14 @@ class Event < ActiveRecord::Base
   end
   
   def weather
-    Barometer.google_geocode_key = "ABQIAAAAkL8Sj3wtXBYcuftZ8wb4UBQhNMPAV3DsEOaCg1R_7cZ76nRoThSXibb4kLuzvHipgIom_C8VtxOfbw"
-    barometer = Barometer.new("#{self.city.name}, #{self.city.country.name}")
-    weather = barometer.measure
-    forecast = weather.for(self.starts_at)
+    begin
+      Barometer.google_geocode_key = "ABQIAAAAkL8Sj3wtXBYcuftZ8wb4UBQhNMPAV3DsEOaCg1R_7cZ76nRoThSXibb4kLuzvHipgIom_C8VtxOfbw"
+      barometer = Barometer.new("#{self.city.name}, #{self.city.country.name}")
+      weather = barometer.measure
+      forecast = weather.for(self.starts_at)
+    rescue 
+      forecast = nil
+    end
 
     if forecast.nil?
       return {:high => 'n/a', :icon => 'unknown'}

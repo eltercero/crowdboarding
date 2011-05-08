@@ -1,4 +1,4 @@
 %h2 Riders
 = paginate @users
-.riders
-	= render :partial => "users/user", :collection => @users
+.users
+	= render :partial => "users/mini_user", :collection => @users
