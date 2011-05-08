@@ -25,14 +25,14 @@
 		.block
 			%h4="events created (#{@user.events.try(:count)})"
 			%ul
-				- @user.events.each do |ec|
-					%li=link_to ec.name, event_path(ec)
+				- @user.events.each do |event|
+					%li=link_to event.name, event_path(event)
 			.see_all
 				=link_to('see all', '#') if @user.events.present?
 		.block.last_block
 			%h4="events attended (#{@user.events_attended.try(:count)})"
 			%ul
-				-@user.events_attended.each do |ea|
-					%li=link_to ea.name, event_path(ea) 
+				-@user.events_attended.each do |event|
+					%li=link_to event.name, event_path(event) 
 			.see_all
 				=link_to('see all', '#') if @user.events_attended.present?
