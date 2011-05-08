@@ -1,4 +1,4 @@
-class AddEventsAssistance < ActiveRecord::Migration
+class CreateAttendances < ActiveRecord::Migration
   def self.up
     create_table :attendances, :force => true do |t|
       t.integer :user_id
@@ -12,6 +12,7 @@ class AddEventsAssistance < ActiveRecord::Migration
 
   def self.down
     remove_index :attendances, :user_id
+    remove_index :attendances, :event_id
     
     drop_table :attendances
   end

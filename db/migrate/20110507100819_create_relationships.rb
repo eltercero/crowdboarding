@@ -1,4 +1,4 @@
-class AddRelationshipsBetweenUsers < ActiveRecord::Migration
+class CreateRelationships < ActiveRecord::Migration
   def self.up
     create_table :relationships, :force => true do |t|
       t.integer :user_id, :null => false
