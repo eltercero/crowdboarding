@@ -18,21 +18,21 @@
 		.block
 			%h4="friends (#{@friends.size})"
 			.avatars
-				-@friends[0..20].each do |f|
+				-@friends.each do |f|
 					=link_to raw("#{image_tag f.avatar(:small), :width => 25, :height => 25, :title => f.nickname}"), user_path(f)
 			.see_all
 				=link_to('see all', relationships_path(@user)) unless @friends.blank?
 		.block
 			%h4="events created (#{@events_created.size})"
 			%ul
-				- @events_created.each do |ec|
+				- @user.events.each do |ec|
 					%li=link_to ec.name, event_path(ec)
 			.see_all
 				=link_to('see all', '#') unless @events_created.blank?
 		.block.last_block
 			%h4="events attended (#{@events_attended.size})"
 			%ul
-				-@events_attended.each do |ea|
+				-@user.events_attended.each do |ea|
 					%li=link_to ea.name, event_path(ea) 
 			.see_all
 				=link_to('see all', '#') unless @events_attended.blank?

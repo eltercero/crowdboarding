@@ -1,8 +1,7 @@
 class RelationshipsController < ApplicationController
+  # GET /relationships
   def index
-    @user = User.find params[:format]
-    @users = @user.related_users  
-    
+    @user = User.find params[:format]    
   end
   
   # POST /create
