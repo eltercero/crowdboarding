@@ -9,7 +9,7 @@
 				="#{@user.nickname} is your friend"
 			-else
 				.add_as_a_friend
-					=link_to "Add as a friend", relationships_path(@user), :method => :post
+					=link_to "Add as a friend", relationships_path(:user_id => @user), :method => :post
 		.block.first_block
 			-if @user.default_city.present?
 				%p=raw("#{image_tag('icons/home_12.png')} #{@user.default_city.get_city_and_country}")
@@ -21,18 +21,18 @@
 				-@friends.each do |f|
 					=link_to raw("#{image_tag f.avatar(:small), :width => 25, :height => 25, :title => f.nickname}"), user_path(f)
 			.see_all
-				=link_to('see all', relationships_path(@user)) unless @friends.blank?
+				=link_to('see all', relationships_path(:user_id => @user)) unless @friends.blank?
 		.block
-			%h4="events created (#{@events_created.size})"
+			%h4="events created (#{@user.events.try(:count)})"
 			%ul
 				- @user.events.each do |ec|
 					%li=link_to ec.name, event_path(ec)
 			.see_all
-				=link_to('see all', '#') unless @events_created.blank?
+				=link_to('see all', '#') if @user.events.present?
 		.block.last_block
-			%h4="events attended (#{@events_attended.size})"
+			%h4="events attended (#{@user.events_attended.try(:count)})"
 			%ul
 				-@user.events_attended.each do |ea|
 					%li=link_to ea.name, event_path(ea) 
 			.see_all
-				=link_to('see all', '#') unless @events_attended.blank?
+				=link_to('see all', '#') if @user.events_attended.present?

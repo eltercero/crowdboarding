@@ -1,12 +1,13 @@
 class AttendancesController < ApplicationController
   # POST /create
   def create
-    @event = Event.find params[:format]
-    @attendance = current_user.attendances.build(:event_id => params[:format])
+    @event = Event.find(params[:event_id])
+    @attendance = current_user.attendances.build(:event_id => @event.id)
     if @attendance.save
       redirect_to @event
     else
-      redirect_to root_url
+      flash[:error] = "Error"
+      redirect_to @event
     end
   end
   

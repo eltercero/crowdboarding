@@ -18,7 +18,7 @@
 						- if @attendance.present?
 							=link_to raw("<span>Attending</span>"), attendance_path(@attendance.id), :class => "stop_attending", :method => :delete
 						- else
-							=link_to raw("<span>Join the event</span>"), attendances_path(@event), :class => "attend_link", :method => :post
+							=link_to raw("<span>Join the event</span>"), attendances_path(:event_id => @event.id), :class => "attend_link", :method => :post
 			.event_highlights
 				.event_highlight.left= image_tag "weather_icons/#{@weather[:icon]}.png", :widht => 80, :height => 80
 				.event_highlight
