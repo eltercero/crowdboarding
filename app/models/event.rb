@@ -14,6 +14,7 @@ class Event < ActiveRecord::Base
   has_many :users
   has_many :attendances
   has_many :attenders, :through => :attendances, :source => :user
+  has_many :comments, :as => :commentable
   
   scope :recent, :order => "starts_at DESC"
   scope :from_now, :order => "starts_at DESC", :conditions => ["starts_at > ?", Time.now]

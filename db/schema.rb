@@ -47,11 +47,14 @@ ActiveRecord::Schema.define(:version => 20110507133506) do
     t.integer  "user_id"
     t.string   "ancestry"
     t.text     "body"
+    t.integer  "commentable_id"
+    t.string   "commentable_type", :limit => 14
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "comments", ["ancestry"], :name => "index_comments_on_ancestry"
+  add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "countries", :force => true do |t|

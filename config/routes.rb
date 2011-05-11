@@ -4,7 +4,9 @@ Crowdboarding::Application.routes.draw do
   resources :users, :only => [:show, :index, :update]
   
   # Resources
-  resources :events
+  resources :events do
+    resources :comments, :only => [:index, :create]
+  end
   resources :friendships, :only => [:create, :destroy, :index]
   resources :attendances, :only => [:create, :destroy]
     

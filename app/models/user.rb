@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
     @attendance ||= self.attendances.where(:event_id => event.id).try(:first)
   end
   
+  def print_name
+    nickname || name
+  end
+  
   private
   
     def downcase_email
