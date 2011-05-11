@@ -81,16 +81,16 @@ ActiveRecord::Schema.define(:version => 20110507133506) do
 
   add_index "events", ["city_id"], :name => "index_events_on_city_id"
 
-  create_table "relationships", :force => true do |t|
-    t.integer  "user_id",                       :null => false
-    t.integer  "related_user_id",               :null => false
-    t.string   "type",            :limit => 32
+  create_table "friendships", :force => true do |t|
+    t.integer  "user_id",                  :null => false
+    t.integer  "friend_id",                :null => false
+    t.string   "type",       :limit => 10
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "relationships", ["related_user_id"], :name => "index_relationships_on_related_user_id"
-  add_index "relationships", ["user_id"], :name => "index_relationships_on_user_id"
+  add_index "friendships", ["friend_id"], :name => "index_friendships_on_friend_id"
+  add_index "friendships", ["user_id"], :name => "index_friendships_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false
