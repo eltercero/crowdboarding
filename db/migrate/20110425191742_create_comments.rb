@@ -14,7 +14,7 @@ class CreateComments < ActiveRecord::Migration
   end
 
   def self.down
-    # remove_index :comments, :name => :index_comments_on_commentable
+    remove_index :comments, :name => :index_comments_on_commentable
     remove_index :comments, :ancestry
     remove_index :comments, :user_id
     drop_table :comments
