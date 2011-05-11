@@ -14,6 +14,7 @@ Crowdboarding::Application.routes.draw do
   match 'contact' => 'home#contact', :as => :contact
   match 'about' => 'home#about', :as => :about
   
+  match 'change_local/:local' => 'application#change_local', :as => :change_local
   # Root route
   root :to => "home#index"
 
