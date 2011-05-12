@@ -14,10 +14,10 @@ class User < ActiveRecord::Base
   before_create :downcase_email, :create_nickname
   
   has_many :events
-  has_many :relationships
-  has_many :related_users, :through => :relationships
-  has_many :inverse_relationships, :class_name => "Relationship", :foreign_key => "related_user_id"
-  has_many :inverse_related_users, :through => :inverse_relationships, :source => :user
+  has_many :friendships
+  has_many :friends, :through => :friendships
+  has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+  has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   has_many :attendances
   has_many :events_attended, :through => :attendances, :source => :event
   belongs_to :default_city, :class_name => 'City'
@@ -37,11 +37,15 @@ class User < ActiveRecord::Base
   end
   
   def is_a_friend?(user)
-    Relationship.exists?(:user_id => self, :related_user_id => user)
+    Friendship.exists?(:user_id => self, :friend_id => user)
   end
   
   def attendance(event)
     @attendance ||= self.attendances.where(:event_id => event.id).try(:first)
+  end
+  
+  def print_name
+    nickname || name
   end
   
   private

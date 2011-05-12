@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   # GET /events/1
   def show
     @user = User.find(params[:id])
-    @friends = @user.related_users.limit(20)
+    @friends = @user.friends.limit(20)
   end
   
   def edit

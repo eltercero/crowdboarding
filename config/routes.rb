@@ -4,14 +4,17 @@ Crowdboarding::Application.routes.draw do
   resources :users, :only => [:show, :index, :update]
   
   # Resources
-  resources :events
-  resources :relationships, :only => [:create, :destroy, :index]
+  resources :events do
+    resources :comments, :only => [:index, :create]
+  end
+  resources :friendships, :only => [:create, :destroy, :index]
   resources :attendances, :only => [:create, :destroy]
     
   # Static pages
   match 'contact' => 'home#contact', :as => :contact
   match 'about' => 'home#about', :as => :about
   
+  match 'change_local/:local' => 'application#change_local', :as => :change_local
   # Root route
   root :to => "home#index"
 

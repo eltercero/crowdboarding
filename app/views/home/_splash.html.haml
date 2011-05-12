@@ -2,8 +2,8 @@
 	= image_tag 'splash.png'
 .splash_text
 	%span.title
-		the more,<br/> the better
+		= sanitize(t('header.title'))
 	%span.subtitle
-		find people for riding with your longboard the easy way
+		= t('header.subtitle')
 	%span.join
 		%p=link_to "Join now »", new_user_registration_path

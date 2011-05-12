@@ -5,10 +5,24 @@
 			=@event.address
 			=display_location_info(@event.city)
 		%p.starts_at=relative_date(@event.starts_at)
+		%p.started_by
+			Started by: #{@event.user.print_name}
 	= render :partial => 'map', :locals => {:json => @json}
 	- if @event.description
 		%h3 Description
-		=simple_format(sanitize(@event.description) )
+		=simple_format(sanitize(@event.description))
+	- if @event.comments
+		%h2 Comments
+		.comments
+			= render @event.comments
+	- if user_signed_in?
+		%h2 New Comment (as #{ current_user.print_name })
+		= semantic_form_for [@event, Comment.new] do |f|
+			= f.inputs do 
+				=f.input :body, :input_html => { :rows => 4 }
+			= f.buttons do
+				= f.commit_button
+
 - content_for :sidebar_right do
 	#sidebar.event
 		.sidebar_content

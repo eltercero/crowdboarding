@@ -14,6 +14,8 @@
 					%h1=link_to content_tag(:span, "Crowdboarding" ), root_path
 				#header_info
 					%ul
+						%li=link_to "Spanish", change_local_path("es")
+						%li=link_to "English", change_local_path("en")
 						- if user_signed_in?
 							%li.highlighted_plus=link_to raw("<span>Add Event</span>"), new_event_path
 							%li.small=link_to '(logout)', destroy_user_session_path
