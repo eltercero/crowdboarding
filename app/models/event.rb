@@ -45,14 +45,14 @@ class Event < ActiveRecord::Base
   
   def weather
     # We really need a rescue here? If so, please rescue with an exception
-    # begin
+    begin
       Barometer.google_geocode_key = "ABQIAAAAkL8Sj3wtXBYcuftZ8wb4UBQhNMPAV3DsEOaCg1R_7cZ76nRoThSXibb4kLuzvHipgIom_C8VtxOfbw"
       barometer = Barometer.new("#{self.city.name}, #{self.city.country.name}")
       weather = barometer.measure
       forecast = weather.for(self.starts_at)
-    # rescue 
-      # forecast = nil
-    # end
+    rescue ArgumentError 
+      forecast = nil
+    end
 
     if forecast.nil?
       return {:high => 'n/a', :icon => 'unknown'}
