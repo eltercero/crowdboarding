@@ -1,13 +1,16 @@
 class Event < ActiveRecord::Base
   validates :name, :presence => true, :length => { :maximum => 100 }
   validates :contact_details, :length => { :maximum => 100 }
-  validates :city, :presence => true
+  validates :city_id, :presence => true
   validates :starts_at, :presence => true
   validates :address, :presence => true
+  validate :minimum_tags
+  validate :maximum_tags
 
   acts_as_gmappable :lat => 'lat', :lng => "lng", :check_process => false
+  acts_as_taggable
   
-  attr_accessible :name, :description, :address, :lat, :lng, :city_id, :contact_details
+  attr_accessible :name, :description, :address, :lat, :lng, :city_id, :contact_details, :tag_tokens
   
   belongs_to :user
   belongs_to :city
@@ -15,6 +18,8 @@ class Event < ActiveRecord::Base
   has_many :attendances
   has_many :attenders, :through => :attendances, :source => :user
   has_many :comments, :as => :commentable
+  
+  attr_reader :tag_tokens
   
   scope :recent, :order => "starts_at DESC"
   scope :from_now, :order => "starts_at DESC", :conditions => ["starts_at > ?", Time.now]
@@ -29,11 +34,11 @@ class Event < ActiveRecord::Base
   end
   
   def gmaps4rails_address
-    "#{self.address}, #{self.city.name}, #{self.city.country.name}"
+    "#{self.address}, #{self.city.try(:name)}, #{self.city.try(:country).try(:name)}"
   end
   
   def gmaps4rails_infowindow
-    "<b>Longboard event</b><br/>#{self.address}, #{self.city.name}. <a href=''>#{self.user.nickname}</a>"
+    "<b>Longboard event</b><br/>#{self.address}, #{self.city.try(:name)}. <a href=''>#{self.user.nickname}</a>"
   end
   
   def gmaps4rails_marker_picture
@@ -67,4 +72,17 @@ class Event < ActiveRecord::Base
       return {:high => forecast.high.c, :icon => icon}     
     end
   end
+  
+  def tag_tokens=(tags)
+    self.tag_list = tags.try(:squeeze).try(:split, /(\s|,|,\s|\s,|\s,\s)/)
+  end
+  
+  private
+    def minimum_tags
+      self.errors.add(:tag_tokens, "we need at least 1 tag") if self.tag_list.length < 1
+    end
+    
+    def maximum_tags
+      self.errors.add(:tag_tokens, "maximal 5 tags allowed") if self.tag_list.length > 5
+    end
 end

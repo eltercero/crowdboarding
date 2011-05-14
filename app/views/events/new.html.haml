@@ -7,6 +7,7 @@
 		= f.input :city, :prompt => "Please select a city"
 		= f.input :address, :input_html => { :placeholder => "Enter the address" }
 		= f.input :contact_details, :input_html => { :placeholder => "Enter your contact details" }
+		= f.input :tag_tokens, :label => "Add tags", :as => :string
 	= f.inputs :id => "starts_at_datetime" do
 		= f.input :starts_at, :label => "Enter a date", :as => :string, :input_html => { :class => "datepicker date", :placeholder => "yyyy-mm-dd" }
 		%li

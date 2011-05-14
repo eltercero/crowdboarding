@@ -7,6 +7,8 @@
 		%p.starts_at=relative_date(@event.starts_at)
 		%p.started_by
 			Started by: #{@event.user.print_name}
+		%p.tags
+			Tags: #{@event.tag_list}
 	= render :partial => 'map', :locals => {:json => @json}
 	- if @event.description
 		%h3 Description
