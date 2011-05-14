@@ -19,6 +19,7 @@ gem "paperclip"
 gem 'populator'
 gem 'faker'
 gem 'barometer'
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'hpricot'
@@ -30,5 +31,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'mongrel', '1.2.0.pre2'
   gem 'sqlite3'
+  # gem 'pg'
   gem 'ruby-debug19'
 end
