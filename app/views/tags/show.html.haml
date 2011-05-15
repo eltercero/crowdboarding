@@ -1,5 +1,4 @@
 %h2 Events for #{@tag.name}
--@events.each do |event|
-	.event
-		=link_to event.name, event_path(event)
+.events
+	=render @events
 	
