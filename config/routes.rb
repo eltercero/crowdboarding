@@ -9,7 +9,7 @@ Crowdboarding::Application.routes.draw do
   end
   resources :friendships, :only => [:create, :destroy, :index]
   resources :attendances, :only => [:create, :destroy]
-  resources :tags, :only => [:index]
+  resources :tags, :only => [:index, :show]
     
   # Static pages
   match 'contact' => 'home#contact', :as => :contact

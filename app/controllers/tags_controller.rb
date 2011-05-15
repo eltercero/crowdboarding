@@ -6,4 +6,9 @@ class TagsController < ApplicationController
       format.json { render :json => @tags.map(&:attributes) }
     end
   end
+  
+  def show
+    @tag = Tag.find params[:id]
+    @events = Event.tagged_with(@tag.name)
+  end
 end

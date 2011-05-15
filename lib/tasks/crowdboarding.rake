@@ -31,5 +31,9 @@ namespace :db do
       event.lng = (rand(-100000) / -100000.0)
       event.users_count = 1..40
     end
+    
+    Tag.create!(:name => "Longboard")
+    Tag.create!(:name => "Retiro")
+    Tag.create!(:name => "Skateboard")
   end
 end

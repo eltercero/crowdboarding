@@ -9,7 +9,7 @@
 		%h3 Tags
 		%p
 			- tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
-				= link_to tag.name, "#", :class => css_class
+				= link_to tag.name, tag_path(tag.id), :class => css_class
 		%h3 Most active riders in Madrid
 		%p Lorem ipsum dolor sit amet, consectetur adipisicing elit
 		- @active_users.each do |user|
