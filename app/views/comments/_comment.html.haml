@@ -1,4 +1,7 @@
 .comment
-	=comment.user.print_name
-	=comment.created_at
-	%p=comment.body
+	.user
+		=image_tag current_user.avatar(:medium), :width => 60, :height => 60
+	.text
+		.text_content
+			=raw("<span class='user_name'>#{link_to comment.user.print_name, user_path(comment.user)}</span> <span class='date'>#{comment.created_at}</span>")
+			%p=comment.body

@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   belongs_to :default_city, :class_name => 'City'
   
   has_attached_file :avatar, 
-                    :styles => { :thumb => "220x220#", :small => "25x25#" },
+                    :styles => { :thumb => "220x220#", :medium => "60x60", :small => "25x25#" },
                     :default_url => "missing_images/avatars/missing_:style.png",
                     :storage => :s3,
                     :path => "public/images/users/avatars/:id/:style.:extension",

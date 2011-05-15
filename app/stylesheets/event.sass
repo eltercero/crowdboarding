@@ -20,12 +20,28 @@
 			background-image: url(/images/icons/map_12.png)
 		p.starts_at
 			background-image: url(/images/icons/time_12.png)
+		p.started_by
+			background-image: url(/images/icons/user_12.png)			
+		p.tags
+			background-image: url(/images/icons/tags_12.png)
 	.event_highlights
 		.button, .event_highlight
 			span
 				font-size: 1.8em
 				display: block
-	
+	.comment
+		margin-bottom: 5px
+		.text
+			.text_content
+				padding: 0px 10px
+				min-height: 60px
+				border-left: 1px solid $dark_gray
+				span.user_name
+					font-size: 1.1em
+				span.date
+					color: $gray_for_texts
+					font-size: 0.8em
+
 // Just index events
 .events
 	.event
