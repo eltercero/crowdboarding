@@ -20,6 +20,7 @@ gem 'populator'
 gem 'faker'
 gem 'barometer'
 gem 'acts-as-taggable-on'
+gem 'rails3-jquery-autocomplete'
 
 group :development, :test do
   gem 'hpricot'

@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  autocomplete :city, :name, :full => true
+  
   # GET /events
   # GET /events.xml
   def index
@@ -48,12 +50,16 @@ class EventsController < ApplicationController
       params[:event]["starts_at(5i)"] = nil
       params[:event][:starts_at] = nil
     end
+    
     @event = current_user.events.new(params[:event])
+    logger.error "DEBUG: @event.city_name: #{@event.city_name.inspect}"
+    logger.error "DEBUG: @event.city: #{@event.city.inspect}"
     @event.starts_at = datetime_starts_at
     respond_to do |format|
       if @event.save
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
       else
+        logger.error "DEBUG: @event.errors: #{@event.errors.inspect}"
         format.html { render :action => "new" }
       end
     end

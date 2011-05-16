@@ -5,8 +5,10 @@ Crowdboarding::Application.routes.draw do
   
   # Resources
   resources :events do
+    get :autocomplete_city_name, :on => :collection
     resources :comments, :only => [:index, :create]
   end
+  
   resources :friendships, :only => [:create, :destroy, :index]
   resources :attendances, :only => [:create, :destroy]
   resources :tags, :only => [:index, :show]

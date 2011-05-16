@@ -39,8 +39,7 @@ ActiveRecord::Schema.define(:version => 20110514113216) do
   add_index "attendances", ["user_id"], :name => "index_attendances_on_user_id"
 
   create_table "cities", :force => true do |t|
-    t.string  "name",       :limit => 100, :null => false
-    t.integer "country_id"
+    t.string "name", :limit => 100, :null => false
   end
 
   create_table "comments", :force => true do |t|
@@ -72,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20110514113216) do
     t.datetime "starts_at"
     t.text     "description"
     t.string   "address",         :limit => 100
+    t.integer  "country_id"
     t.integer  "city_id"
     t.string   "contact_details", :limit => 100
     t.float    "lat"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20110514113216) do
   end
 
   add_index "events", ["city_id"], :name => "index_events_on_city_id"
+  add_index "events", ["country_id"], :name => "index_events_on_country_id"
 
   create_table "friendships", :force => true do |t|
     t.integer  "user_id",                  :null => false
