@@ -8,7 +8,7 @@ class TagsController < ApplicationController
   end
   
   def show
-    @tag = Tag.find params[:id]
-    @events = Event.tagged_with(@tag.name)
+    @tag = Tag.find(params[:id])
+    @events = Event.tagged_with(@tag.name).page(params[:page]).per(10)
   end
 end
