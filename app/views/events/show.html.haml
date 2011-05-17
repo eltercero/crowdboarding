@@ -16,10 +16,9 @@
 				=f.input :body, :input_html => { :rows => 4 }
 			= f.buttons do
 				= f.commit_button
-	- if @event.comments
 		%h3 Comments
 		.comments
-			- if @event.comments.any?
+			- if @event.comments.present?
 				= render @event.comments
 			- else
 				%p There are no comments yet
