@@ -15,7 +15,14 @@ form.formtastic fieldset > ol > li label
 	display: block
 	width: 100%
 	
-form.formtastic fieldset > ol > li.string input, form.formtastic fieldset > ol > li.password input, form.formtastic fieldset > ol > li.numeric input, form.formtastic fieldset > ol > li.email input, form.formtastic fieldset > ol > li.url input, form.formtastic fieldset > ol > li.phone input, form.formtastic fieldset > ol > li.search input
+form.formtastic fieldset > ol > li.string input, 
+form.formtastic fieldset > ol > li.password input, 
+form.formtastic fieldset > ol > li.numeric input, 
+form.formtastic fieldset > ol > li.email input, 
+form.formtastic fieldset > ol > li.url input, 
+form.formtastic fieldset > ol > li.phone input, 
+form.formtastic fieldset > ol > li.search input,
+form.formtastic fieldset > ol > li.autocompleted_string input
 	height: 40px
 	width: 95%
 	@include border-radius(5px)	
@@ -73,3 +80,5 @@ form.formtastic fieldset#starts_at_datetime > ol > li
 form.formtastic fieldset#starts_at_datetime
 	width: 400px
 	float: left
+form.formtastic fieldset > ol > li.string input[size]
+	width: 100%
