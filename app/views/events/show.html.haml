@@ -1,5 +1,9 @@
 .event.show
-	%h2=@event.name
+	%h2
+		=@event.name
+		- if can? :update, @event
+			(#{link_to "edit", edit_event_path(@event)})
+		
 	.event_info
 		%p.address
 			=@event.address
@@ -9,19 +13,21 @@
 	- if @event.description
 		%h3 Description
 		=simple_format(sanitize(@event.description))
-	- if user_signed_in?
-		%h3 Add comment #{image_tag current_user.avatar(:small), :width => 25, :height => 25}
-		= semantic_form_for [@event, Comment.new] do |f|
-			= f.inputs do 
-				=f.input :body, :input_html => { :rows => 4 }
-			= f.buttons do
-				= f.commit_button
 		%h3 Comments
 		.comments
 			- if @event.comments.present?
 				= render @event.comments
 			- else
 				%p There are no comments yet
+		- if user_signed_in?
+			%h3 
+				Add comment 
+				=image_tag current_user.avatar(:small), :width => 25, :height => 25
+			= semantic_form_for [@event, Comment.new] do |f|
+				= f.inputs do 
+					=f.input :body, :input_html => { :rows => 4 }
+				= f.buttons do
+					= f.commit_button
 
 - content_for :sidebar_right do
 	#sidebar.event

@@ -52,8 +52,6 @@ class EventsController < ApplicationController
     end
     
     @event = current_user.events.new(params[:event])
-    logger.error "DEBUG: @event.city_name: #{@event.city_name.inspect}"
-    logger.error "DEBUG: @event.city: #{@event.city.inspect}"
     @event.starts_at = datetime_starts_at
     respond_to do |format|
       if @event.save
@@ -67,8 +65,14 @@ class EventsController < ApplicationController
 
   # PUT /events/1
   def update
-    @event = Event.find(params[:id])
-
+    if params[:event] && params[:event][:starts_at].match(/^(\d{4})(\/|-)(\d{2})(\/|-)(\d{2})/)
+      datetime_starts_at = Time.new($1, $3, $5, params[:event]["starts_at(4i)"], params[:event]["starts_at(5i)"] )
+      params[:event]["starts_at(4i)"] = nil
+      params[:event]["starts_at(5i)"] = nil
+      params[:event][:starts_at] = nil
+    end
+    @event = current_user.events.find(params[:id])
+    @event.starts_at = datetime_starts_at
     respond_to do |format|
       if @event.update_attributes(params[:event])
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
