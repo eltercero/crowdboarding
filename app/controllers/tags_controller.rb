@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  load_and_authorize_resource
   def index
     @tags = Tag.where(["name LIKE ?", "%#{params[:q]}%"])
     respond_to do |format|

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController    
+  load_and_authorize_resource
   def create
     @commentable = find_commentable
     @comment = @commentable.comments.build(params[:comment])
