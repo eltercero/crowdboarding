@@ -7,7 +7,7 @@ class CreateEvent < ActiveRecord::Migration
       t.text :description
       t.string :address, :limit => 100
       t.integer :country_id
-      t.integer :city_id
+      t.string :city_name, :limit => 100
       t.string :contact_details, :limit => 100
       t.float :lat
       t.float :lng
@@ -16,7 +16,6 @@ class CreateEvent < ActiveRecord::Migration
       t.timestamps
     end
     add_index :events, :country_id
-    add_index :events, :city_id
   end
 
   def self.down

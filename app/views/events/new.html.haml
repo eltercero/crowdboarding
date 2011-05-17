@@ -5,7 +5,8 @@
 		= f.input :name, :input_html => {  :placeholder => "Enter a name for the Event ( example: Friday boarding in Retiro! )" }
 		= f.input :description, :input_html => { :rows => 6 }
 		= f.input :country, :prompt => "Please select a country"
-		= f.autocompleted_input :city_name, :url => autocomplete_city_name_events_path
+		%li
+			= f.autocompleted_input :city_name, :url => autocomplete_city_name_events_path
 		= f.input :address, :input_html => { :placeholder => "Enter the address" }
 		= f.input :contact_details, :input_html => { :placeholder => "Enter your contact details" }
 		= f.input :tag_tokens, :label => "Add tags", :as => :string

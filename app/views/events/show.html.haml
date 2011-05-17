@@ -19,7 +19,10 @@
 	- if @event.comments
 		%h3 Comments
 		.comments
-			= render @event.comments
+			- if @event.comments.any?
+				= render @event.comments
+			- else
+				%p There are no comments yet
 
 - content_for :sidebar_right do
 	#sidebar.event

@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
   acts_as_gmappable :lat => 'lat', :lng => "lng", :check_process => false
   acts_as_taggable
   
-  attr_accessible :name, :description, :address, :lat, :lng, :city_id, :contact_details, :tag_tokens, :country_id, :city_name
+  attr_accessible :name, :description, :address, :lat, :lng, :contact_details, :tag_tokens, :country_id, :city_name
   
   belongs_to :user
   belongs_to :city
@@ -22,16 +22,11 @@ class Event < ActiveRecord::Base
   
   
   attr_reader :tag_tokens
-  attr_writer :city_name
   
-  before_create :find_or_create_city
+  after_create :find_or_create_city
   
   scope :recent, :order => "starts_at DESC"
   scope :from_now, :order => "starts_at DESC", :conditions => ["starts_at > ?", Time.now]
-  
-  def city_name
-    @city_name || self.city.try(:name)
-  end
   
   def size_status
     case users_count
@@ -63,7 +58,7 @@ class Event < ActiveRecord::Base
     # We really need a rescue here? If so, please rescue with an exception
     begin
       Barometer.google_geocode_key = "ABQIAAAAkL8Sj3wtXBYcuftZ8wb4UBQhNMPAV3DsEOaCg1R_7cZ76nRoThSXibb4kLuzvHipgIom_C8VtxOfbw"
-      barometer = Barometer.new("#{self.city.name}, #{self.country.name}")
+      barometer = Barometer.new("#{self.city_name}, #{self.country.name}")
       weather = barometer.measure
       forecast = weather.for(self.starts_at)
     rescue ArgumentError 
@@ -102,8 +97,7 @@ class Event < ActiveRecord::Base
     end
     
     def find_or_create_city
-      if self.city.blank? && self.city_name.present?
-        self.city = City.find_or_create_by_name(self.city_name)
-      end
+      City.find_or_create_by_name(self.city_name)
+      true
     end
 end

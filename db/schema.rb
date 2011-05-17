@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20110514113216) do
     t.text     "description"
     t.string   "address",         :limit => 100
     t.integer  "country_id"
-    t.integer  "city_id"
+    t.string   "city_name",       :limit => 100
     t.string   "contact_details", :limit => 100
     t.float    "lat"
     t.float    "lng"
@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(:version => 20110514113216) do
     t.datetime "updated_at"
   end
 
-  add_index "events", ["city_id"], :name => "index_events_on_city_id"
   add_index "events", ["country_id"], :name => "index_events_on_country_id"
 
   create_table "friendships", :force => true do |t|
