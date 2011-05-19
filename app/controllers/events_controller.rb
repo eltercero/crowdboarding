@@ -18,7 +18,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @attendance = current_user.attendance(@event) if current_user
-    @json = @event.to_gmaps4rails
+    @gmaps_json = @event.to_gmaps4rails
     @attenders = @event.attenders
     @weather = @event.weather
     

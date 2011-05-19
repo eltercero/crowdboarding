@@ -9,7 +9,7 @@
 			=@event.address
 			=display_location_info(@event)
 		%p.starts_at=relative_date(@event.starts_at)
-	= render :partial => 'map', :locals => {:json => @json}
+	= render :partial => 'map', :locals => {:gmaps_json => @gmaps_json}
 	- if @event.description
 		%h3 Description
 		=simple_format(sanitize(@event.description))
@@ -62,9 +62,9 @@
 
 :javascript
 	$(document).ready(function() {
-		$("a.stop_attending").bind("mouseenter",function(){
+		$("a.stop_attending").mouseenter(function(){
 			$(this).find('span').html("Stop Attending");
-		}).bind("mouseleave",function(){
+		}).mouseleave(function(){
 			$(this).find('span').html("Attending");
 		}); 
 	});
