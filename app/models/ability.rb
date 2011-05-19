@@ -19,6 +19,7 @@ class Ability
       can :create, Attendance
       can :create, City
       can :create, Tag
+      can :read, :all
     else
       can :read, :all
     end
