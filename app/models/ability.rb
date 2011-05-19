@@ -4,8 +4,10 @@ class Ability
   def initialize(user)
     user ||= User.new # guest user (not logged in)
     # A user can manage their own events and themself
-    can :manage, Event, :user_id => user.id
-    can :manage, User, :user_id => user.id
+    unless user.new_redord?
+      can :manage, Event, :user_id => user.id
+      can :manage, User, :user_id => user.id
+    end
     
     
     if user.admin?
