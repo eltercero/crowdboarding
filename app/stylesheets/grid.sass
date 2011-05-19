@@ -12,55 +12,56 @@
 $ninesixty-columns: 24
 
 body
-	background: $almost_white
+	#header,
+	#splash,
+	#footer,
+	#main_content,
+	#info,
+	#navigation
+		+grid-container
 	#wrapper_header
-		background: url("../images/bg/header.png") $almost_black
+		background: url("../images/bg/main_bg.png") repeat-x
 		border-bottom: 4px solid $countercrowdboarding
-		#header
-			@include grid-system(24)
-			@include clearfix
-			color: $almost_white
-			height: 40px
-			#title
-				@include grid(8)
-				@include alpha
-			#header_info
-				@include grid(16)
-				@include omega
-				ul
-					text-align: right
-					float: right
-					li
-						padding-top: 12px
-						float: left
-						margin-left: 25px
-					li.avatar	
-						padding-top: 9px
-						margin-left: 5px
-					li.avatar img
-						@include border-radius(2px)
-					li.highlighted a
-						@include gray_button
-					li.highlighted_plus a
-						@include gray_button_plus
-						span
-							background-image: url("../images/icons/plus_12.png")
-							background-position: 0 0
-							background-repeat: no-repeat
-							width: 16px
-							padding-left: 20px
-					li.small a
-						font-size: 0.9em
-						color: $gray_for_big_texts
-				
-	#wrapper_nav
-		background-color: $dirty_white
-		#navigation
-			@include grid-system(24)
-			height: 27px
+		height: 41px
+	#header
+		color: $almost_white
+		height: 40px
+		#title
+			+grid(8)
+			+alpha
+		#header_info
+			+grid(16)
+			+omega
 			ul
-				@include grid(24)
-				@include alpha
+				text-align: right
+				float: right
+				li
+					padding-top: 12px
+					float: left
+					margin-left: 25px
+				li.avatar	
+					padding-top: 9px
+					margin-left: 5px
+				li.avatar img
+					+border-radius(2px)
+				li.highlighted a
+					+gray_button
+				li.highlighted_plus a
+					+gray_button_plus
+					span
+						background-image: url("../images/icons/plus_12.png")
+						background-position: 0 0
+						background-repeat: no-repeat
+						width: 16px
+						padding-left: 20px
+				li.small a
+					font-size: 0.9em
+					color: $gray_for_big_texts
+	#wrapper_navigation
+		height: 27px
+		background-color: #F0F0F0
+		#navigation
+			ul
 				margin-bottom: 0px
 				li
 					margin-left: 0
@@ -69,133 +70,117 @@ body
 					padding-right: 15px
 				li.selected
 					border-bottom: 2px solid $countercrowdboarding
-					margin-bottom: -2px
 	#wrapper_splash
-		background: url("../images/bg/splash.png") $almost_black
 		height: 270px
-		border-bottom: 4px solid $almost_black
+		margin-bottom: 20px
+		background: url("../images/bg/splash.png") repeat
 		#splash
-			@include grid-system(24)
-			.splash_image
-				@include grid(9)
-				@include alpha
+			background: url("../images/splash.png") no-repeat
+			height: inherit
 			.splash_text
-				@include grid(15)
-				@include omega
+				+grid(15)
+				float: right
 				text-align: right
-				span.title
+				#title
 					margin-top: 16px
 					font-size: 6em
-					display: block
 					font-weight: bold
 					color: $almost_white
 					text-shadow: $almost_black 0px 4px 0px
 					line-height: 70px
-				span.subtitle
+				#subtitle
 					margin: 10px 0px 25px
 					font-size: 1.3em
-					display: block
-					color: $almost_white
-				span.join
+					color: $almost_white	
+				a
 					margin-top: 20px
-				span.join a
 					font-size: 1.7em
-					@include green_button
-	#wrapper_info
-		background-color: $dirty_white
-		height: 150px
-		margin-bottom: 20px
-		#info
-			@include grid-system(24)
-			.info_block
-				@include grid(8)
-				.info_block_content
-					padding: 20px 0px
-					h2
-						margin-bottom: 10px
-					h2.green_bottom
-						border-bottom: 2px solid $crowdboarding
-					h2.black_bottom
-						border-bottom: 2px solid $almost_black
-					h2.red_bottom
-						border-bottom: 2px solid $countercrowdboarding
-			.info_block_alpha
-				@include alpha
-			.info_block_omega
-				@include omega
-					
-			
-			
-	#wrapper_main_content
-		#main_content
-			@include grid-system(24)
-			margin-top: 10px
-			#content
-				@include grid(18)
-				@include alpha
-			#sidebar 
-				@include grid(6)
-				@include omega
-				@include awesome_box
-				.sidebar_content
-					padding: 10px
-			#left_sidebar
-				@include grid(6)
-				@include alpha
-				.left_sidebar_info
-					margin-top: -6px
-					padding: 10px 10px 20px
-					background-color: $dirty_white
+					+green_button
+
+	#info
+		.info_block
+			+grid(8)
+			.info_block_content
+				padding: 20px 0px
+				h2
+					margin-bottom: 10px
+				h2.green_bottom
+					border-bottom: 2px solid $crowdboarding
+				h2.black_bottom
+					border-bottom: 2px solid $almost_black
+				h2.red_bottom
+					border-bottom: 2px solid $countercrowdboarding
+		.info_block_alpha
+			+alpha
+		.info_block_omega
+			+omega
+	#main_content
+		margin-top: 10px
+		#content
+			+grid(18)
+			+alpha
+		#sidebar 
+			+grid(6)
+			+omega
+			+awesome_box
+			.sidebar_content
+				padding: 10px
+		#left_sidebar
+			+grid(6)
+			+alpha
+			.left_sidebar_info
+				margin-top: -6px
+				padding: 10px 10px 20px
+				background-color: $dirty_white
 				
 // Inherited by all events
 .event
-	@include grid-system
-	@include grid(18)
-	@include alpha
-	@include omega
+	+grid(18)
+	+alpha
+	+omega
 // Just index events
 .events
 	.event
 		.event_info
-			@include omega
-			@include grid(14)
+			+omega
+			+grid(14)
 		.event_highlights
-			@include grid(4)
-			@include alpha
-			@include omega
+			+grid(4)
+			+alpha
+			+omega
 			.button
-				@include grid(2)
+				+grid(2)
 			.time_left
-				@include alpha
+				+alpha
 			.assistants
-				@include alpha
+				+alpha
 // Just show events
 .event.show
 	.event_info
-		@include alpha
+		+alpha
 	.comments
 		.comment
-			@include grid(18)
-			@include alpha
-			@include omega
+			+grid(18)
+			+alpha
+			+omega
 			.user
-				@include alpha
-				@include grid(2)
+				+alpha
+				+grid(2)
 			.text
-				@include omega
-				@include grid(15)
+				+omega
+				+grid(15)
 
 // Side bar event
 #sidebar.event
 	.event_highlights
 		.event_highlight
-			@include grid(3)
-			@include alpha
-			@include omega
+			+grid(3)
+			+alpha
+			+omega
 // Form box
 div.standard_form
-	@include grid(12)
-	@include alpha
+	+grid(12)
+	+alpha
 	
 //resets
 ul
@@ -209,11 +194,11 @@ nav.pagination
 	float: right
 	width: 100%
 	span.page a, span.next a, span.last a, span.prev a, span.first a
-		@include pagination_item
+		+pagination_item
 		border: 1px solid $invisible_gray
 	span.page a:hover, span.next a:hover, span.last a:hover, span.prev a:hover, span.first a:hover
 		background-color: $invisible_gray
 	span.page.current
-		@include pagination_item
+		+pagination_item
 		font-weight: bold
 		color: $countercrowdboarding

@@ -1,9 +1,6 @@
-.splash_image
-	= image_tag 'splash.png'
 .splash_text
-	%span.title
+	#title
 		= sanitize(t('header.title'))
-	%span.subtitle
+	#subtitle
 		= t('header.subtitle')
-	%span.join
-		%p=link_to "Join now »", new_user_registration_path
+	=link_to "Join now »", new_user_registration_path

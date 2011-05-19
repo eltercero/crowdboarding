@@ -7,7 +7,11 @@
 		= yield :head
 		= csrf_meta_tag
 		%meta{:name => "viewport", :content => "initial-scale=1.0, user-scalable=no"}
-	%body
+	%body{:class => "#{show_splash? ? "splash" : ""}"}
+		-# #wrapper_notifier
+		-# 	#notifier
+		-# 		Lorem ipsum dolor sit amet, consectetur adipisicing elit
+
 		#wrapper_header
 			#header
 				#title
@@ -24,30 +28,25 @@
 						- else
 							%li.highlighted= link_to 'Register', new_user_registration_path
 							%li= link_to 'Login', new_user_session_url
-		- if(!current_page? root_path or user_signed_in?) 
-			#wrapper_nav
+		- if(!current_page? root_path or user_signed_in?)
+			#wrapper_navigation
 				#navigation
 					%ul#nav
 						%li{:class => events_selected? }= link_to 'events', root_path
 						%li{:class => riders_selected? }= link_to 'riders', users_path
 						%li{:class => selected?(about_path) }= link_to 'about', about_path
 						%li{:class => selected?(contact_path) }= link_to 'contact', contact_path
-		- if current_page? root_path and !user_signed_in?
+		- if show_splash?
 			#wrapper_splash
 				#splash
 					=render :partial => 'home/splash'
-			#wrapper_info
-				#info
-					=render :partial => 'home/info'
-		#wrapper_main_content
-			#main_content
-				= yield :sidebar_left
-				#content
-					= yield
-				= yield :sidebar_right
+			#info
+				=render :partial => 'home/info'
+		#main_content
+			= yield :sidebar_left
+			#content
+				= yield
+			= yield :sidebar_right
 		#wrapper_footer
 			#footer
 				= yield :scripts
-				
-				
-				
