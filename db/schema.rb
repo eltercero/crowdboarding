@@ -57,9 +57,8 @@ ActiveRecord::Schema.define(:version => 20110514113216) do
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "countries", :force => true do |t|
-    t.string "name",             :null => false
-    t.string "country_code",     :null => false
-    t.string "country_code_big"
+    t.string "name",         :null => false
+    t.string "country_code", :null => false
   end
 
   add_index "countries", ["country_code"], :name => "index_countries_on_country_code", :unique => true
