@@ -38,8 +38,7 @@ class Event < ActiveRecord::Base
   end
   
   def gmaps4rails_address
-    logger.error "DEBUG: message: #{self.address}, #{self.city.try(:name)}, #{self.country.try(:name)}"
-    "#{self.address}, #{self.city.try(:name)}, #{self.country.try(:name)}"
+    "#{self.address}, #{self.city.try(:name)}, #{self.country.try(:name_without_comma)}"
   end
   
   def gmaps4rails_infowindow
