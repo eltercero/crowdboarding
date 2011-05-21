@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   
   before_filter :set_local
   
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:error] = exception.message
+    redirect_to root_url
+  end
+  
   def change_local
     session[:local] = params[:local]
     redirect_to :back

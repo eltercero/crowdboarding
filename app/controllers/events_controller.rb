@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+  load_and_authorize_resource
+  autocomplete :city, :name, :full => true
+  
   # GET /events
   # GET /events.xml
   def index
@@ -15,7 +18,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @attendance = current_user.attendance(@event) if current_user
-    @json = @event.to_gmaps4rails
+    @gmaps_json = @event.to_gmaps4rails
     @attenders = @event.attenders
     @weather = @event.weather
     
@@ -48,12 +51,14 @@ class EventsController < ApplicationController
       params[:event]["starts_at(5i)"] = nil
       params[:event][:starts_at] = nil
     end
+    
     @event = current_user.events.new(params[:event])
     @event.starts_at = datetime_starts_at
     respond_to do |format|
       if @event.save
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
       else
+        logger.error "DEBUG: @event.errors: #{@event.errors.inspect}"
         format.html { render :action => "new" }
       end
     end
@@ -61,8 +66,14 @@ class EventsController < ApplicationController
 
   # PUT /events/1
   def update
-    @event = Event.find(params[:id])
-
+    if params[:event] && params[:event][:starts_at].match(/^(\d{4})(\/|-)(\d{2})(\/|-)(\d{2})/)
+      datetime_starts_at = Time.new($1, $3, $5, params[:event]["starts_at(4i)"], params[:event]["starts_at(5i)"] )
+      params[:event]["starts_at(4i)"] = nil
+      params[:event]["starts_at(5i)"] = nil
+      params[:event][:starts_at] = nil
+    end
+    @event = current_user.events.find(params[:id])
+    @event.starts_at = datetime_starts_at
     respond_to do |format|
       if @event.update_attributes(params[:event])
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }

@@ -48,6 +48,10 @@ class User < ActiveRecord::Base
     nickname || name
   end
   
+  def admin?
+    %w(ilovemayalopez@gmail.com michaelkoper@gmail.com).include? email
+  end
+  
   private
   
     def downcase_email

@@ -1,4 +1,5 @@
 class FriendshipsController < ApplicationController
+  load_and_authorize_resource
   # GET /friendships
   def index
     @user = User.find params[:user_id]

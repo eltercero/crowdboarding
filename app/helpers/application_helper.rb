@@ -11,6 +11,10 @@ module ApplicationHelper
     "selected" if controller_name == "riders"
   end
   
+  def show_splash?
+    current_page? root_path and !user_signed_in?
+  end
+  
   def relative_date(date)
     event_time = date.to_time
     today = Time.now

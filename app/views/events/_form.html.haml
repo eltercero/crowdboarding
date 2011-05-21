@@ -1,0 +1,23 @@
+= semantic_form_for(@event) do |f|
+	= render "shared/error_messages", :target => @event
+	= f.inputs do
+		= f.input :name, :input_html => {  :placeholder => "Enter a name for the Event ( example: Friday boarding in Retiro! )" }
+		= f.input :description, :input_html => { :rows => 6 }
+		= f.input :country, :prompt => "Please select a country"
+		-# %li{:class => "string required"}
+			=# f.label(:brand_name, "City*")
+		= f.autocompleted_input :city_name, :url => autocomplete_city_name_events_path
+		= f.input :address, :input_html => { :placeholder => "Enter the address" }
+		= f.input :contact_details, :input_html => { :placeholder => "Enter your contact details" }
+		= f.input :tag_tokens, :label => "Add tags", :as => :string
+	= f.inputs :id => "starts_at_datetime" do
+		= f.input :starts_at, :label => "Enter a date", :as => :string, :input_html => { :class => "datepicker date", :placeholder => "yyyy-mm-dd" }
+		%li
+			= f.label(:starts_at, "Select a time")
+			=f.time_select(:starts_at, {:minute_step => 15, :include_seconds => false})
+	= f.buttons
+
+:javascript
+	$(function() {
+		$( "input.datepicker" ).datepicker({dateFormat: 'yy-mm-dd'});
+	});

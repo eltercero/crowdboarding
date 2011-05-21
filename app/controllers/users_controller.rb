@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-  # GET /events
+  load_and_authorize_resource
+  # GET /users
   def index
     @users = User.page(params[:page]).per(10)
   end
   
-  # GET /events/1
+  # GET /users/1
   def show
     @user = User.find(params[:id])
     @friends = @user.friends.limit(20)

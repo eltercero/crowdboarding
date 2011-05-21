@@ -1,9 +1,10 @@
 class City < ActiveRecord::Base
-  validates_presence_of :name, :country_id
+  validates :name, :presence => true, :uniqueness => true, :length => { :maximum => 100 }
   
-  belongs_to :country
+  before_create :downcase_name
   
-  def get_city_and_country
-    return "#{self.name}, #{self.country.name}"
-  end
+  private
+    def downcase_name
+      self.name.downcase!
+    end
 end

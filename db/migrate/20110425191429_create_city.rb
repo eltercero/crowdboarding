@@ -2,12 +2,12 @@ class CreateCity < ActiveRecord::Migration
   def self.up
     create_table :cities, :force => true do |t|
       t.string :name, :limit => 100, :null => false
-      t.references :country
     end
-    country = Country.find_by_country_code("ES")
-    country.cities.create!(:name => "Madrid")
-    country.cities.create!(:name => "Barcelona")
-    country.cities.create!(:name => "Valencia")
+
+    City.create!(:name => "Madrid")
+    City.create!(:name => "Barcelona")
+    City.create!(:name => "Valencia")
+    City.create!(:name => "Sevilla")
   end
 
   def self.down

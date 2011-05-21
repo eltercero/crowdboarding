@@ -39,8 +39,7 @@ ActiveRecord::Schema.define(:version => 20110514113216) do
   add_index "attendances", ["user_id"], :name => "index_attendances_on_user_id"
 
   create_table "cities", :force => true do |t|
-    t.string  "name",       :limit => 100, :null => false
-    t.integer "country_id"
+    t.string "name", :limit => 100, :null => false
   end
 
   create_table "comments", :force => true do |t|
@@ -58,9 +57,8 @@ ActiveRecord::Schema.define(:version => 20110514113216) do
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "countries", :force => true do |t|
-    t.string "name",             :null => false
-    t.string "country_code",     :null => false
-    t.string "country_code_big"
+    t.string "name",         :null => false
+    t.string "country_code", :null => false
   end
 
   add_index "countries", ["country_code"], :name => "index_countries_on_country_code", :unique => true
@@ -72,7 +70,8 @@ ActiveRecord::Schema.define(:version => 20110514113216) do
     t.datetime "starts_at"
     t.text     "description"
     t.string   "address",         :limit => 100
-    t.integer  "city_id"
+    t.integer  "country_id"
+    t.string   "city_name",       :limit => 100
     t.string   "contact_details", :limit => 100
     t.float    "lat"
     t.float    "lng"
@@ -82,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20110514113216) do
     t.datetime "updated_at"
   end
 
-  add_index "events", ["city_id"], :name => "index_events_on_city_id"
+  add_index "events", ["country_id"], :name => "index_events_on_country_id"
 
   create_table "friendships", :force => true do |t|
     t.integer  "user_id",                  :null => false
