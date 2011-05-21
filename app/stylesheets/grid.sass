@@ -18,7 +18,7 @@ body
 	#main_content,
 	#info,
 	#navigation,
-	#helmet_warning
+	#wrapper_helmet
 		+grid-container
 	#wrapper_header
 		background: url("../images/bg/main_bg.png") repeat-x
@@ -119,7 +119,7 @@ body
 				+omega
 	#main_content
 		margin-top: 10px
-		margin-bottom: 150px
+		margin-bottom: 20px
 		min-height: 100%
 		height: auto
 		+clearfix
@@ -143,16 +143,16 @@ body
 				padding: 10px 10px 20px
 				background-color: $dirty_white
 				
-	#helmet_warning
-		+clearfix
-		#helmet_container
-			+grid-prefix(10)
-			+grid(14)
-			+omega
-			+alpha
-			text-align: right
-			margin-bottom: -8px
-				
+	#wrapper_helmet
+		height: 123px
+		#helmet
+			height: inherit
+			width: 347px
+			float: right
+			margin-right: 20px
+			background-image: url(../images/bg/helmet.png)
+			background-repeat: no-repeat
+			background-position: 0 0
 	#wrapper_footer
 		+clearfix
 		background-color: $dirty_white

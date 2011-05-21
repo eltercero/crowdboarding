@@ -1,6 +1,5 @@
-#helmet_warning
-	#helmet_container
-		=image_tag("hidden_helmet.png", :id => 'helmet')
+#wrapper_helmet
+	#helmet
 #wrapper_footer
 	#footer
 		.section
@@ -28,16 +27,12 @@
 					%li=link_to "Twitter (ES)", '#'
 					%li=link_to "Twitter (EN)", '#'
 					%li=link_to "Facebook", '#'
-		=image_tag("unhidden_helmet.png", :height => 1, :width => 1)
-		= yield :scripts
 		
 :javascript
 	$(document).ready(function() {
-		$("img#helmet").mouseover(function() {
-			$(this).attr('src', '/images/unhidden_helmet.png');
-			$("div#main_content").css("margin-bottom", "50px");
+		$("div#helmet").mouseover(function() {
+			$(this).css('background-position', '0 -123px');
 		}).mouseout(function() {
-			$(this).attr('src', '/images/hidden_helmet.png');
-			$("div#main_content").css("margin-bottom", "150px");
+			$(this).css('background-position', '0 0');
 		});
 	});
