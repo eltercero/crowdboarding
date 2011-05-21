@@ -31,7 +31,6 @@
 				#navigation
 					%ul#nav
 						%li{:class => events_selected? }= link_to 'events', root_path
-						%li{:class => riders_selected? }= link_to 'riders', users_path
 						%li{:class => selected?(about_path) }= link_to 'about', about_path
 						%li{:class => selected?(contact_path) }= link_to 'contact', contact_path
 		- if show_splash?
