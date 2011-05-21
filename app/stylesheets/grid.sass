@@ -17,7 +17,8 @@ body
 	#footer,
 	#main_content,
 	#info,
-	#navigation
+	#navigation,
+	#helmet_warning
 		+grid-container
 	#wrapper_header
 		background: url("../images/bg/main_bg.png") repeat-x
@@ -118,9 +119,15 @@ body
 				+omega
 	#main_content
 		margin-top: 10px
+		margin-bottom: 150px
+		min-height: 100%
+		height: auto
+		+clearfix
 		#content
 			+grid(18)
 			+alpha
+			padding-bottom: 150px
+			overflow: auto
 		#sidebar 
 			+grid(6)
 			+omega
@@ -130,10 +137,52 @@ body
 		#left_sidebar
 			+grid(6)
 			+alpha
+			+clearfix
 			.left_sidebar_info
 				margin-top: -6px
 				padding: 10px 10px 20px
 				background-color: $dirty_white
+				
+	#helmet_warning
+		+clearfix
+		#helmet_container
+			+grid-prefix(10)
+			+grid(14)
+			+omega
+			+alpha
+			text-align: right
+			margin-bottom: -8px
+				
+	#wrapper_footer
+		+clearfix
+		background-color: $dirty_white
+		height: 130px
+		border-top: 4px solid $gray_for_texts
+		padding-bottom: 30px
+		#footer
+			margin-top: 30px
+			font-weight: lighter
+			.section
+				+grid(24)
+				+alpha
+				+omega
+				padding-bottom: 15px
+				.footer_title
+					+grid(3)
+					+grid-suffix(1)
+					+alpha
+					text-transform: uppercase
+					color: $almost_black
+					text-align: right
+				.footer_options
+					+grid(20)
+					+omega
+					text-transform: lowercase
+					li
+						float: left
+						+grid(2.5)
+						// margin-left: 0px
+						// margin-right: 20px						
 				
 // Inherited by all events
 .event

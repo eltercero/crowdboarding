@@ -1,0 +1,42 @@
+#helmet_warning
+	#helmet_container
+		=image_tag("hidden_helmet.png", :id => 'helmet')
+#wrapper_footer
+	#footer
+		.section
+			.footer_title
+				Languages
+			.footer_options
+				%ul
+					%li=link_to "Español", change_local_path("es")
+					%li=link_to "English", change_local_path("en")
+		.section
+			.footer_title
+				Web
+			.footer_options
+				%ul
+					%li=link_to "Contact", '#'
+					%li=link_to "About", '#'
+					%li=link_to "Help", '#'
+		.section
+			.footer_title
+				Follow Us
+			.footer_options
+				%ul
+					%li=link_to "Blog", '#'
+					%li=link_to "Twitter (ES)", '#'
+					%li=link_to "Twitter (EN)", '#'
+					%li=link_to "Facebook", '#'
+
+		= yield :scripts
+		
+:javascript
+	$(document).ready(function() {
+		$("img#helmet").mouseover(function() {
+			$(this).attr('src', '/images/unhidden_helmet.png');
+			$("div#main_content").css("margin-bottom", "50px");
+		}).mouseout(function() {
+			$(this).attr('src', '/images/hidden_helmet.png');
+			$("div#main_content").css("margin-bottom", "150px");
+		});
+	});
