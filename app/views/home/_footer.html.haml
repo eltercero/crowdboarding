@@ -16,7 +16,7 @@
 				%ul
 					%li= link_to 'about', about_path
 					%li= link_to 'contact', contact_path
-					%li= link_to "Help", '#'
+					%li= link_to "Help", help_path
 					%li= link_to 'riders', users_path
 		.section
 			.footer_title
@@ -26,13 +26,4 @@
 					%li=link_to "Blog", '#'
 					%li=link_to "Twitter (ES)", '#'
 					%li=link_to "Twitter (EN)", '#'
-					%li=link_to "Facebook", '#'
-		
-:javascript
-	$(document).ready(function() {
-		$("div#helmet").mouseover(function() {
-			$(this).css('background-position', '0 -123px');
-		}).mouseout(function() {
-			$(this).css('background-position', '0 0');
-		});
-	});
+					%li=link_to "Facebook", '#'	
