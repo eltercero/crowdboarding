@@ -5,6 +5,7 @@
 
 @import "compass/reset"
 @import "compass/utilities/general/clearfix"
+@import "compass/css3/opacity"
 @import "960/grid"
 @import "support/colors"
 @import "support/mixins"
@@ -185,6 +186,7 @@ body
 	#wrapper_noticebar
 		height: 40px
 		font-weight: bold
+		font-size: 1.2em
 		background-color: $dirty_white
 		color: $almost_black
 		position: fixed
@@ -193,6 +195,7 @@ body
 		width: 100%
 		z-index: 100
 		display: none
+		+opacity(0.9)
 		//display: none
 		#noticebar
 			#message
@@ -259,6 +262,10 @@ div.standard_form
 ul
 	li
 		list-style: none
+.clear
+	clear: both
+strong
+	font-weight: bold
 		
 		
 nav.pagination
