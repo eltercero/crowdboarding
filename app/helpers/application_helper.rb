@@ -16,15 +16,15 @@ module ApplicationHelper
   end
   
   def relative_date(date)
-    event_time = date.to_time
-    today = Time.now
+    event_time = date.to_time.in_time_zone
+    today = Time.now.in_time_zone
     if event_time < today || (today+6.days) < event_time#left
-      return date
+      return l(date, :format => :event)
     else #ago
       if today.wday == event_time.wday
         "Today, "+event_time.strftime("%H:%M")
       else
-        "Next "+event_time.strftime("%A")+", "+event_time.strftime("%H:%M")
+        "Next "+event_time.strftime("%A, %H:%M")
       end
     end
   end
