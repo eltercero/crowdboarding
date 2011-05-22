@@ -1,0 +1,21 @@
+%h2 Authentications	
+
+-if @authentications
+	-unless @authentications.empty?
+		%p
+			%strong You can sign in to this account using:
+		.authentications
+			=render @authentications
+		.clear
+	%p
+		%strong Add another service to sign in with:
+- else
+	%p
+		%strong Sign in through one of these services:
+%a{:href => "/auth/twitter", :class => "auth_provider"}
+	= image_tag "omniauth/twitter_64.png", :size => "64x64", :alt => "Twitter"
+%a{:href => "/auth/facebook", :class => "auth_provider"}
+	= image_tag "omniauth/facebook_64.png", :size => "64x64", :alt => "Facebook"
+%a{:href => "/auth/google", :class => "auth_provider"}
+	= image_tag "omniauth/google_64.png", :size => "64x64", :alt => "Google"
+.clear

@@ -20,7 +20,9 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   has_many :attendances
   has_many :events_attended, :through => :attendances, :source => :event
+  has_many :authentications
   belongs_to :default_city, :class_name => 'City'
+  
   
   has_attached_file :avatar, 
                     :styles => { :thumb => "220x220#", :medium => "60x60", :small => "25x25#" },
@@ -50,6 +52,15 @@ class User < ActiveRecord::Base
   
   def admin?
     %w(ilovemayalopez@gmail.com michaelkoper@gmail.com).include? email
+  end
+  
+  def apply_omniauth(omniauth)
+    self.email = omniauth['user_info']['email'] if email.blank?
+    authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])
+  end
+  
+  def password_required?
+    (authentications.empty? || !password.blank?) && super
   end
   
   private

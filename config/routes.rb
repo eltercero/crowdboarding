@@ -1,6 +1,6 @@
 Crowdboarding::Application.routes.draw do
   # Devise routes
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => 'registrations'}
   resources :users, :only => [:show, :index, :update]
   
   # Resources
@@ -12,13 +12,19 @@ Crowdboarding::Application.routes.draw do
   resources :friendships, :only => [:create, :destroy, :index]
   resources :attendances, :only => [:create, :destroy]
   resources :tags, :only => [:index, :show]
+  resources :authentications, :only => [:index, :create, :destroy]
     
   # Static pages
   match 'contact' => 'home#contact', :as => :contact
   match 'about' => 'home#about', :as => :about
   match 'help' => 'home#help', :as => :help
   
+  # Omniauth
+  match '/auth/:provider/callback' => 'authentications#create'
+  
+  # I18n
   match 'change_local/:local' => 'application#change_local', :as => :change_local
+  
   # Root route
   root :to => "home#index"
 

@@ -1,0 +1,41 @@
+@import "compass/css3/border-radius"
+@import "support/colors"
+
+.authentications
+	margin-bottom: 30px
+	float: left
+	.authentication
+		width: 130px
+		float: left
+		background-color: $dirty_white
+		border: solid 1px #999
+		padding: 5px 10px
+		+border-radius(8px)
+		position: relative
+		margin-right: 10px
+		.remove
+			text-decoration: none
+			position: absolute
+			top: 3px
+			right: 3px
+			color: $almost_black
+			padding: 2px 4px
+			font-size: 10px
+		.remove:hover
+			color: $dark_gray
+			background-color: #777
+			+border-radius(6px)
+		img
+			float: left
+			margin-right: 10px
+		.provider
+			font-weight: bold
+		.uid
+			color: #666
+			font-size: 11px
+a.auth_provider
+	float: left
+	margin-right: 20px
+	margin-bottom: 10px
+	img
+		display: block

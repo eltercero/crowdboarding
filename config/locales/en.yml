@@ -39,10 +39,12 @@ en:
     about: "About"
     contact: "Contact"
     help: "help"
+    authentications: "authentications"
     follow_us: "Follow Us"
     blog_link: "#"
     twitter_link: "http://www.twitter.com/CrowdboardingEN"
     facebook_link: "#"
+    
   user:
     quiver: Quiver
     bio: Bio

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110514113216) do
+ActiveRecord::Schema.define(:version => 20110522220102) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(:version => 20110514113216) do
 
   add_index "attendances", ["event_id"], :name => "index_attendances_on_event_id"
   add_index "attendances", ["user_id"], :name => "index_attendances_on_user_id"
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider",   :limit => 20
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authentications", ["user_id"], :name => "index_authentications_on_user_id"
 
   create_table "cities", :force => true do |t|
     t.string "name", :limit => 100, :null => false
