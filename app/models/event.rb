@@ -4,6 +4,7 @@ class Event < ActiveRecord::Base
   validates :city_name, :presence => true
   validates :starts_at, :presence => true
   validates :address, :presence => true
+  validates :country_id, :presence => true
   validate :minimum_tags
   validate :maximum_tags
 
