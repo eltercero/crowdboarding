@@ -34,4 +34,7 @@ group :development, :test do
   gem 'sqlite3'
   # gem 'pg'
   gem 'ruby-debug19'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard'
+  gem 'guard-mozrepl'
 end
