@@ -3,34 +3,34 @@
 	.left_sidebar_info
 		-if can? :update, @user
 			.edit_button
-				=link_to 'edit', edit_user_registration_path
+				=link_to t('global.edit'), edit_user_registration_path
 		-elsif user_signed_in?
 			- if current_user.is_a_friend?(@user)
-				="#{@user.nickname} is your friend"
+				="#{@user.nickname} #{t('user.is_your_friend')}"
 			-else
 				.add_as_a_friend
-					=link_to "Add as a friend", friendships_path(:user_id => @user), :method => :post
+					=link_to t('user.add_as_a_friend'), friendships_path(:user_id => @user), :method => :post
 		.block.first_block
 			-if @user.default_city.present?
 				%p=raw("#{image_tag('icons/home_12.png')} #{@user.default_city.get_city_and_country}")
 			-if @user.birthdate.present?
 				%p=raw("#{image_tag('icons/calendar_12.png')} #{@user.get_age} years old")
 		.block
-			%h4="friends (#{@friends.size})"
+			%h4="#{t('user.friends')} (#{@friends.size})"
 			.avatars
 				-@friends.each do |f|
 					=link_to raw("#{image_tag f.avatar(:small), :width => 25, :height => 25, :title => f.nickname}"), user_path(f)
 			.see_all
 				=link_to('see all', friendships_path(:user_id => @user)) unless @friends.blank?
 		.block
-			%h4="events created (#{@user.events.try(:count)})"
+			%h4="#{t('user.events_created')} (#{@user.events.try(:count)})"
 			%ul
 				- @user.events.each do |event|
 					%li=link_to event.name, event_path(event)
 			.see_all
 				=link_to('see all', '#') if @user.events.present?
 		.block.last_block
-			%h4="events attended (#{@user.events_attended.try(:count)})"
+			%h4="#{t('user.events_attended')} (#{@user.events_attended.try(:count)})"
 			%ul
 				-@user.events_attended.each do |event|
 					%li=link_to event.name, event_path(event) 

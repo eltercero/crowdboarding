@@ -10,10 +10,49 @@ en:
       time: "%H:%M"
       event: "%A, %e %B %Y, %H:%M"
       only_second: "%S"
-
+  
+  global:
+    edit: "edit"
   menu:
-    events: Events
-    riders: Riders
+    events: Events  
   header:
-    title: "Never ride alone"
+    title: "You'll never ride alone"
     subtitle: find people for riding with your longboard the easy way
+    logout: "(logout)"
+    register: "Register"
+    login: "Login"
+    add_event: "Add Event"
+    join: "Join now"
+  info:
+    header_1: "Piece of cake"
+    text_1: "Create your event in 5 minutes and start inviting your friends"
+    header_2: "Join others"
+    text_2: "Assist other events near you and meet other riders. Slalom-type? Filter them!"
+    header_3: "Awesome features"
+    text_3: "Check the upcoming weather for the event, comment with the others attenders, make new friends, etc."
+  footer:
+    languages: "Languages"
+    spanish: "Español"
+    english: "English"
+    web: "Web"
+    riders: Riders
+    about: "About"
+    contact: "Contact"
+    help: "help"
+    follow_us: "Follow Us"
+    blog_link: "#"
+    twitter_link: "http://www.twitter.com/CrowdboardingEN"
+    facebook_link: "#"
+  user:
+    quiver: Quiver
+    bio: Bio
+    friends: "Friends"
+    events_created: "Events created"
+    events_attended: "Events attended"
+    add_as_a_friend: "Add as friend"
+    is_your_friend: "is your friend"
+  event: 
+    description: "Description"
+    comments: "Comments"
+    no_comments: "No comments yet"
+    add_comment: "Add a comment"

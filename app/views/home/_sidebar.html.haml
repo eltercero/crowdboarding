@@ -1,23 +1,31 @@
 #sidebar
 	.sidebar_content
-		%h3 Events happening right now!
-		- @events_from_now.each do |event|
-			=link_to "#{event.name} at #{Time.now.strftime('%H:%M')}", event_path(event)
-			%br
-		%br
-		%p=link_to "see more", "#"
-		%h3 Hot items
-		%p
-			- tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
-				= link_to tag.name, tag_path(tag.id), :class => css_class
-		%h3 Most active riders in Madrid
-		%p Lorem ipsum dolor sit amet, consectetur adipisicing elit
-		- @active_users.each do |user|
-			=link_to user.nickname, user_path(user)
-			%br
-		%br
-		%p=link_to "see more", "#"
-		%h3 Resent events
-		%p Lorem ipsum dolor sit amet, consectetur adipisicing elit
-		%h3 Most used spots
-		%p Lorem ipsum dolor sit amet, consectetur adipisicing elit
+		.block.first_block
+			%h4 It's happening!
+			%ul
+				- @events_from_now.each do |event|
+					%li=link_to "#{event.name} at #{Time.now.strftime('%H:%M')}", event_path(event)
+			.see_all
+				=link_to "see more", "#"
+		.block
+			%h4 Hot items
+			%p
+				- tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class|
+					= link_to tag.name, tag_path(tag.id), :class => css_class
+			.see_all
+				=link_to "see more", "#"
+		.block		
+			%h4 Active riders in Madrid
+			.avatars.indent
+				- @active_users.each do |user|
+					=link_to raw("#{image_tag user.avatar(:small), :width => 25, :height => 25, :title => user.nickname}"), user_path(user)
+			.see_all
+				=link_to "see more", "#"
+		
+		.block
+			%h4 Recent events
+			%p.indent Lorem ipsum dolor sit amet, consectetur adipisicing elit
+			
+		.block.last_block		
+			%h4 Most used spots
+			%p.indent Lorem ipsum dolor sit amet, consectetur adipisicing elit

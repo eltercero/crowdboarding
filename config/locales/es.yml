@@ -173,14 +173,15 @@ es:
       event: Evento
     attributes:
       user:
-        nickname: Sobre Nombre
+        nickname: nick
         bio: bio
         guiver: quiver
         birthdate: Fecha de naciemento
         email: Email
+        name: Nombre
       event: 
         name: Nombre
-        city: Cuidad
+        city: Ciudad
         city_name: Cuidad
         country: País
         country_id: País
@@ -191,8 +192,8 @@ es:
         user_count: Cantidad de amigos
         comments_count: Cantidad de commentarios        
         tag_tokens: Tags
-        enter_date: Pon un fecha
-        enter_time: Pon un tiempo
+        enter_date: Fecha
+        enter_time: Hora
         
     errors:
       template:
@@ -216,9 +217,49 @@ es:
         name: "Pon un nombre (por ejemplo: Viernes en Retiro!)"
         address: "Enter the address"
   
+  global:
+    edit: "editar"
   menu:
-    events: Eventos
-    riders: Riders
+    events: eventos
   header:
-    title: Nunca patina solo!!
-    subtitle: Encuentra gente que quieran patinar en todo el mundo muy facil!
+    title: You'll never ride alone
+    subtitle: encuentra fácilmente gente que quiera patinar en todo el mundo
+    logout: "(desconectar)"
+    register: "Regístrate"
+    login: "Entrar"
+    add_event: "Nuevo evento"
+    join: "Únete ahora"
+  info:
+    header_1: "Pan comido"
+    text_1: "Crea tu propio evento en 5 minutos y empieza a invitar a tus amigos"
+    header_2: "Únete a otros"
+    text_2: "Asiste a otros eventos y conoces a otros riders. ¡Tu eliges!"
+    header_3: "Mola y ya está"
+    text_3: "Comprueba el clima para el día, comenta el evento, añade fotos, etc."
+  footer:
+    languages: "idiomas"
+    spanish: "Español"
+    english: "English"
+    web: "Web"
+    riders: Riders
+    about: "acerca de"
+    contact: "contacto"
+    help: "Ayuda"
+    follow_us: "Síguenos"
+    blog_link: "#"
+    twitter_link: "http://www.twitter.com/CrowdboardingES"
+    facebook_link: "#"    
+  user:
+    quiver: Quiver
+    bio: Bio
+    friends: "Amigos"
+    events_created: "Eventos creados"
+    events_attended: "Eventos asistidos"
+    add_as_a_friend: "Añadir como amigo"
+    is_your_friend: "es tu amigo"
+  event: 
+    description: "Descripción"
+    comments: "Comentarios"
+    no_comments: "No hay ningún comentario todavía"
+    add_comment: "Nuevo comentario"
+    

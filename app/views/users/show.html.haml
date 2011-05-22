@@ -6,10 +6,10 @@
 		=raw("#{@user.nickname} <span>#{@user.name}</span>") 
 
 	-if @user.bio.present?
-		%h3 Bio
+		%h3= t('user.bio')
 		%p=@user.bio
 
 	- if @user.quiver.present?
-		%h3 Quiver
+		%h3= t('user.quiver')
 		%p=@user.quiver
 

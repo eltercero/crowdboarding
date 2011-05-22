@@ -2,7 +2,7 @@
 %html
 	%head
 		%title Crowdboarding
-		= stylesheet_link_tag 'grid', 'text', 'event', 'user', 'devise', 'formtastic', 'formtastic_changes', 'pepper-grinder/jquery-ui.custom'
+		= stylesheet_link_tag 'grid', 'text', 'home', 'event', 'user', 'devise', 'formtastic', 'formtastic_changes', 'pepper-grinder/jquery-ui.custom'
 		= javascript_include_tag 'jquery.min', 'jquery-ui.custom.min', 'rails.js', 'autocomplete-rails.js', 'application'
 		= yield :head
 		= csrf_meta_tag
@@ -20,20 +20,20 @@
 				#header_info
 					%ul
 						- if user_signed_in?
-							%li.highlighted_plus=link_to raw("<span>Add Event</span>"), new_event_path
-							%li.small=link_to '(logout)', destroy_user_session_path
+							%li.highlighted_plus=link_to raw("<span>#{t('header.add_event')}</span>"), new_event_path
+							%li.small=link_to t('header.logout'), destroy_user_session_path
 							%li= link_to current_user.nickname, user_path(current_user)
 							%li.avatar=link_to raw("#{image_tag current_user.avatar(:small), :width => 25, :height => 25}"), user_path(current_user)
 						- else
-							%li.highlighted= link_to 'Register', new_user_registration_path
-							%li= link_to 'Login', new_user_session_url
+							%li.highlighted= link_to t('header.register'), new_user_registration_path
+							%li= link_to t('header.login'), new_user_session_url
 		- if(!current_page? root_path or user_signed_in?)
 			#wrapper_navigation
 				#navigation
 					%ul#nav
-						%li{:class => events_selected? }= link_to 'events', root_path
-						%li{:class => selected?(about_path) }= link_to 'about', about_path
-						%li{:class => selected?(contact_path) }= link_to 'contact', contact_path
+						%li{:class => events_selected? }= link_to t('menu.events'), root_path
+						%li{:class => selected?(about_path) }= link_to t('footer.about'), about_path
+						%li{:class => selected?(contact_path) }= link_to t('footer.contact'), contact_path
 		- if show_splash?
 			#wrapper_splash
 				#splash

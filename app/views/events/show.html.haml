@@ -11,17 +11,17 @@
 		%p.starts_at=relative_date(@event.starts_at.in_time_zone)
 	= render :partial => 'map', :locals => {:gmaps_json => @gmaps_json}
 	- if @event.description
-		%h3 Description
+		%h3=t('event.description')
 		=simple_format(sanitize(@event.description))
-		%h3 Comments
+		%h3=t('event.comments')
 		.comments
 			- if @event.comments.present?
 				= render @event.comments
 			- else
-				%p There are no comments yet
+				%p=t('event.no_comments')
 		- if user_signed_in?
 			%h3 
-				Add comment 
+				=t('event.new_comment')
 				=image_tag current_user.avatar(:small), :width => 25, :height => 25
 			= semantic_form_for [@event, Comment.new] do |f|
 				= f.inputs do 
