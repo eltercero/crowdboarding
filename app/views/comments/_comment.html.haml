@@ -4,5 +4,5 @@
 	.text
 		.text_content
 			%span.user_name=link_to comment.user.print_name, user_path(comment.user)
-			%span.date=comment.created_at
+			%span.date=l(comment.created_at.in_time_zone, :format => :long)
 			=simple_format(comment.body)

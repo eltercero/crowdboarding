@@ -10,5 +10,5 @@
 			%h3=link_to event.name, event_path(event)
 			%p.address=event.address
 			%p.starts_at
-				=l(event.starts_at, :format => :event)
-				(in #{time_ago_in_words(event.starts_at)})
+				=l(event.starts_at.in_time_zone, :format => :event)
+				(in #{time_ago_in_words(event.starts_at.in_time_zone)})
