@@ -18,7 +18,8 @@ body
 	#main_content,
 	#info,
 	#navigation,
-	#wrapper_helmet
+	#wrapper_helmet,
+	#noticebar
 		+grid-container
 	#wrapper_header
 		background: url("../images/bg/main_bg.png") repeat-x
@@ -181,8 +182,29 @@ body
 					li
 						float: left
 						+grid(2.5)
-						// margin-left: 0px
-						// margin-right: 20px						
+	#wrapper_noticebar
+		height: 40px
+		font-weight: bold
+		background-color: $dirty_white
+		color: $almost_black
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		z-index: 100
+		display: none
+		//display: none
+		#noticebar
+			#message
+				padding: 10px 0 10px 70px
+				background-repeat: no-repeat
+				background-position: 3px 8px
+			#message.success
+				background-image: url(../images/bg/notify_success.png)
+			#message.failure
+				background-image: url(../images/bg/notify_failure.png)
+				background-position: 0px 0px
+			
 				
 // Inherited by all events
 .event

@@ -1,0 +1,6 @@
+- if flash[:notice] or flash[:error]
+	#wrapper_noticebar
+		#noticebar
+			#message{:class => flash[:notice] ? "success" : "failure"}
+				w000t
+				=flash[:notice] || flash[:error]
