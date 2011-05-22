@@ -58,7 +58,7 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
       else
-        logger.error "DEBUG: @event.errors: #{@event.errors.inspect}"
+        flash[:error] = 'An error accured'
         format.html { render :action => "new" }
       end
     end

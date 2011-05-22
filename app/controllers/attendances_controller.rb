@@ -4,11 +4,12 @@ class AttendancesController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @attendance = current_user.attendances.build(:event_id => @event.id)
-    if @attendance.save
-      redirect_to @event
-    else
-      flash[:error] = "Error"
-      redirect_to @event
+    respond_to do |format|
+      if @attendance.save
+        format.html { redirect_to(@event, :notice => 'You successfully joined the event.') }
+      else
+        format.html { redirect_to(@event, :error => 'There was an error.') }
+      end
     end
   end
   
@@ -17,6 +18,6 @@ class AttendancesController < ApplicationController
     event = @attendance.event
     @attendance.destroy
     
-    redirect_to event
+    redirect_to event, :notice => 'You successfully stopped attending the event'
   end
 end
