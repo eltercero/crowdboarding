@@ -1,0 +1,14 @@
+.standard_form
+	%h2 Sign in!
+	.standard_form_box
+		= semantic_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+			= f.inputs :email, :password
+			.row
+				- if devise_mapping.rememberable?
+					%fieldset{:id => "new_user_remember_me"}
+						%ol
+							= f.input :remember_me, :as => :boolean
+			- f.buttons do
+				= f.commit_button
+		= render :partial => "devise/shared/links"
+		= render :partial => "devise/shared/omniauth_links"

@@ -12,9 +12,4 @@
 			- f.buttons do
 				= f.commit_button
 		= render :partial => "devise/shared/links"
-		%h3 Or Sign in through one of these services:
-		%a{:href => "/auth/twitter", :class => "auth_provider"}
-			= image_tag "omniauth/twitter_64.png", :size => "64x64", :alt => "Twitter"
-		%a{:href => "/auth/facebook", :class => "auth_provider"}
-			= image_tag "omniauth/facebook_64.png", :size => "64x64", :alt => "Facebook"
-		.clear
+		= render :partial => "devise/shared/omniauth_links"
