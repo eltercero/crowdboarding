@@ -31,8 +31,9 @@ class User < ActiveRecord::Base
                     :path => "public/images/users/avatars/:id/:style.:extension",
                     :bucket => "onlinegeschenkenwinkel-#{Rails.env}",
                     :s3_credentials => {
-                      :access_key_id => 'AKIAIIRSRZPHDO6V6PFQ',
-                      :secret_access_key => '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' }
+                      :access_key_id => ENV['S3_KEY'],
+                      :secret_access_key => ENV['S3_SECRET']
+                    }
   
   def get_age
     ((Time.now - self.birthdate.to_time)/1.year).to_i

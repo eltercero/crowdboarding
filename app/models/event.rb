@@ -34,7 +34,7 @@ class Event < ActiveRecord::Base
     when 0..10 then "small meeting"
     when 11..20 then "medium small meeting"
     else 
-      "big mf meeting"
+      "big meeting"
     end
   end
   
@@ -57,7 +57,7 @@ class Event < ActiveRecord::Base
   def weather
     # We really need a rescue here? If so, please rescue with an exception
     begin
-      Barometer.google_geocode_key = "ABQIAAAAkL8Sj3wtXBYcuftZ8wb4UBQhNMPAV3DsEOaCg1R_7cZ76nRoThSXibb4kLuzvHipgIom_C8VtxOfbw"
+      Barometer.google_geocode_key = ENV['GOOGLE_GEOCODE_KEY']
       barometer = Barometer.new("#{self.city_name}, #{self.country.name}")
       weather = barometer.measure
       forecast = weather.for(self.starts_at)
