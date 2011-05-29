@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(:version => 20110522220102) do
     t.date     "birthdate"
     t.integer  "default_city_id"
     t.integer  "profile_views",                         :default => 0
+    t.boolean  "event_friend_updates"
     t.string   "users"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"

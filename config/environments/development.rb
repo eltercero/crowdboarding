@@ -24,3 +24,7 @@ Crowdboarding::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 end
 
+ENV['GOOGLE_GEOCODE_KEY'] = 'asdf'
+ENV['S3_KEY'] = 'asdf'
+ENV['S3_SECRET'] = 'asdf'
+

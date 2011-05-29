@@ -17,6 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.date :birthdate
       t.integer :default_city_id
       t.integer :profile_views, :default => 0
+      t.boolean :event_friend_updates
       
       t.string :users, :avatar_file_name
       t.string :users, :avatar_content_type

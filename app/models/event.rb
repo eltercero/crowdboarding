@@ -21,7 +21,6 @@ class Event < ActiveRecord::Base
   has_many :attenders, :through => :attendances, :source => :user
   has_many :comments, :as => :commentable
   
-  
   attr_reader :tag_tokens
   
   after_create :find_or_create_city
