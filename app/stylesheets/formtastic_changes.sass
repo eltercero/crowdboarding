@@ -3,82 +3,104 @@
 @import "compass/css3/box-shadow"
 
 // Errors
-form.formtastic fieldset > ol > li.error label,
-form.formtastic fieldset > ol > li p.inline-errors
-	color: $countercrowdboarding
-	font-weight: bold
+form.formtastic
+	fieldset > ol > li.error label,
+	fieldset > ol > li p.inline-errors
+		color: $countercrowdboarding
+		font-weight: bold
 	
-form.formtastic fieldset > ol > li p.inline-errors
-	margin: 0 0 0 0
+	fieldset > ol > li p.inline-errors
+		margin: 0 0 0 0
 
-form.formtastic fieldset > ol > li label
-	display: block
-	width: 100%
+	fieldset > ol > li.date > ol > li legend.label label
+		display: none !important
 	
-form.formtastic fieldset > ol > li.string input, 
-form.formtastic fieldset > ol > li.password input, 
-form.formtastic fieldset > ol > li.numeric input, 
-form.formtastic fieldset > ol > li.email input, 
-form.formtastic fieldset > ol > li.url input, 
-form.formtastic fieldset > ol > li.phone input, 
-form.formtastic fieldset > ol > li.search input,
-form.formtastic fieldset > ol > li.autocompleted_string input
-	height: 40px
-	width: 95%
-	@include border-radius(5px)	
-	border: 1px solid $dark_gray
-	font-size: 1.6em
-	padding: 0px 5px
-form.formtastic fieldset > ol > li.text textarea
-	@include border-radius(5px)
-	border: 1px solid $dark_gray
-	width: 95%
-	font-size: 1.6em
-	padding: 5px
+	fieldset > ol > li.string label,
+	fieldset > ol > li.password label
+	fieldset > ol > li.numeric label, 
+	fieldset > ol > li.email label,
+	fieldset > ol > li.url input, 
+	fieldset > ol > li.phone input, 
+	fieldset > ol > li.search input,
+	fieldset > ol > li.autocompleted_string input,
+	fieldset > ol > li.select > label,
+	fieldset > ol > li.date > fieldset > legend.label label
+		display: block
+		width: 100%
 	
-form.formtastic fieldset.buttons
-	float: right
-	margin: 0px 10px 0 0
+	// For a strange reason dates are positioned absolute
+	fieldset > ol > li.date 
+		fieldset legend.label
+			position: static
+			label
+				position: static
+		ol
+			padding: 0
 	
-form.formtastic fieldset.buttons input
-	@include box-shadow(rgba(0, 0, 0, 0.2) 0 1px 0)
-	@include border-radius(4px)
-	border-style: solid
-	border-width: 1px
-	font-weight: bold
-	min-width: 64px
-	padding: 6px
-	text-align: center
-	white-space: nowrap
-	background: url(/images/forms/bg_button.gif) repeat-x scroll 0 0 #DDDDDD
-	border-color: #BBBBBB #BBBBBB #999999
-	color: #333333 !important
-	cursor: pointer
-	font: 12px/15px Helvetica Neue,Arial,"Lucida Grande",Sans-serif
-	margin: 0
-	overflow: hidden
-	text-shadow: 0 1px #F0F0F0
-	font-weight: bold
+	fieldset > ol > li.string input, 
+	fieldset > ol > li.password input, 
+	fieldset > ol > li.numeric input, 
+	fieldset > ol > li.email input, 
+	fieldset > ol > li.url input, 
+	fieldset > ol > li.phone input, 
+	fieldset > ol > li.search input,
+	fieldset > ol > li.autocompleted_string input
+		height: 40px
+		width: 95%
+		@include border-radius(5px)	
+		border: 1px solid $dark_gray
+		font-size: 1.6em
+		padding: 0px 5px
+	fieldset > ol > li.text textarea
+		@include border-radius(5px)
+		border: 1px solid $dark_gray
+		width: 95%
+		font-size: 1.6em
+		padding: 5px
 	
-form.formtastic fieldset > ol > li.boolean label
-	padding-left: 0
+	fieldset.buttons
+		float: right
+		margin: 0px 10px 0 0
 	
-form.formtastic fieldset#new_user_remember_me
-	width: 200px
-	float: left
+	fieldset.buttons input
+		@include box-shadow(rgba(0, 0, 0, 0.2) 0 1px 0)
+		@include border-radius(4px)
+		border-style: solid
+		border-width: 1px
+		font-weight: bold
+		min-width: 64px
+		padding: 6px
+		text-align: center
+		white-space: nowrap
+		background: url(/images/forms/bg_button.gif) repeat-x scroll 0 0 #DDDDDD
+		border-color: #BBBBBB #BBBBBB #999999
+		color: #333333 !important
+		cursor: pointer
+		font: 12px/15px Helvetica Neue,Arial,"Lucida Grande",Sans-serif
+		margin: 0
+		overflow: hidden
+		text-shadow: 0 1px #F0F0F0
+		font-weight: bold
 	
-form.formtastic .row
-	float: left
-	width: 100%
+	fieldset > ol > li.boolean label
+		padding-left: 0
 	
-form.formtastic fieldset > ol > li input.date
-	width: 115px
+	fieldset#new_user_remember_me
+		width: 200px
+		float: left
+	
+	.row
+		float: left
+		width: 100%
+	
+	fieldset > ol > li input.date
+		width: 115px
 
-form.formtastic fieldset#starts_at_datetime > ol > li
-	width: 150px
-	float: left
-form.formtastic fieldset#starts_at_datetime
-	width: 400px
-	float: left
-form.formtastic fieldset > ol > li.string input[size]
-	width: 100%
+	fieldset#starts_at_datetime > ol > li
+		width: 150px
+		float: left
+	fieldset#starts_at_datetime
+		width: 400px
+		float: left
+	fieldset > ol > li.string input[size]
+		width: 100%
