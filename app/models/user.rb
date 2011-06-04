@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
                     :default_url => "missing_images/avatars/missing_:style.png",
                     :storage => :s3,
                     :path => "public/images/users/avatars/:id/:style.:extension",
-                    :bucket => "onlinegeschenkenwinkel-#{Rails.env}",
+                    :bucket => "crowdboarding-#{Rails.env}",
                     :s3_credentials => {
                       :access_key_id => ENV['S3_KEY'],
                       :secret_access_key => ENV['S3_SECRET']
