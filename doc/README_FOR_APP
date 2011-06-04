@@ -1,2 +1,21 @@
-Use this README file to introduce your application and point to useful places in the API for learning more.
-Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+Crowdboarding app developed by Michael Koper and Victor Martín.
+
+Credits for the following opensource technologies we used:
+
+	Ruby on Rails 3.0.7
+	Compass (CSS Authoring Framework)
+	960 Grid system
+	Sass (Syntactically Awesome Stylesheets)
+	Haml
+	jQuery (javascript framework)
+	Postgresql
+	CSS3 (because we hate Internet Explorer 6,7 & 8)
+	Html5
+	RSpec (Behaviour Driven Development framework for Ruby)
+	Capybara (Acceptance test framework for web applications)
+	Formtastic (A Rails form builder plugin with semantically rich and accessible markup.)
+	Typus (Ruby on Rails Admin Panel (Engine))
+	Kaminari (A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Rails 3)
+	Devise (Flexible authentication solution for Ruby on Rails)
+	CanCan (Authorization Gem for Ruby on Rails)
+	
