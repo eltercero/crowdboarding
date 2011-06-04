@@ -24,6 +24,7 @@ class Event < ActiveRecord::Base
   attr_reader :tag_tokens
   
   after_create :find_or_create_city
+  after_create :notify_friends
   
   scope :recent, :order => "starts_at DESC"
   scope :from_now, :order => "starts_at DESC", :conditions => ["starts_at > ?", Time.now]
@@ -98,5 +99,9 @@ class Event < ActiveRecord::Base
     def find_or_create_city
       City.find_or_create_by_name(self.city_name)
       true
+    end
+    
+    def notify_friends
+      # Send emails my friends and to people me as friend
     end
 end

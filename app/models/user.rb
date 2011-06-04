@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   
   attr_accessible :name, :nickname, :default_city_id, :birthdate, 
                   :bio, :quiver, :email, :password, :avatar,
-                  :password_confirmation, :remember_me, :id
+                  :password_confirmation, :remember_me, :event_friend_updates
   
   before_create :downcase_email, :create_nickname
   
