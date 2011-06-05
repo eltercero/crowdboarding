@@ -1,7 +1,11 @@
 !!! 5
-%html
+%html{"lang" => I18n.locale }
 	%head
-		%title=get_title
+		%title= get_title
+		%meta{:charset => "utf-8"}
+		%meta{:name => "keywords", :content => get_keywords}
+		%meta{:name => "description", :content => get_description}		
+		%meta{:name => "author", :content => "Victor Martin and Michael Koper"}
 		= stylesheet_link_tag 'grid', 'text', 'home', 'event', 'user', 'authentication', 'devise', 'formtastic', 'formtastic_changes', 'pepper-grinder/jquery-ui.custom'
 		= javascript_include_tag 'jquery.min', 'jquery-ui.custom.min', 'rails.js', 'autocomplete-rails.js', 'application'
 		= yield :head
