@@ -228,7 +228,8 @@ es:
     home:
       about: About
       contact: Contact
-      help: Help
+      help: Ayuda
+      welcome: Bienvenido
     users:
       index: Riders
       show: User profile of %{name}
