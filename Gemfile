@@ -37,5 +37,10 @@ group :development, :test do
   gem 'ruby-debug19'
   # gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard'
-  gem 'guard-mozrepl'
+  gem 'guard-rspec'
+  gem 'guard-sass'
+  gem 'guard-bundler'
+  gem 'growl'
+  # gem 'guard-mozrepl'
+  gem 'guard-livereload'
 end
