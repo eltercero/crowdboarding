@@ -75,7 +75,7 @@ module ApplicationHelper
       title << t('titles.default_title')
     end
     # We put the controller name and action name in the title if we are in development. Just handy.
-    if RAILS_ENV == "development"
+    if Rails.env == "development"
       title << "#{controller_name}##{action_name}"
     end
     # Generate the title
