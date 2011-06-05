@@ -9,7 +9,7 @@
 				- if @user.password_required?
 					= f.input :password
 					= f.input :password_confirmation
-			- f.buttons do
+			= f.buttons do
 				= f.commit_button
 		= render :partial => "devise/shared/links"
 		= render :partial => "devise/shared/omniauth_links"

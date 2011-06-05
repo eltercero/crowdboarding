@@ -171,6 +171,7 @@ es:
     models:
       user: Usario
       event: Evento
+      notification: Notificación
     attributes:
       user:
         nickname: nick
@@ -194,6 +195,8 @@ es:
         tag_tokens: Tags
         enter_date: Fecha
         enter_time: Hora
+      notification:
+        body: Body
         
     errors:
       template:
@@ -263,4 +266,7 @@ es:
     comments: "Comentarios"
     no_comments: "No hay ningún comentario todavía"
     add_comment: "Nuevo comentario"
-    
+  notification:
+    types:
+      event_created: Needs translation. An new event is created.
+      new_follower: Needs translation. Somebody added you as a friend

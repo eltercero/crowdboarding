@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :attendances
   has_many :events_attended, :through => :attendances, :source => :event
   has_many :authentications
+  has_many :notifications
   belongs_to :default_city, :class_name => 'City'
   
   
@@ -62,6 +63,10 @@ class User < ActiveRecord::Base
   
   def password_required?
     (authentications.empty? || !password.blank?) && super
+  end
+  
+  def unread_notifications
+    notifications.where(:read => false)
   end
   
   private

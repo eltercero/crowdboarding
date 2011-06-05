@@ -58,3 +58,11 @@ en:
     comments: "Comments"
     no_comments: "No comments yet"
     add_comment: "Add a comment"
+  notification:
+    types:
+      event_created: An new event is created.
+      new_follower: Somebody added you as a friend 
+    new_notifications:
+      zero: "You have no new notifications"
+      one: "You have 1 new notification"
+      other: "You have %{count} new notifications"

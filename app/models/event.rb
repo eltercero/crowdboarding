@@ -101,7 +101,15 @@ class Event < ActiveRecord::Base
       true
     end
     
+    # Send notifications my friends and to people me as friend
     def notify_friends
-      # Send emails my friends and to people me as friend
+      # Create notifications to the users friends
+      self.user.friends.each do |friend|
+        friend.notifications.create!(:body => I18n.translate('notification.types.event_created'))
+      end
+      # Create notifications to the users who have this user as a friend
+      self.user.inverse_friends.each do |friend|
+        friend.notifications.create!(:body => I18n.translate('notification.types.event_created'))
+      end
     end
 end
