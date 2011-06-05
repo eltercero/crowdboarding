@@ -13,6 +13,17 @@ en:
   
   global:
     edit: "edit"
+  titles:
+    default_title: Welcome at Crowdboarding.com
+    suffix: Crowdboarding.com
+    home:
+      about: About
+      contact: Contact
+      help: Help
+    users:
+      index: Riders
+    events:
+      show: "Event: %{name} in %{city}"
   menu:
     events: Events  
   header:

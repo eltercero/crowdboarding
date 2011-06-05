@@ -1,7 +1,7 @@
 !!! 5
 %html
 	%head
-		%title Crowdboarding
+		%title=get_title
 		= stylesheet_link_tag 'grid', 'text', 'home', 'event', 'user', 'authentication', 'devise', 'formtastic', 'formtastic_changes', 'pepper-grinder/jquery-ui.custom'
 		= javascript_include_tag 'jquery.min', 'jquery-ui.custom.min', 'rails.js', 'autocomplete-rails.js', 'application'
 		= yield :head

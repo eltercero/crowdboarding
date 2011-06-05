@@ -222,6 +222,18 @@ es:
   
   global:
     edit: "editar"
+  titles:
+    default_title: Bienvenido en Crowdboarding.com
+    suffix: Crowdboarding.com
+    home:
+      about: About
+      contact: Contact
+      help: Help
+    users:
+      index: Riders
+    events:
+      show: "Event: %{name} in %{city}"
+
   menu:
     events: eventos
   header:
