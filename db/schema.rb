@@ -132,8 +132,8 @@ ActiveRecord::Schema.define(:version => 20110605163509) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",   :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",   :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -149,7 +149,7 @@ ActiveRecord::Schema.define(:version => 20110605163509) do
     t.date     "birthdate"
     t.integer  "default_city_id"
     t.integer  "profile_views",                         :default => 0
-    t.boolean  "event_friend_updates"
+    t.boolean  "event_friend_updates",                  :default => true
     t.string   "users"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
