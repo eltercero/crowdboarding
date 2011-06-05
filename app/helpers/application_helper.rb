@@ -81,4 +81,12 @@ module ApplicationHelper
     # Generate the title
     strip_tags(title.join(" - "))
   end
+  
+  def get_keywords
+    "crowdboarding, longboard, skateboard, madrid, events, slide, downhill"
+  end
+  
+  def get_description
+    "Crowdboarding.com is an online Longboard community."
+  end
 end
