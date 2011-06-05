@@ -6,7 +6,7 @@ class Ability
     # A user can manage their own events and themself
     unless user.new_record?
       can :manage, Event, :user_id => user.id
-      can :manage, User, :user_id => user.id
+      can :manage, User, :id => user.id
     end
     
     
