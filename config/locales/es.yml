@@ -283,3 +283,16 @@ es:
     types:
       event_created: Needs translation. An new event is created.
       new_follower: Needs translation. Somebody added you as a friend
+  welcome:
+    title: "Bienvenido."
+    subtitle: "Gracias por registrarte en crowboarding. ya puedes empezar a apuntarte a eventos y conocer gente increible."
+    first_steps: "Primeros pasos en crowdboarding"
+    step_1:
+      title: "Edita tu perfil"
+      text: "Seleccion tu localización por defecto, sube un avatar o cuéntanos algo sobre ti."
+    step_2:
+      title: "Únete..."
+      text: "¡...o crea tus propios eventos! busca eventos cerca de ti y conoce a otros rides para una buensa sesión de longboard."
+    step_3:
+      title: "Patina y sé feliz."
+      text: "¡Nunca lo olvides!"

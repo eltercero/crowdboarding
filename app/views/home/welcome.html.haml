@@ -1,0 +1,20 @@
+%h2.huge=t("welcome.title")
+%p.big=t("welcome.subtitle")
+
+%h3=t("welcome.first_steps")
+.welcome_steps
+	.step.alpha
+		.step_container
+			=image_tag("welcome_1.png")
+			%h4=t("welcome.step_1.title")
+			%p=t("welcome.step_1.text")
+	.step
+		.step_container
+			=image_tag("welcome_2.png")
+			%h4=t("welcome.step_2.title")
+			%p=t("welcome.step_2.text")
+	.step.omega
+		.step_container
+			=image_tag("welcome_3.png")
+			%h4=t("welcome.step_3.title")
+			%p=t("welcome.step_3.text")

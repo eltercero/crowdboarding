@@ -18,6 +18,7 @@ Crowdboarding::Application.routes.draw do
   match 'contact' => 'home#contact', :as => :contact
   match 'about' => 'home#about', :as => :about
   match 'help' => 'home#help', :as => :help
+  match 'welcome' => 'home#welcome', :as => :welcome
   
   # Omniauth
   match '/auth/:provider/callback' => 'authentications#create'

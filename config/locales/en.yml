@@ -79,3 +79,18 @@ en:
       zero: "You have no new notifications"
       one: "You have 1 new notification"
       other: "You have %{count} new notifications"
+  welcome:
+    title: "Welcome."
+    subtitle: "Thanks for registering in crowdboarding. You can now start joining events and meeting amazing people."
+    first_steps: "First steps in crowdboarding"
+    step_1:
+      title: "Edit your profile"
+      text: "Set your default city, upload your avatar and tell us something about you."
+    step_2:
+      title: "Join events..."
+      text: "...or create yours! check events close to you and meet some other riders for a nice longboarding session."
+    step_3:
+      title: "Skate and be happy."
+      text: "Never forget!"
+    
+    
