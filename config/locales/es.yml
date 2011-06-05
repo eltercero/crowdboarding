@@ -231,6 +231,7 @@ es:
       help: Help
     users:
       index: Riders
+      show: User profile of %{name}
     events:
       show: "Event: %{name} in %{city}"
 

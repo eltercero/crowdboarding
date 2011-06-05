@@ -22,8 +22,10 @@ en:
       help: Help
     users:
       index: Riders
+      show: User profile of %{name}
     events:
       show: "Event: %{name} in %{city}"
+      new: Create a new event
   menu:
     events: Events  
   header:

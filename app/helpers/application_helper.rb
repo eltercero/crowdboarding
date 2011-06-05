@@ -55,21 +55,23 @@ module ApplicationHelper
   # Generate the title of the page
   def get_title
     title = []
-    prefix_title = if controller_name == "events"
-      if action_name == "show" && @event.present?
-        t('titles.events.show', :name => @event.name, :city => @event.city_name)
-      end
-    else
-      # Just translate the controller and action if it exists in the language file
-      temp_title = t("titles.#{controller_name}.#{action_name}")
-      temp_title = (temp_title.match(/translation_missing/)) ? nil : temp_title
+    # Exceptions
+    prefix_title = if controller_name == "events" && action_name == "show" && @event.present?
+      t('titles.events.show', :name => @event.name, :city => @event.city_name)
+    elsif controller_name == "users" && action_name == "show" && @user.present?
+      t('titles.users.show', :name => @user.print_name)
     end
-    # If we have a prefix_title put that in the title array and there is not a missing translation
-    if prefix_title.present? && !prefix_title.match(/translation missing/)
+    if prefix_title.blank? || prefix_title.match(/translation_missing/)
+      # Just translate the controller and action if it exists in the language file
+      prefix_title = t("titles.#{controller_name}.#{action_name}")
+      prefix_title = (prefix_title.match(/translation_missing/)) ? nil : prefix_title
+    end
+    # If add the prefix and suffix in title if there isnt a translation missing
+    if prefix_title.present? && !prefix_title.match(/translation_missing/)
       title << prefix_title
       title << t('titles.suffix')
-    # else use the default title
     else
+      # Use the default title
       title << t('titles.default_title')
     end
     # We put the controller name and action name in the title if we are in development. Just handy.
