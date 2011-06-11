@@ -33,3 +33,7 @@ Crowdboarding::Application.configure do
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
 end
+
+# Just providing fake keys so the tests dont fail
+ENV['S3_KEY'] = 'key'
+ENV['S3_SECRET'] = 'secret'

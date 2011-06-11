@@ -25,3 +25,21 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+def login!(email = "user@example.com", password = "secret")
+  visit(new_user_session_path)
+  within("form#user_new") do
+    fill_in 'Email', :with => email
+    fill_in 'Password', :with => password
+  end
+  find_button('Sign in').click
+end
+
+def create_a_user!(email = "user@example.com", password = "secret")
+  Factory(:user, :email => email, :password => password)
+end
+
+def create_user_and_login!(email = "user@example.com", password = "secret")
+  create_a_user!(email, password)
+  login!(email, password)
+end
