@@ -29,6 +29,10 @@ class Event < ActiveRecord::Base
   scope :recent, :order => "starts_at DESC"
   scope :from_now, :order => "starts_at ASC", :conditions => ["starts_at > ?", Time.now - 2.hour]
   
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
+  
   def size_status
     case users_count
     when 0..10 then "small meeting"
