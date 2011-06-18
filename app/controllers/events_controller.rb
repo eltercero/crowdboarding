@@ -10,7 +10,7 @@ class EventsController < ApplicationController
       @events = Event.joins(:taggings, :tags).where(["events.name LIKE ? OR events.city_name LIKE ? ", search_string, search_string]).page(params[:page]).per(10)
     else
       # @events = Event.recent.page(params[:page]).per(10)
-      @events = Event.recent.page(params[:page]).per(10)
+      @events = Event.page(params[:page]).per(10)
     end
     respond_to do |format|
       format.html # index.html.erb

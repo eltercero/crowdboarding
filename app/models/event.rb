@@ -27,7 +27,7 @@ class Event < ActiveRecord::Base
   after_create :notify_friends
   
   scope :recent, :order => "starts_at DESC"
-  scope :from_now, :order => "starts_at DESC", :conditions => ["starts_at > ?", Time.now]
+  scope :from_now, :order => "starts_at ASC", :conditions => ["starts_at > ?", Time.now - 2.hour]
   
   def size_status
     case users_count
