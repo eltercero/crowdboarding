@@ -87,11 +87,14 @@ ActiveRecord::Schema.define(:version => 20110605163509) do
     t.float    "lng"
     t.integer  "users_count",                    :default => 0
     t.integer  "comments_count",                 :default => 0
+    t.integer  "views_count",                    :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "events", ["city_name"], :name => "index_events_on_city_name"
   add_index "events", ["country_id"], :name => "index_events_on_country_id"
+  add_index "events", ["starts_at"], :name => "index_events_on_starts_at"
 
   create_table "friendships", :force => true do |t|
     t.integer  "user_id",                  :null => false
