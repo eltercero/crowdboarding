@@ -1,14 +1,13 @@
-.events
-	.event
-		.event_highlights
-			.time_left.button
-				=distance_of_time_in_short_words(event.starts_at)
-			.assistants.button
-				%span=event.attendances.size
-				assistans
-		.event_info
-			%h3=link_to event.name, event_path(event)
-			%p.address=event.address
-			%p.starts_at
-				=l(event.starts_at.in_time_zone, :format => :event)
-				(in #{time_ago_in_words(event.starts_at.in_time_zone)})
+.event
+	.event_highlights
+		.time_left.button
+			=distance_of_time_in_short_words(event.starts_at)
+		.assistants.button
+			%span=event.attendances.size
+			assistans
+	.event_info
+		%h3=link_to event.name, event_path(event)
+		%p.address=event.address
+		%p.starts_at
+			=l(event.starts_at.in_time_zone, :format => :event)
+			(in #{time_ago_in_words(event.starts_at.in_time_zone)})
