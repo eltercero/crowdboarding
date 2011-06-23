@@ -129,4 +129,15 @@ class Event < ActiveRecord::Base
         friend.notifications.create!(:body => I18n.translate('notification.types.event_created'))
       end
     end
+    
+    def configure_twitter(language)
+      if language
+        Twitter.configure do |config|
+          config.consumer_key = ENV["TW_#{language}_CONSUMER_KEY"]
+          config.consumer_secret = ENV["TW_#{language}_CONSUMER_SECRET"]
+          config.oauth_token = ENV["TW_#{language}_OAUTH_TOKEN"]
+          config.oauth_token_secret = ENV["TW_#{language}_OAUTH_TOKEN_SECRET"]
+        end
+      end
+    end
 end
