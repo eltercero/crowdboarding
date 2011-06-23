@@ -56,12 +56,14 @@
 				.see_all
 					=link_to('see all', '#') unless @attenders.blank?
 			.event_highlights
-				%h4 days left
-				= distance_of_time_in_short_words(@event.starts_at)
+				%h4 time left
+				.indent
+					= distance_of_time_in_short_words(@event.starts_at)
 			.event_highlights.last
 				%h4 tags
-				-@event.tags.each do |tag|
-					= link_to tag.name, tag_path(tag.id)
+				.indent
+					-@event.tags.each do |tag|
+						= link_to tag.name, tag_path(tag.id)
 				
 
 :javascript
