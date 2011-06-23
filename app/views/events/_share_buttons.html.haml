@@ -1,0 +1,6 @@
+.share_buttons.indent
+	/ Facebook
+	%iframe{:src => "http://www.facebook.com/plugins/like.php?app_id=170361196359335&amp;href=#{events_url(@event)}&amp;send=false&amp;layout=button_count&amp;width=100&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21", :scrolling => "no", :frameborder => "0", :style => "border:none; overflow:hidden; width:80px; height:24px;", :allowTransparency => "true"}
+	/ Twitter
+	%a{:href => "http://twitter.com/share", :class => "twitter-share-button", "data-count" => "none", "data-lang" => "#{I18n.locale}"} Tweet
+	%script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"} 

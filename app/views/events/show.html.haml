@@ -46,6 +46,9 @@
 					%span.temp="#{@weather[:high]}º";
 				%p="#{@weather[:icon]}"
 			.event_highlights
+				%h4="share"
+				=render :partial => 'events/share_buttons'
+			.event_highlights
 				%h4="attenders (#{@attenders.size})" 
 				.attenders.indent
 					-@attenders.each do |at|
