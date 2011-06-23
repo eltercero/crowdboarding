@@ -5,7 +5,6 @@ class Event < ActiveRecord::Base
   validates :starts_at, :presence => true
   validates :address, :presence => true
   validates :country_id, :presence => true
-  validate :minimum_tags
   validate :maximum_tags
 
   acts_as_gmappable :lat => 'lat', :lng => "lng", :check_process => false
@@ -96,10 +95,10 @@ class Event < ActiveRecord::Base
     if RAILS_ENV == 'production'
       if self.country.name.downcase == 'spain'
         configure_twitter "ES"
-        Twitter.update("Nuevo evento en #{self.city_name}, #{self.country.name} #{event_url(self)}")
+        Twitter.update("Nuevo evento en #{self.city_name}, #{self.country.name} http://www.crowdboarding.com/events/#{self.id}")
       else
         configure_twitter "EN"
-        Twitter.update("New event in #{self.city_name}, #{self.country.name} #{event_url(self)}")
+        Twitter.update("New event in #{self.city_name}, #{self.country.name} http://www.crowdboarding.com/events/#{self.id}")
       end
     end
   end
@@ -110,7 +109,7 @@ class Event < ActiveRecord::Base
     end
     
     def maximum_tags
-      self.errors.add(:tag_tokens, "maximal 5 tags allowed") if self.tag_list.length > 5
+      self.errors.add(:tag_tokens, "maximal 20 tags allowed") if self.tag_list.length > 20
     end
     
     def find_or_create_city
@@ -130,14 +129,12 @@ class Event < ActiveRecord::Base
       end
     end
     
-    def configure_twitter(language)
-      if language
-        Twitter.configure do |config|
-          config.consumer_key = ENV["TW_#{language}_CONSUMER_KEY"]
-          config.consumer_secret = ENV["TW_#{language}_CONSUMER_SECRET"]
-          config.oauth_token = ENV["TW_#{language}_OAUTH_TOKEN"]
-          config.oauth_token_secret = ENV["TW_#{language}_OAUTH_TOKEN_SECRET"]
-        end
+    def configure_twitter(language = "EN")
+      Twitter.configure do |config|
+        config.consumer_key = ENV["TW_#{language}_CONSUMER_KEY"]
+        config.consumer_secret = ENV["TW_#{language}_CONSUMER_SECRET"]
+        config.oauth_token = ENV["TW_#{language}_OAUTH_TOKEN"]
+        config.oauth_token_secret = ENV["TW_#{language}_OAUTH_TOKEN_SECRET"]
       end
     end
 end
