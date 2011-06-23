@@ -29,8 +29,6 @@ class Event < ActiveRecord::Base
   scope :recent, :order => "starts_at DESC"
   scope :from_now, :order => "starts_at ASC", :conditions => ["starts_at > ?", Time.now - 2.hour]
   
-  include ActionView::Helpers::UrlHelper
-  
   def to_param
     "#{id}-#{name.parameterize}"
   end
@@ -97,10 +95,10 @@ class Event < ActiveRecord::Base
     if RAILS_ENV == 'production'
       if self.country.name.downcase == 'spain'
         configure_twitter "ES"
-        Twitter.update("Nuevo evento en #{self.city_name}, #{self.country.name} #{event_url(self)}")
+        Twitter.update("Nuevo evento en #{self.city_name}, #{self.country.name} http://www.crowdboarding.com/events/#{self.id}")
       else
         configure_twitter "EN"
-        Twitter.update("New event in #{self.city_name}, #{self.country.name} #{event_url(self)}")
+        Twitter.update("New event in #{self.city_name}, #{self.country.name} http://www.crowdboarding.com/events/#{self.id}")
       end
     end
   end
