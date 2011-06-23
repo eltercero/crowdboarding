@@ -20,12 +20,27 @@
 			background-image: url(/images/icons/map_12.png)
 		p.starts_at
 			background-image: url(/images/icons/time_12.png)
-		p.views_count
-			background-image: url(/images/icons/eye_12.png)
-		p.started_by
-			background-image: url(/images/icons/user_12.png)			
 		p.tags
 			background-image: url(/images/icons/tags_12.png)
+	.event_subinfo
+		margin-bottom: 20px
+		p
+			padding: 0 16px
+			margin-bottom: 2px
+			background-repeat: no-repeat
+			background-position: 0 3px
+			color: $gray_for_texts
+		p.views_count
+			background-image: url(/images/icons/eye_12.png)
+		p.author
+			background-image: url(/images/icons/user_12.png)		
+		p.contact
+			background-image: url(/images/icons/phone_12.png)		
+		.event_subinfo_container
+			padding: 5px
+			height: 17px
+			background-color: $dirty_white
+			@include border-radius(3px)
 	.event_highlights
 		.button, .event_highlight
 			span

@@ -9,8 +9,16 @@
 			= @event.address
 			= display_location_info(@event)
 		%p.starts_at= relative_date(@event.starts_at.in_time_zone)
-		%p.views_count= pluralize(@event.views_count, "View")
-	= render :partial => 'map', :locals => {:gmaps_json => @gmaps_json}
+	=render :partial => 'map', :locals => {:gmaps_json => @gmaps_json}
+	.event_subinfo
+		.event_subinfo_container
+			.subinfo_block
+				%p.author=@event.user.nickname		
+			- if user_signed_in? and @event.contact_details.present?
+				.subinfo_block
+					%p.contact=@event.contact_details			
+			.subinfo_block
+				%p.views_count=pluralize(@event.views_count, "View")
 	- if @event.description
 		%h3=t('event.description')
 		=simple_format(sanitize(@event.description))
