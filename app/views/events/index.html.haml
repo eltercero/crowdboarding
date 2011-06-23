@@ -2,11 +2,11 @@
 = form_tag events_path, :method => :get, :class => "formtastic search", :id => "events_search" do
 	%ol
 		%li.select
-			= label_tag "country", "Country"
-			= select_tag "country", options_from_collection_for_select(Country.all, "id", "name")
+			= label_tag "country_id", "Country"
+			= (select_tag "country_id",  options_from_collection_for_select(Country.all, "id", "name", params[:country_id]))
 		%li.string
-			= label_tag "city", "City"
-			= text_field_tag :city, nil, :placeholder => "Search for city"
+			= label_tag "city_name", "City"
+			= text_field_tag :city_name, nil, :placeholder => "Search for city"
 		%li.string
 			= label_tag "Tag"
 			= text_field_tag :tags, nil, :placeholder => "Search for tags"

@@ -5,13 +5,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
-    if params[:search].present?
-      search_string = "%#{params[:search]}%"
-      @events = Event.joins(:taggings, :tags).where(["events.name LIKE ? OR events.city_name LIKE ? ", search_string, search_string]).page(params[:page]).per(10)
-    else
+      conditions = []
+      conditions << "country_id = #{params[:country_id]}" if params[:country_id]
+      conditions << "city_name = '#{params[:city_name]}'" if params[:city_name]
+      @events = Event.where(conditions.join(" AND ")).page(params[:page]).per(10)
+      # @events = Event.joins(:taggings, :tags).where(["events.name LIKE ? OR events.city_name LIKE ? ", search_string, search_string]).page(params[:page]).per(10)
       # @events = Event.recent.page(params[:page]).per(10)
-      @events = Event.page(params[:page]).per(10)
-    end
+      # @events = Event.page(params[:page]).per(10)
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @events }
