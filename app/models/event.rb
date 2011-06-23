@@ -25,6 +25,7 @@ class Event < ActiveRecord::Base
   
   after_create :find_or_create_city
   after_create :notify_friends
+  after_create :send_tweet
   
   scope :recent, :order => "starts_at DESC"
   scope :from_now, :order => "starts_at ASC", :conditions => ["starts_at > ?", Time.now - 2.hour]
@@ -89,6 +90,18 @@ class Event < ActiveRecord::Base
       @tag_tokens = nil
     end
     self.tag_list = @tag_tokens.try(:split, /(\s|,|,\s|\s,|\s,\s)/) if @tag_tokens.present?
+  end
+  
+  def send_tweet
+    if RAILS_ENV = 'production'
+      if self.country.name.downcase == 'spain'
+        configure_twitter "ES"
+        Twitter.update("Nuevo evento en #{self.city_name}, #{self.country.name} #{event_url(self)}")
+      else
+        configure_twitter "EN"
+        Twitter.update("New event in #{self.city_name}, #{self.country.name} #{event_url(self)}")
+      end
+    end
   end
   
   private

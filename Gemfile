@@ -22,6 +22,7 @@ gem 'barometer'
 gem 'acts-as-taggable-on'
 gem 'rails3-jquery-autocomplete'
 gem 'omniauth'
+gem 'twitter'
 
 group :development, :test do
   gem 'hpricot'
