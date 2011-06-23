@@ -8,7 +8,7 @@
 					%fieldset{:id => "new_user_remember_me"}
 						%ol
 							= f.input :remember_me, :as => :boolean
-			- f.buttons do
-				= f.commit_button
+			= f.buttons do
+				= f.commit_button :signin
 		= render :partial => "devise/shared/links"
 		= render :partial => "devise/shared/omniauth_links"

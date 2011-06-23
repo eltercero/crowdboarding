@@ -1,1 +1,11 @@
-This is the views template for the events
+%h2= "Events in Madrid, Spain"
+= form_tag events_path, :method => :get, :class => "formtastic", :id => "events_search" do
+	%fieldset
+		%ol
+			%li.string
+				= label_tag "search", "Search:"
+				= text_field_tag :search, nil, :placeholder => "Search for a city"
+= paginate @events
+.events
+	=render @events
+= paginate @events

@@ -219,6 +219,9 @@ es:
       event:
         name: "Pon un nombre (por ejemplo: Viernes en Retiro!)"
         address: "Enter the address"
+    actions:
+      signin: "Entrar"
+      signup: "Registrate"
   
   global:
     edit: "editar"
@@ -228,7 +231,8 @@ es:
     home:
       about: About
       contact: Contact
-      help: Help
+      help: Ayuda
+      welcome: Bienvenido
     users:
       index: Riders
       show: User profile of %{name}

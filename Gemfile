@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.0.9'
 
 gem 'devise'
 gem 'cancan'
@@ -10,7 +10,7 @@ gem 'formtastic', '1.2.4'
 gem 'kaminari'
 gem 'compass'
 gem 'compass-960-plugin'
-gem 'typus', :git => 'https://github.com/fesplugas/typus.git'
+gem 'typus', :git => 'git://github.com/typus/typus.git'
 gem 'ancestry'
 gem 'gmaps4rails'
 gem 'aws-s3'

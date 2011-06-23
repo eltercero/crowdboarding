@@ -87,11 +87,14 @@ ActiveRecord::Schema.define(:version => 20110605163509) do
     t.float    "lng"
     t.integer  "users_count",                    :default => 0
     t.integer  "comments_count",                 :default => 0
+    t.integer  "views_count",                    :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "events", ["city_name"], :name => "index_events_on_city_name"
   add_index "events", ["country_id"], :name => "index_events_on_country_id"
+  add_index "events", ["starts_at"], :name => "index_events_on_starts_at"
 
   create_table "friendships", :force => true do |t|
     t.integer  "user_id",                  :null => false
@@ -132,8 +135,8 @@ ActiveRecord::Schema.define(:version => 20110605163509) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "email",                                 :default => "",   :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",   :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -149,7 +152,7 @@ ActiveRecord::Schema.define(:version => 20110605163509) do
     t.date     "birthdate"
     t.integer  "default_city_id"
     t.integer  "profile_views",                         :default => 0
-    t.boolean  "event_friend_updates"
+    t.boolean  "event_friend_updates",                  :default => true
     t.string   "users"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"

@@ -13,4 +13,10 @@ class RegistrationsController < Devise::RegistrationsController
         @user.valid?
       end
     end
+    
+  protected
+
+    def after_sign_up_path_for(resource)
+      welcome_path
+    end
 end

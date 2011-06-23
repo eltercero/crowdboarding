@@ -11,7 +11,7 @@
 				.add_as_a_friend
 					=link_to t('user.add_as_a_friend'), friendships_path(:user_id => @user), :method => :post
 		.block.first_block
-			-if @user.default_city.present?
+			-#if @user.default_city.present?
 				%p=raw("#{image_tag('icons/home_12.png')} #{@user.default_city.get_city_and_country}")
 			-if @user.birthdate.present?
 				%p=raw("#{image_tag('icons/calendar_12.png')} #{@user.get_age} years old")

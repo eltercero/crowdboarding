@@ -10,6 +10,15 @@ en:
       time: "%H:%M"
       event: "%A, %e %B %Y, %H:%M"
       only_second: "%S"
+      
+  formtastic:
+    placeholders:
+      event:
+        name: "Put a name (for example: Friday in Retiro!)"
+        address: "Enter the address"
+    actions:
+      signin: "Sign in"
+      signup: "Sign up"
   
   global:
     edit: "edit"
@@ -20,6 +29,7 @@ en:
       about: About
       contact: Contact
       help: Help
+      welcome: Welcome
     users:
       index: Riders
       show: User profile of %{name}

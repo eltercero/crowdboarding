@@ -14,3 +14,4 @@ public/stylesheets/user.css
 public/stylesheets/home.css
 public/stylesheets/authentication.css
 public/images/users/avatars
+db/schema.rb

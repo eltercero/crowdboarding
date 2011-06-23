@@ -13,9 +13,12 @@ class CreateEvent < ActiveRecord::Migration
       t.float :lng
       t.integer :users_count, :default => 0
       t.integer :comments_count, :default => 0
+      t.integer :views_count, :default => 0
       t.timestamps
     end
     add_index :events, :country_id
+    add_index :events, :city_name
+    add_index :events, :starts_at
   end
 
   def self.down

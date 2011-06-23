@@ -5,8 +5,13 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
-    @events = Event.recent.page(params[:page]).per(10)
-    
+    if params[:search].present?
+      search_string = "%#{params[:search]}%"
+      @events = Event.joins(:taggings, :tags).where(["events.name LIKE ? OR events.city_name LIKE ? ", search_string, search_string]).page(params[:page]).per(10)
+    else
+      # @events = Event.recent.page(params[:page]).per(10)
+      @events = Event.page(params[:page]).per(10)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @events }
@@ -17,6 +22,7 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
+    @event.increment!(:views_count)
     @attendance = current_user.attendance(@event) if current_user
     @gmaps_json = @event.to_gmaps4rails
     @attenders = @event.attenders
@@ -58,7 +64,7 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
       else
-        flash[:error] = 'An error accured'
+        flash[:error] = 'An error occured'
         format.html { render :action => "new" }
       end
     end
