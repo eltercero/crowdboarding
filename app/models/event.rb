@@ -93,7 +93,7 @@ class Event < ActiveRecord::Base
   end
   
   def send_tweet
-    if RAILS_ENV = 'production'
+    if RAILS_ENV == 'production'
       if self.country.name.downcase == 'spain'
         configure_twitter "ES"
         Twitter.update("Nuevo evento en #{self.city_name}, #{self.country.name} #{event_url(self)}")
